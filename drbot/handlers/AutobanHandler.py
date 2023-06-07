@@ -47,7 +47,7 @@ class AutobanHandler(Handler[Comment]):
         if len(self.banned_users) > 0:
             banned = "\n\n".join(self.banned_users)
             reddit().send_modmail(subject=f"New Autoban actions",
-                                  body=f"These users were automatically banned from your sub: {banned}")
+                                  body=f"These users were automatically banned from your sub: \n\n{banned}")
 
     def clear_modqueue_for_user(self, reddit_user):
         modqueue = reddit().sub.mod.modqueue(limit=None)
@@ -123,7 +123,7 @@ class AutobanHandler(Handler[Comment]):
         # We already processed this user, do nothing
         if comment_author.name in self.cache:
             return
-        log.info(f"Checking history for: {comment_author.name}")
+        log.debug(f"Checking history for: {comment_author.name}")
         # This user was suspended by reddit, do nothing
         try:
             if hasattr(comment_author, 'is_suspended') and comment_author.is_suspended:
