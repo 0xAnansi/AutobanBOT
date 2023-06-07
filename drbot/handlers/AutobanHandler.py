@@ -18,6 +18,9 @@ class AutobanHandler(Handler[Comment]):
     def _refresh_cache(self):
         if not self.cache or len(self.cache) > 4096 or len(self.cache) <= 0:
             self.cache = []
+            # add the generic account used for communication
+            gen_reddit_name = settings.subreddit + "-ModTeam"
+            self.cache.append(gen_reddit_name)
             for moderator in reddit().sub.moderator():
                 self.cache.append(moderator.name)
 
