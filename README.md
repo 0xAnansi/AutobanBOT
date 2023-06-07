@@ -39,7 +39,7 @@ This bot will need pretty much all permissions on your sub to be able to run pro
 ## Setup
 
 1. Clone this repo and cd inside.
-2. Optional but highly recommended, create your local virtual environment: `pyenv virtualenv 3.11 venv_autobanbot && pyenv activate venv_autobanbot`
+2. Optional but highly recommended, create your local virtual environment: `pyenv install 3.11.3 && pyenv virtualenv 3.11.3 venv_autobanbot && pyenv activate venv_autobanbot`
 3. `pip install -r requirements.txt`
 4. Run first-time setup: `python first_time_setup.py`. This will also create a settings file for you.
 5. Change any other settings you want in `data/auth.toml`.
