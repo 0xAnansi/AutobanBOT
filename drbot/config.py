@@ -36,7 +36,7 @@ def validate_monitored_subs_config(l):
         if not ("id" in c and type(c["id"]) is str):
             print(f"Missing or invalid 'id' for sub monitoring name #{i}")
             return False
-        if not ("action" in c and type(c["action"]) is str and c["action"] in ["ban", "watch"]):
+        if not ("action" in c and type(c["action"]) is str and c["action"] in ["ban", "watch", "report", "modalert"]):
             print(f"Missing or invalid 'action' for monitoring reason #{i} ({c['id']}) - must be a valid action")
             return False
         for k in c:
@@ -62,13 +62,15 @@ settings = Dynaconf(
     envvar_prefix="AutobanBOT",
     settings_files=[SETTINGS_PATH, AUTH_SETTINGS_PATH],
     validate_on_update="all",
-    fresh_vars=["point_threshold", "point_config", "monitored_subs", "expiration_months", "autoban_mode", "dry_run"],
+    fresh_vars=["point_threshold", "point_config", "monitored_subs", "expiration_months", "autoban_mode", "dry_run", "trusted_users"],
     validators=[
         OrValidator(
             Validator('refresh_token', ne="", is_type_of=str),
             Validator('client_id', 'client_secret', 'username', 'password', ne="", is_type_of=str),
             messages={"combined": "You must authenticate DRBOT. Run first_time_setup.py"}
         ),
+        Validator('trusted_users',
+                  is_type_of=list, default=[], messages={"trusted_users": "Invalid '{name}' in the config"}),
         Validator('subreddit',
                   ne="", is_type_of=str, messages={"operations": "You must set '{name}' in the config"}),
         Validator('log_file', 'praw_log_file', 'wiki_page', 'local_backup_file',

@@ -23,6 +23,8 @@ class AutobanHandler(Handler[Comment]):
             self.cache.append(gen_reddit_name)
             for moderator in reddit().sub.moderator():
                 self.cache.append(moderator.name)
+            for trusted_user in settings.trusted_users:
+                self.cache.append(trusted_user)
 
     def setup(self, agent: Agent[Comment]) -> None:
         # Ran once at handler registration in agent
@@ -57,6 +59,38 @@ class AutobanHandler(Handler[Comment]):
                 item.mod.remove(mod_note="AutobanBOT: removed banned user's entry from modqueue")
                 pass
             pass
+
+    def process_entries_for_user(self, reddit_user, action, sub_name, sub_entry):
+        entries = []
+        for comment in reddit().user(reddit_user).comments(limit=None):
+            if comment.subreddit.display_name == settings.subreddit:
+                entries.append(comment)
+        for post in reddit().user(reddit_user).submissions(limit=None):
+            if post.subreddit.display_name == settings.subreddit:
+                entries.append(post)
+
+        for item in entries:
+            match action:
+                case "report":
+                    reason = self.monitored_subs_map.get_note(sub_name)
+                    reason += " - trigger sub = "
+                    reason += sub_name
+                    if not settings.dry_run:
+                        item.report(reason=reason)
+                    else:
+                        log.info(f"DRY RUN: Would have reported comment of user {reddit_user.name} with reason [{reason}]")
+                case "modalert":
+                    body = f"This modalert was triggered by the user /u/{reddit_user.name} posting in the sub /r/{sub_name}\n\n"
+                    body += f"The comment triggering this alert is the following: [{item.permalink}]({item.permalink})"
+                    reddit().send_modmail(subject=f"New modalert targeting user /u/{reddit_user.name} from /r/{sub_name}",
+                                          body=body)
+                case "remove":
+                    if not settings.dry_run:
+                        item.mod.lock()
+                        item.mod.remove(mod_note="AutobanBOT: removed user's entry")
+                    else:
+                        log.info(f"DRY RUN: Would have removed entry of user {reddit_user.name}")
+
 
     def act_on(self, reddit_user, sub_name, sub_entry):
         if reddit_user.name in self.banned_users:
@@ -108,6 +142,10 @@ class AutobanHandler(Handler[Comment]):
                     self.watched_users.append(reddit_user.name)
                 else:
                     log.info(f"DRY RUN : watching user [{reddit_user.name}] for posting in [{sub_name}]")
+            case "report":
+                self.process_entries_for_user(reddit_user, "report", sub_name, sub_entry)
+            case "modalert":
+                self.process_entries_for_user(reddit_user, "modalert", sub_name, sub_entry)
             case _:
                 log.error(f"Processing unmanaged action {sub_entry['action']}")
 

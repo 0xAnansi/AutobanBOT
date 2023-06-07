@@ -37,6 +37,7 @@ autoban_mode = 1
 # Auto ban feature options
 # =======================================================
 # Subs where a user posts that should trigger an action
+# Potential actions : ban, watch, report, modalert
 # For example:
 #   monitored_subs = [
 #       {id="temu", action="ban", label="BOT_BAN", note="TEMU bot"},
@@ -44,6 +45,8 @@ autoban_mode = 1
 #   ]
 # Ban will trigger a ban instantly
 # Watch will only add a modnote
+# Report will report the comment to put it in the modqueue since filter is not available through the API
+# Modalert will send a modmail linking to the message with the reason being what is specified in "note"
 # more info here https://praw.readthedocs.io/en/stable/code_overview/other/mod_note.html
 # Default values for label depends on action, it will fallback to BOT_BAN or SPAM_WATCH
 # Default value for note will be : Posts in <subreddit>
@@ -65,6 +68,8 @@ monitored_subs = [
     # Watch
     ## XXX
 ]
+# Users the rules will not apply to. Won't be flagged by any of the actions linked to subreddits setup above
+trusted_users = []
 # =======================================================
 # ADVANCED SETTINGS BELOW HERE
 # (Don't change these unless you want something specific)
