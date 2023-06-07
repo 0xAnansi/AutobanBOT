@@ -1,31 +1,64 @@
 # AutobanBOT a bot that automate bans based on subreddits a user posts in or previous mod actions
 
 
-AutobanBOT is a reddit bot that automatically monitors a subreddit and tracks removals. 
+AutobanBOT is a reddit bot that automatically monitors a subreddit and acts on specific events.
 
-Each removal of a user's submission gives that user a certain number of points, and once their points hit some threshold, the bot takes action, either by notifying the mods or automatically banning the user.
+At this moment, the events are:
+- New comment
+- New modlog entry
+- New modmail
+- New post
 
-On top of this, the bot monitors new comments on the subreddit and can either ban a user or put a modnote on it based on posts in specific subreddits.
+For each of these events, a handler can be registered in the corresponding agent to implement a specific logic on each item the event is based on.
 
-This bot was made to be easily extandable with an Agent/Handler model.
+For example, the following handlers are built-in:
+
+
+|            Handler             |  Agent  | Description                                                                                                                                                                              |
+|:------------------------------:|:-------:|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|          AdminHandler          | Modlog  | Send a modmail to the sub when Reddit's AEO removes something                                                                                                                            |
+|         AutobanHandler         | Comment | Either ban or add a modnote to a user based on subreddit this user has posted or commented in the past. <br/>This is similar to SafestBot, except this bot is FOSS and self-hostable     |
+|       ConfigEditHandler        | Modlog  | Refresh the local copy of the settings file when a change in the wiki page is detected.                                                                                                  |
+|         PointsHandler          | Modlog  | For each removed entry, attribute a number of points to a user based on the removal reason. <br/>Once a threshold is passed, either automatically ban the user or notify the moderators. |
+|     SelfModerationHandler      | Modlog  | Remnant from DRBOT, untested here but should work. <br/>Send a modmail when a moderator self-moderate.                                                                                   |
+|    ModMailMobileLinkHandler    | Modmail | Remnant from DRBOT, untested here but should work. <br/>Add mobile friendly links to modmails.                                                                                                |
+
+
+This bot was made to be easily extendable with an Agent/Handler model.
+
+## Prerequisites
+
+This bot was built for python 3.11 and uses modern features.
+
+I do not intend to support older versions of python.
 
 ## Setup
 
 1. Clone this repo and cd inside.
-2. `pip install -r requirements.txt`
-3. Run first-time setup: `python first_time_setup.py`. This will also create a settings file for you.
-4. Change any other settings you want in `data/auth.toml`.
-5. Run the bot: `python main.py`
+2. Optional but highly recommended, create your local virtual environment: `pyenv virtualenv 3.11 venv_autobanbot && pyenv activate venv_autobanbot`
+3. `pip install -r requirements.txt`
+4. Run first-time setup: `python first_time_setup.py`. This will also create a settings file for you.
+5. Change any other settings you want in `data/auth.toml`.
+6. Run the bot: `python main.py`
 
 ## Configuration
 
 This bot uses a wikipage as master config. All local changes will be overwritten when the setting page is detected as edited.
 
-The setting page is available after the first run of the bot at https://www.reddit.com/r/<your_sub>/surmodobot/settings
+The setting page is available after the first run of the bot at https://www.reddit.com/r/<your_sub>/<wiki_page>/settings
 
 ## Caveats
 
 Re-approving and then re-deleting a comment deletes the removal reason on reddit's side, so if you do this, be aware that DRBOT will treat the removal as having no reason as well.
+
+## Difference with original DRBOT?
+
+- Split config between server side settings and "application" settings where a wiki page is authority
+- Removed sub specific features autoloading
+- Added an antispambot/autoban feature based on user's history
+- Added a CommentAgent to process handlers in new comments
+  - Used as agent for the antispambot feature
+- Removed pushshift use since reddit killed it
 
 &nbsp;
 

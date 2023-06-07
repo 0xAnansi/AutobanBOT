@@ -33,7 +33,7 @@ subreddit = ""
 # DRBOT also makes periodic local backups just in case things go wrong.
 # You can set the filename of the backup here, or leave it blank to turn this off.
 local_backup_file = "data/backup.json"
-wiki_page = ""
+wiki_page = "autobanBOT"
 
 # =======
 # Logging
