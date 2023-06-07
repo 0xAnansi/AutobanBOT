@@ -10,32 +10,31 @@ from drbot.stores import MonitoredSubsMap
 
 
 class AutobanHandler(Handler[Comment]):
-    """Scans the modlog for instances of moderators moderating their own comments,
-    comments on their posts, or comments in the reply tree below their own comments."""
-
-    # def __init__(self):
-    #     self.monitored_subs_map = []
-    #     self.cache = []
-    #     self.banned_users = []
-    #     self.watched_users = []
+    """
+    Scan the comments of the sub and check if the author posted previously in monitored subs.
+    Acts on the user if this is the case by either addind a modnote or banning, depending on the configuration for this specific sub.
+    """
 
     def setup(self, agent: Agent[Comment]) -> None:
+        # Ran once at handler registration in agent
         super().setup(agent)
         self.monitored_subs_map = MonitoredSubsMap()
-        self.cache = ["Automoderator"]
+        self.cache = ["AutoModerator"]
         self.banned_users = []
         self.watched_users = []
 
     def start_run(self) -> None:
+        # ran at the beginning of each batch
         log.debug("Invalidating cache if needed.")
         if len(self.cache) > 4096:
-            self.cache = ["Automoderator"]
+            self.cache = ["AutoModerator"]
         # Refreshed map values from config
         self.monitored_subs_map.refresh_values()
         self.banned_users = []
         self.watched_users = []
 
     def end_run(self):
+        # ran at the end of each batch
         if len(self.banned_users) > 0 or len(self.watched_users) > 0:
             reddit().sub.message(subject=f"New Autoban actions",
                                   body=f"These users were automatically banned from your sub: {self.banned_users}\nThese users were put on watch on your sub: {self.watched_users}")
@@ -120,7 +119,7 @@ class AutobanHandler(Handler[Comment]):
                 self.cache.append(comment_author.name)
                 return
         except prawcore.exceptions.NotFound as e:
-            log.warning(f"User {comment_author.name} seem to be shadowbanned")
+            log.warning(f"User {comment_author.name} seems to be shadowbanned")
             self.clear_modqueue_for_user(comment_author)
             self.cache.append(comment_author.name)
             return
