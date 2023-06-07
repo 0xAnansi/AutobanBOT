@@ -12,13 +12,21 @@ from drbot.stores import MonitoredSubsMap
 class AutobanHandler(Handler[Comment]):
     """
     Scan the comments of the sub and check if the author posted previously in monitored subs.
-    Acts on the user if this is the case by either addind a modnote or banning, depending on the configuration for this specific sub.
+    Acts on the user if this is the case by either adding a modnote or banning, depending on the configuration for this specific sub.
     """
+
+    def _refresh_cache(self):
+        if not self.cache or len(self.cache) > 4096:
+            self.cache = []
+            for moderator in reddit().sub.moderator():
+                self.cache.append(moderator.name)
+
 
     def setup(self, agent: Agent[Comment]) -> None:
         # Ran once at handler registration in agent
         super().setup(agent)
         self.monitored_subs_map = MonitoredSubsMap()
+        self._refresh_cache()
         self.cache = ["AutoModerator"]
         self.banned_users = []
         self.watched_users = []
@@ -26,8 +34,7 @@ class AutobanHandler(Handler[Comment]):
     def start_run(self) -> None:
         # ran at the beginning of each batch
         log.debug("Invalidating cache if needed.")
-        if len(self.cache) > 4096:
-            self.cache = ["AutoModerator"]
+        self._refresh_cache()
         # Refreshed map values from config
         self.monitored_subs_map.refresh_values()
         self.banned_users = []
@@ -64,9 +71,10 @@ class AutobanHandler(Handler[Comment]):
             case "ban":
                 if not settings.dry_run:
                     try:
-                        log.debug(f"Banning user [{reddit_user.name}] for posting in [{sub_name}]")
+                        log.warning(f"Banning user [{reddit_user.name}] for posting in [{sub_name}]")
                         reddit().sub.banned.add(reddit_user.name, ban_reason=self.monitored_subs_map.get_note(sub_name), ban_message="You have been permanently banned from the sub, if you think this is an error, write us a modmail!")
                         reddit().sub.mod.notes.create(redditor=reddit_user.name, label=self.monitored_subs_map.get_label(sub_name), note=self.monitored_subs_map.get_note(sub_name))
+                        self.clear_modqueue_for_user(reddit_user.name)
                         self.banned_users.append(reddit_user.name)
                     except Exception as e:
                         log.error(f"Failed to ban user [{reddit_user.name}]: {e.message}")
@@ -74,7 +82,7 @@ class AutobanHandler(Handler[Comment]):
                     log.info(f"DRY RUN : [NOT] banning user [{reddit_user.name}] for posting in [{sub_name}]")
             case "watch":
                 if reddit_user.name in self.watched_users:
-                    log.debug(f"User {reddit_user.name} in watched list already, not further action needed")
+                    log.info(f"User {reddit_user.name} in watched list already, not further action needed")
                     return False
                 target_label = self.monitored_subs_map.get_label(sub_name)
                 target_note = self.monitored_subs_map.get_note(sub_name)
@@ -86,17 +94,17 @@ class AutobanHandler(Handler[Comment]):
                         continue
                     if modnote.label == target_label and modnote.note == target_note:
                         # note already exists, do nothing
-                        log.debug(f"[{reddit_user.name}] already has a note for posting in [{sub_name}]")
+                        log.info(f"[{reddit_user.name}] already has a note for posting in [{sub_name}]")
                         break
                 if not settings.dry_run:
-                    log.debug(f"Watching user [{reddit_user.name}] for posting in [{sub_name}], creating note")
+                    log.warning(f"Watching user [{reddit_user.name}] for posting in [{sub_name}], creating note")
                     reddit().sub.mod.notes.create(redditor=reddit_user.name, label=target_label,
                                             note=target_note)
                     self.watched_users.append(reddit_user.name)
                 else:
                     log.info(f"DRY RUN : watching user [{reddit_user.name}] for posting in [{sub_name}]")
             case _:
-                log.warning(f"Processing unmanaged action {sub_entry['action']}")
+                log.error(f"Processing unmanaged action {sub_entry['action']}")
 
 
     def handle(self, item: Comment) -> None:
