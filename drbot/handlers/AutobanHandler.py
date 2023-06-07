@@ -1,8 +1,8 @@
 from __future__ import annotations
-import praw
+
 import prawcore
-from praw.models import ModAction, Comment
-from datetime import datetime
+from praw.models import Comment
+
 from drbot import settings, log, reddit
 from drbot.agents import Agent
 from drbot.handlers import Handler
@@ -16,11 +16,10 @@ class AutobanHandler(Handler[Comment]):
     """
 
     def _refresh_cache(self):
-        if not self.cache or len(self.cache) > 4096:
+        if not self.cache or len(self.cache) > 4096 or len(self.cache) <= 0:
             self.cache = []
             for moderator in reddit().sub.moderator():
                 self.cache.append(moderator.name)
-
 
     def setup(self, agent: Agent[Comment]) -> None:
         # Ran once at handler registration in agent
@@ -28,7 +27,6 @@ class AutobanHandler(Handler[Comment]):
         self.cache = []
         self.monitored_subs_map = MonitoredSubsMap()
         self._refresh_cache()
-        self.cache = ["AutoModerator"]
         self.banned_users = []
         self.watched_users = []
 
@@ -49,7 +47,6 @@ class AutobanHandler(Handler[Comment]):
             reddit().send_modmail(ubject=f"New Autoban actions",
                                   body=f"These users were automatically banned from your sub: {banned}\nThese users were put on watch on your sub: {watched}")
 
-
     def clear_modqueue_for_user(self, reddit_user):
         modqueue = reddit().sub.mod.modqueue(limit=None)
         for item in modqueue:
@@ -58,7 +55,6 @@ class AutobanHandler(Handler[Comment]):
                 item.mod.remove(mod_note="AutobanBOT: removed banned user's entry from modqueue")
                 pass
             pass
-
 
     def act_on(self, reddit_user, sub_name, sub_entry):
         if reddit_user.name in self.banned_users:
@@ -75,8 +71,11 @@ class AutobanHandler(Handler[Comment]):
                 if not settings.dry_run:
                     try:
                         log.warning(f"Banning user [{reddit_user.name}] for posting in [{sub_name}]")
-                        reddit().sub.banned.add(reddit_user.name, ban_reason=self.monitored_subs_map.get_note(sub_name), ban_message="You have been permanently banned from the sub, if you think this is an error, write us a modmail!")
-                        reddit().sub.mod.notes.create(redditor=reddit_user.name, label=self.monitored_subs_map.get_label(sub_name), note=self.monitored_subs_map.get_note(sub_name))
+                        reddit().sub.banned.add(reddit_user.name, ban_reason=self.monitored_subs_map.get_note(sub_name),
+                                                ban_message="You have been permanently banned from the sub, if you think this is an error, write us a modmail!")
+                        reddit().sub.mod.notes.create(redditor=reddit_user.name,
+                                                      label=self.monitored_subs_map.get_label(sub_name),
+                                                      note=self.monitored_subs_map.get_note(sub_name))
                         self.clear_modqueue_for_user(reddit_user.name)
                         self.banned_users.append(reddit_user.name)
                     except Exception as e:
@@ -89,7 +88,7 @@ class AutobanHandler(Handler[Comment]):
                     return False
                 target_label = self.monitored_subs_map.get_label(sub_name)
                 target_note = self.monitored_subs_map.get_note(sub_name)
-                #user_notes = reddit().notes(redditors=[reddit_user], subreddits=[reddit().sub], all_notes=True)
+                # user_notes = reddit().notes(redditors=[reddit_user], subreddits=[reddit().sub], all_notes=True)
                 user_notes = reddit().sub.mod.notes.redditors(reddit_user, all_notes=True)
                 for modnote in user_notes:
                     if modnote is None:
@@ -103,13 +102,12 @@ class AutobanHandler(Handler[Comment]):
                 if not settings.dry_run:
                     log.warning(f"Watching user [{reddit_user.name}] for posting in [{sub_name}], creating note")
                     reddit().sub.mod.notes.create(redditor=reddit_user.name, label=target_label,
-                                            note=target_note)
+                                                  note=target_note)
                     self.watched_users.append(reddit_user.name)
                 else:
                     log.info(f"DRY RUN : watching user [{reddit_user.name}] for posting in [{sub_name}]")
             case _:
                 log.error(f"Processing unmanaged action {sub_entry['action']}")
-
 
     def handle(self, item: Comment) -> None:
         # Comment was removed, we cannot get the author
@@ -118,8 +116,8 @@ class AutobanHandler(Handler[Comment]):
         comment_author = item.author
 
         # Breakpoint for debugging special cases
-        #if comment_author.name in ["Spiritual_Collar881"]:
-         #   log.info("Debugging special case")
+        # if comment_author.name in ["Spiritual_Collar881"]:
+        #   log.info("Debugging special case")
         # We already processed this user, do nothing
         if comment_author.name in self.cache:
             return
@@ -155,8 +153,9 @@ class AutobanHandler(Handler[Comment]):
             if check in sub_cache:
                 continue
             if submission.subreddit.display_name in self.monitored_subs_map.subs_map:
-                #action = self.monitored_subs_map[comment.subreddit]["action"]
-                self.act_on(comment_author, submission.subreddit.display_name, self.monitored_subs_map.subs_map[submission.subreddit.display_name])
+                # action = self.monitored_subs_map[comment.subreddit]["action"]
+                self.act_on(comment_author, submission.subreddit.display_name,
+                            self.monitored_subs_map.subs_map[submission.subreddit.display_name])
                 break
             else:
                 sub_cache.append(check)
@@ -167,8 +166,9 @@ class AutobanHandler(Handler[Comment]):
             if check in sub_cache:
                 continue
             if comment.subreddit.display_name in self.monitored_subs_map.subs_map:
-                #action = self.monitored_subs_map[comment.subreddit]["action"]
-                self.act_on(comment_author, comment.subreddit.display_name, self.monitored_subs_map.subs_map[comment.subreddit.display_name])
+                # action = self.monitored_subs_map[comment.subreddit]["action"]
+                self.act_on(comment_author, comment.subreddit.display_name,
+                            self.monitored_subs_map.subs_map[comment.subreddit.display_name])
                 break
             else:
                 sub_cache.append(check)
