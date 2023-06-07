@@ -28,6 +28,6 @@ class AdminHandler(Handler[ModAction]):
                 return
 
             if settings.admin_modmail:
-                message = f"On {datetime.fromtimestamp(item.created_utc)}, reddit's Anti-Evil Operations removed a {kind} in your sub.\n\nDue to pushshift being shutdown, the message originally available here could bot be retrieved: [{item.target_permalink}]({item.target_permalink})"
+                message = f"On {datetime.fromtimestamp(item.created_utc)}, reddit's Anti-Evil Operations removed a {kind} in your sub.\n\nDue to pushshift being shutdown, the message originally available here could not be retrieved: [{item.target_permalink}]({item.target_permalink})"
 
                 reddit().send_modmail(subject=f"Admins removed a {kind} in your sub", body=message)
