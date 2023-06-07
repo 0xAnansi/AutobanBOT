@@ -133,13 +133,12 @@ This script will help you set up the required settings to make DRBOT work for yo
     print("""DRBOT needs an account with mod permissions on your sub.
 It's strongly recommended to create a new account instead of using a real human's account.""")
 
-    choices = ["Through Reddit (safest)", "Manually"]
+    choices = ["Through Reddit (safest but buggy AF, not recommended)", "Manually"]
     if questionary.select("How would you like to login?", choices=choices, default=choices[0]).unsafe_ask() == choices[0]:
         answers["refresh_token"] = reddit_login()
     else:
         input("""
-This method is less safe as it involves storing the account password in plaintext,
-so don't use it unless you have a good reason.
+This method is less safe as it involves storing the account password in plaintext, but it actually works as intended.
 Log in to the bot's mod account, then go to:
 https://www.reddit.com/prefs/apps/
 You'll need to create a new application.
@@ -150,7 +149,7 @@ Press ENTER to continue...
         answers["client_id"] = questionary.text("What is the ID right under 'personal use script'?").unsafe_ask()
         answers["client_secret"] = questionary.password("What is the string next to 'secret'?").unsafe_ask()
         answers["username"] = questionary.text(
-            "Username? u/",
+            "Username of the bot? u/",
             validate=lambda s: bool(re.match(r"^[A-Za-z0-9_-]{1,20}$", s))).unsafe_ask()
         answers["password"] = questionary.password(
             "Password?",

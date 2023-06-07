@@ -32,6 +32,10 @@ This bot was built for python 3.11 and uses modern features.
 
 I do not intend to support older versions of python.
 
+You need to create a specific account on reddit for your bot. 
+
+This bot will need pretty much all permissions on your sub to be able to run properly.
+
 ## Setup
 
 1. Clone this repo and cd inside.
