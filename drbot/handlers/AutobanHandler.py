@@ -57,6 +57,7 @@ class AutobanHandler(Handler[Comment]):
 
         if next(reddit().sub.banned(reddit_user.name), None) is not None:
             log.info(f"u/{reddit_user.name} is already banned from sub; skipping action.")
+            self.banned_users.append(reddit_user.name)
             return False
 
         match sub_entry["action"]:
@@ -105,8 +106,8 @@ class AutobanHandler(Handler[Comment]):
         comment_author = item.author
 
         # Breakpoint for debugging special cases
-        if comment_author.name in ["Spiritual_Collar881"]:
-            log.info("Debugging special case")
+        #if comment_author.name in ["Spiritual_Collar881"]:
+         #   log.info("Debugging special case")
         # We already processed this user, do nothing
         if comment_author.name in self.cache:
             return
@@ -115,6 +116,12 @@ class AutobanHandler(Handler[Comment]):
         if hasattr(comment_author, 'is_suspended') and comment_author.is_suspended:
             log.info(f"User is suspended: {comment_author.name}")
             self.cache.append(comment_author.name)
+            return
+
+        # User is already banned from the sub, do nothing
+        if next(reddit().sub.banned(comment_author.name), None) is not None:
+            log.info(f"u/{comment_author.name} is already banned from sub; skipping action.")
+            self.banned_users.append(comment_author.name)
             return
 
         # Check if the user posts in monitored subs
