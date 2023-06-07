@@ -27,16 +27,42 @@ def validate_points_config(l):
     return True
 
 
+def validate_monitored_subs_config(l):
+    for i, c in enumerate(l):
+        i += 1  # Convert from 0-indexed to 1-indexed
+        if not type(c) is DynaBox:
+            print(f"Broken removal reason #{i}: {c}")
+            return False
+        if not ("id" in c and type(c["id"]) is str):
+            print(f"Missing or invalid 'id' for sub monitoring name #{i}")
+            return False
+        if not ("action" in c and type(c["action"]) is str and c["action"] in ["ban", "watch"]):
+            print(f"Missing or invalid 'action' for monitoring reason #{i} ({c['id']}) - must be a valid action")
+            return False
+        for k in c:
+            if not k in ["id", "action", "label", "note"]:
+                print(f"Unknown key '{k}' in monitoring reason #{i} ({c['id']})")
+                return False
+    return True
+
+
 SETTINGS_PATH = os.path.join(os.path.dirname(__file__), '../data/settings.toml')
+AUTH_SETTINGS_PATH = os.path.join(os.path.dirname(__file__), '../data/auth.toml')
+
+if not os.path.isfile(AUTH_SETTINGS_PATH):
+    print("There's no auth file. Run first_time_setup.py")
+    sys.exit(1)
 
 if not os.path.isfile(SETTINGS_PATH):
+    # todo: check if there is a settings version in the wiki
     print("There's no settings file. Run first_time_setup.py")
     sys.exit(1)
 
 settings = Dynaconf(
-    envvar_prefix="DRBOT",
-    settings_files=[SETTINGS_PATH],
+    envvar_prefix="AutobanBOT",
+    settings_files=[SETTINGS_PATH, AUTH_SETTINGS_PATH],
     validate_on_update="all",
+    fresh_vars=["point_threshold", "point_config", "monitored_subs", "expiration_months", "autoban_mode", "dry_run"],
     validators=[
         OrValidator(
             Validator('refresh_token', ne="", is_type_of=str),
@@ -44,25 +70,27 @@ settings = Dynaconf(
             messages={"combined": "You must authenticate DRBOT. Run first_time_setup.py"}
         ),
         Validator('subreddit',
-                  ne="", is_type_of=str, messages={"operations": "You must set '{name}' in data/settings.toml"}),
+                  ne="", is_type_of=str, messages={"operations": "You must set '{name}' in the config"}),
         Validator('log_file', 'praw_log_file', 'wiki_page', 'local_backup_file',
-                  is_type_of=str, messages={"operations": "Invalid '{name}' in data/settings.toml"}),
+                  is_type_of=str, messages={"operations": "Invalid '{name}' in the config"}),
         Validator('point_threshold',
-                  gt=0, is_type_of=int, messages={"operations": "{name} ({value}) must be at least 1 in data/settings.toml"}),
+                  gt=0, is_type_of=int, messages={"operations": "{name} ({value}) must be at least 1 in the config"}),
         Validator('point_config',
-                  is_type_of=list, condition=validate_points_config, messages={"condition": "Invalid {name} in data/settings.toml"}),
+                  is_type_of=list, condition=validate_points_config, messages={"condition": "Invalid {name} in the config"}),
+        Validator('monitored_subs',
+                  is_type_of=list, condition=validate_monitored_subs_config, messages={"condition": "Invalid {name} in the config"}),
         Validator('expiration_months', 'modmail_truncate_len',
-                  gte=0, is_type_of=int, messages={"operations": "{name} ({value}) must be a whole number (or 0 to turn it off) in data/settings.toml"}),
+                  gte=0, is_type_of=int, messages={"operations": "{name} ({value}) must be a whole number (or 0 to turn it off) in in the config"}),
         Validator('autoban_mode',
-                  is_in=[1, 2, 3], messages={"operations": """{name} ({value}) in data/settings.toml must be one of the following:
+                  is_in=[1, 2, 3], messages={"operations": """{name} ({value}) in the config must be one of the following:
 1: notify the mods
 2: autoban and notify the mods
 3: autoban silently"""}),
         Validator('console_log_level', 'file_log_level',
-                  is_in=["CRITICAL", "ERROR", "WARNING", "INFO", "DEBUG"], messages={"operations": """{name} ({value}) in data/settings.toml must be one of the following:
+                  is_in=["CRITICAL", "ERROR", "WARNING", "INFO", "DEBUG"], messages={"operations": """{name} ({value}) in the config must be one of the following:
 CRITICAL, ERROR, WARNING, INFO, DEBUG"""}),
         Validator('dry_run', 'exclude_mods', 'safe_mode', 'custom_point_mod_notes', 'self_moderation_modmail', 'admin_modmail', 'first_time_retroactive_modlog',
-                  is_type_of=bool, messages={"operations": "{name} ({value}) in data/settings.toml must be one of: true, false"}),
+                  is_type_of=bool, messages={"operations": "{name} ({value}) in the config must be one of: true, false"}),
     ]
 )
 

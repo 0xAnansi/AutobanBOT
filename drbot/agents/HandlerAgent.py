@@ -57,7 +57,11 @@ class HandlerAgent(Agent, Generic[T]):
             log.debug(f"{self.name} handling item {self.id(item)}")
             for handler in self.handlers.values():
                 handler.handle(item)
-            self.data_store["_meta"]["last_processed"] = self.id(item)
+                self.data_store["_meta"]["last_processed"] = self.id(item)
+
+        # Let all the handlers know the run has ended
+        for handler in self.handlers.values():
+            handler.end_run()
 
         # Make a local backup
         self._data_store.save()

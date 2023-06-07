@@ -29,15 +29,16 @@ class AdminHandler(Handler[ModAction]):
 
             if settings.admin_modmail:
                 message = f"On {datetime.fromtimestamp(item.created_utc)}, reddit's Anti-Evil Operations removed a {kind} in your sub."
-
-                data = json.loads(urllib.request.urlopen(
-                    f"https://api.pushshift.io/reddit/{'comment' if kind == 'comment' else 'submission'}/search?ids={item.target_fullname[3:]}&limit=1"
-                ).read())['data']
-
-                message += f"\n\nThe [{kind}](https://www.unddit.com{item.target_permalink}) by u/{item.target_author}"
+                data = []
+                message = f"Due to pushshift being shutdown, [the original message available here]({item.target_permalink})"
+                # data = json.loads(urllib.request.urlopen(
+                #     f"https://api.pushshift.io/reddit/{'comment' if kind == 'comment' else 'submission'}/search?ids={item.target_fullname[3:]}&limit=1"
+                # ).read())['data']
+                #
+                # message += f"\n\nThe [{kind}](https://www.unddit.com{item.target_permalink}) by u/{item.target_author}"
 
                 if len(data) == 0:
-                    message += " could not be retrieved from Pushshift."
+                    message += " could not be retrieved."
                 else:
                     data = data[0]
                     message += f":\n\n"

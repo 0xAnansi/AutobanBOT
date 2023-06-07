@@ -29,6 +29,11 @@ class Handler(ABC, Generic[T]):
         Can optionally be overriden to do things like invalidating caches."""
         pass
 
+    def end_run(self) -> None:
+        """Called by the agent when it stops looping through a new batch.
+        Can optionally be overriden to do things like sending status info."""
+        pass
+
     @abstractmethod
     def handle(self, item: T) -> None:
         """The core handler method. Handle a single item."""

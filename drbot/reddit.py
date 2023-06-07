@@ -80,8 +80,8 @@ class Reddit(praw.Reddit):
 
         # Add common elements
         if add_common:
-            subject = "DRBOT: " + subject
-            body += "\n\n(This is an automated message by [DRBOT](https://github.com/c0d3rman/DRBOT).)"
+            subject = "AutobanBOT: " + subject
+            body += "\n\n(This is an automated message by [AutobanBOT](https://github.com/0xAnansi/AutobanBOT/).)"
 
         # Hide username by default in modmails to users
         if not recipient is None and not 'author_hidden' in kwargs:
@@ -132,13 +132,13 @@ def login() -> praw.Reddit:
         _reddit = Reddit(client_id=drbot_client_id,
                          client_secret=None,
                          refresh_token=settings.refresh_token,
-                         user_agent="DRBOT")
+                         user_agent="Moderation helper https://github.com/0xAnansi/AutobanBOT v1.0 (by /u/FromModToSirius")
     else:
         _reddit = Reddit(client_id=settings.client_id,
                          client_secret=settings.client_secret,
                          username=settings.username,
                          password=settings.password,
-                         user_agent=f"DRBOT")
+                         user_agent="Moderation helper https://github.com/0xAnansi/AutobanBOT v1.0 (by /u/FromModToSirius")
 
     log.info(f"Logged in to Reddit as u/{_reddit.user.me().name}")
 
@@ -151,22 +151,22 @@ def login() -> praw.Reddit:
         raise Exception(f"r/{settings.subreddit} is banned.")
 
     # Set up logging to modmail
-    modmail_handler = ModmailLoggingHandler(_reddit)
-    modmail_handler.setFormatter(TemplateLoggingFormatter(fmt=BASE_FORMAT, template={
-        logging.ERROR: """DRBOT has encountered a non-fatal error:
-
-```
-{log}
-```
-
-DRBOT is still running. Check the log for more details.""",
-        logging.CRITICAL: """DRBOT has encountered a fatal error and crashed:
-
-```
-{log}
-```"""}))
-    modmail_handler.setLevel(logging.ERROR)
-    log.addHandler(modmail_handler)
+#     modmail_handler = ModmailLoggingHandler(_reddit)
+#     modmail_handler.setFormatter(TemplateLoggingFormatter(fmt=BASE_FORMAT, template={
+#         logging.ERROR: """DRBOT has encountered a non-fatal error:
+#
+# ```
+# {log}
+# ```
+#
+# DRBOT is still running. Check the log for more details.""",
+#         logging.CRITICAL: """DRBOT has encountered a fatal error and crashed:
+#
+# ```
+# {log}
+# ```"""}))
+#     modmail_handler.setLevel(logging.ERROR)
+#     log.addHandler(modmail_handler)
 
 
 reddit.login = login

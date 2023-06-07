@@ -1,40 +1,9 @@
-# This file contains the settings for DRBOT.
-# You can fill it in manually or run first_time_setup.py for an interactive interface.
-
-
-# ==============
-# Authentication
-# ==============
-
-# DRBOT needs an account with mod permissions on your sub.
-# It's strongly recommended to create a new account instead of using a real human's account.
-# You can authenticate in one of two ways:
-
-# 1. Through Reddit
-# Use first_time_setup.py to get a refresh token and enter it here.
-# (You can do this on another computer if you can't use a browser on this computer.)
-refresh_token = ""
-
-# 2. Manually (not recommended)
-# This method is less safe as it involves storing the account password in plaintext,
-# so don't use it unless you have a good reason.
-# You can create a client_id and client_secret at https://www.reddit.com/prefs/apps/
-# Choose 'script' as the option and put http://localhost:8080/ as the redirect URI.
-username = "" # Don't include u/
-password = ""
-client_id = ""
-client_secret = ""
-
-# The sub to moderate (without r/).
-subreddit = ""
-
-
 # ======
 # Points
 # ======
 
 # When a user has this many points, the bot will take action.
-point_threshold = 12
+point_threshold = 100
 
 # How many points does each removal cost?
 # For example:
@@ -46,12 +15,17 @@ point_threshold = 12
 # You can optionally set a different expiration time (in months) for each removal reason;
 # If you don't it will use the default from below.
 point_config = [
-    
+    ## Points mapping
+    ### Manual / faults
+    ### Manual / Spam or annoyances
+    ### Automod
+    ### Default
+    {id="remove", points=5}
 ]
 
 # Number of months before a removal is forgiven and wiped from the record.
 # Set to 0 to never expire.
-expiration_months = 6
+expiration_months = 24
 
 # What should the bot do when a user passes the point threshold?
 # 1: notify the mods
@@ -59,32 +33,42 @@ expiration_months = 6
 # 3: autoban silently
 autoban_mode = 1
 
-
-
+# =======================================================
+# Auto ban feature options
+# =======================================================
+# Subs where a user posts that should trigger an action
+# For example:
+#   monitored_subs = [
+#       {id="temu", action="ban", label="BOT_BAN", note="TEMU bot"},
+#       {id="PCM", action="watch", label="SPAM_WATCH", note="Posts in xxx"}
+#   ]
+# Ban will trigger a ban instantly
+# Watch will only add a modnote
+# more info here https://praw.readthedocs.io/en/stable/code_overview/other/mod_note.html
+# Default values for label depends on action, it will fallback to BOT_BAN or SPAM_WATCH
+# Default value for note will be : Posts in <subreddit>
+monitored_subs = [
+    # Bans
+    ## TEMU
+    {id="temu", action="ban", label="BOT_BAN", note="TEMU bot"},
+    {id="temumethods", action="ban", label="BOT_BAN", note="TEMU bot"},
+    {id="TEMU_Official", action="ban", label="BOT_BAN", note="TEMU bot"},
+    {id="TemuAustralia", action="ban", label="BOT_BAN", note="TEMU bot"},
+    {id="TemuHelp", action="ban", label="BOT_BAN", note="TEMU bot"},
+    {id="TEMU_Canada", action="ban", label="BOT_BAN", note="TEMU bot"},
+    {id="TemuDropshipping", action="ban", label="BOT_BAN", note="TEMU bot"},
+    {id="Temu_referral_help", action="ban", label="BOT_BAN", note="TEMU bot"},
+    ## Free karma subs
+    {id="FreeKarma4All", action="ban", label="BOT_BAN", note="Karma farm"},
+    {id="GetKarma_Here", action="ban", label="BOT_BAN", note="Karma farm"},
+    {id="needkarma", action="ban", label="BOT_BAN", note="Karma farm"},
+    # Watch
+    ## XXX
+]
 # =======================================================
 # ADVANCED SETTINGS BELOW HERE
 # (Don't change these unless you want something specific)
 # =======================================================
-
-
-
-# =======
-# Logging
-# =======
-
-# Log file name. Leave blank to turn off the logfile (not recommended).
-log_file = "data/log.log"
-
-# Minimum log level to print to console / save to file.
-# Must be one of CRITICAL, ERROR, WARNING, INFO, DEBUG
-console_log_level = "INFO"
-file_log_level = "DEBUG"
-
-# Optionally, DRBOT can save PRAW's logging output to a file.
-# This records every single request made to the reddit API (which can get big fast).
-# It's off by default, but you can turn it on by setting this to a filename like "data/praw.log".
-praw_log_file = ""
-
 
 # =====
 # Modes
@@ -118,20 +102,6 @@ custom_point_mod_notes = true
 # This setting only affects the first time you run DRBOT.
 # If you turn this on, the first run of DRBOT might take a long time.
 first_time_retroactive_modlog = false
-
-
-# =======
-# Storage
-# =======
-
-# DRBOT stores its data on an automatically-managed wiki page on your sub.
-# You can change the name of the page here.
-# Leave it blank if you want everything to be local (not recommended).
-wiki_page = "drbot"
-
-# DRBOT also makes periodic local backups just in case things go wrong.
-# You can set the filename of the backup here, or leave it blank to turn this off.
-local_backup_file = "data/backup.json"
 
 
 # =========

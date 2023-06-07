@@ -10,7 +10,9 @@ import os.path
 
 
 SETTINGS_PATH = "data/settings.toml"
+AUTH_PATH = "data/auth.toml"
 DEFAULT_SETTINGS_PATH = "drbot/default_settings.toml"
+DEFAULT_AUTH_PATH = "drbot/default_auth.toml"
 DRBOT_CLIENT_ID_PATH = "drbot/drbot_client_id.txt"
 
 
@@ -38,18 +40,14 @@ Content-Length: {len(body)}
 
     # The scopes DRBOT needs - see https://praw.readthedocs.io/en/latest/tutorials/refresh_token.html#reddit-oauth2-scopes
     scopes = [
-        "flair",  # For Fresh Friday flair.
         "identity",  # Basic - know the username of the account we log into.
         "modconfig",  # For uploading images to the sidebar.
         "modcontributors",  # For banning users.
-        "modflair",  # For managing flair (Fresh Friday + star user).
         "modlog",  # For reading the modlog.
         "modmail",  # For sending modmail to mods.
-        "modposts",  # To remove posts for Fresh Friday flair.
         "modself",  # Unused - for accepting mod invites.
         "modwiki",  # For making DRBOT's wiki pages mod-only.
         "read",  # For reading posts/comments.
-        "structuredstyles",  # For reading the sidebar in SidebarSyncAgent.
         "wikiedit",  # For editing the DRBOT data stored in the wiki.
         "wikiread"  # For editing the DRBOT data stored in the wiki.
     ]
@@ -63,7 +61,7 @@ Content-Length: {len(body)}
         client_id=drbot_client_id,
         client_secret=None,
         redirect_uri="http://localhost:8080/",
-        user_agent="DRBOT")
+        user_agent="Moderation helper https://github.com/0xAnansi/AutobanBOT v1.0 (by /u/FromModToSirius")
 
     # Get authentication URL and open it for the user
     state = str(random.randint(0, 65000))
@@ -102,7 +100,7 @@ def validate_manual_login(client_id, client_secret, username, password):
             client_secret=client_secret,
             username=username,
             password=password,
-            user_agent=f"DRBOT",
+            user_agent="Moderation helper https://github.com/0xAnansi/AutobanBOT v1.0 (by /u/FromModToSirius",
             check_for_async=False  # If this isn't here PRAW complains
         ).user.me() is None:
             return True
@@ -118,10 +116,10 @@ def main():
 This script will help you set up the required settings to make DRBOT work for your sub.
 """)
 
-    if os.path.isfile(SETTINGS_PATH):
+    if os.path.isfile(AUTH_PATH):
         choices = ["Keep it (and exit)", "Modify it", "Discard it"]
         decision = questionary.select(
-            f"There's already a settings file in {SETTINGS_PATH}. What do you want to do with it?",
+            f"There's already a settings file in {AUTH_PATH}. What do you want to do with it?",
             choices=choices, default=choices[0]).unsafe_ask()
         if decision == choices[0]:
             raise KeyboardInterrupt
@@ -170,15 +168,15 @@ if __name__ == "__main__":
         sys.exit(1)
     print("All done! Saving settings...")
 
-    baseSettingsPath = DEFAULT_SETTINGS_PATH
+    baseSettingsPath = DEFAULT_AUTH_PATH
     if "_modify_existing_file" in answers:
-        baseSettingsPath = SETTINGS_PATH
+        baseSettingsPath = AUTH_PATH
         del answers["_modify_existing_file"]
     with open(baseSettingsPath, "r") as f:
         settings = tomlkit.parse(f.read())
     settings.update(answers)
-    with open(SETTINGS_PATH, "w") as f:
+    with open(AUTH_PATH, "w") as f:
         f.write(tomlkit.dumps(settings))
 
-    print("If you want to change advanced settings, do so directly in data/settings.toml")
+    print("If you want to change advanced settings, do so directly in data/auth.toml")
     print("You're ready to use DRBOT. Goodbye!")

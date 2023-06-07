@@ -1,0 +1,53 @@
+# This file contains the settings for the bot that you cannot change via Wiki edits
+
+# ==============
+# Authentication
+# ==============
+
+# DRBOT needs an account with mod permissions on your sub.
+# It's strongly recommended to create a new account instead of using a real human's account.
+# You can authenticate in one of two ways:
+
+# 1. Through Reddit
+# Use first_time_setup.py to get a refresh token and enter it here.
+# (You can do this on another computer if you can't use a browser on this computer.)
+refresh_token = ""
+
+# 2. Manually (not recommended)
+# This method is less safe as it involves storing the account password in plaintext,
+# so don't use it unless you have a good reason.
+# You can create a client_id and client_secret at https://www.reddit.com/prefs/apps/
+# Choose 'script' as the option and put http://localhost:8080/ as the redirect URI.
+username = "" # Don't include u/
+password = ""
+client_id = ""
+client_secret = ""
+
+# The sub to moderate (without r/).
+subreddit = ""
+
+# =======
+# Storage
+# =======
+
+# DRBOT also makes periodic local backups just in case things go wrong.
+# You can set the filename of the backup here, or leave it blank to turn this off.
+local_backup_file = "data/backup.json"
+wiki_page = ""
+
+# =======
+# Logging
+# =======
+
+# Log file name. Leave blank to turn off the logfile (not recommended).
+log_file = "data/log.log"
+
+# Minimum log level to print to console / save to file.
+# Must be one of CRITICAL, ERROR, WARNING, INFO, DEBUG
+console_log_level = "INFO"
+file_log_level = "DEBUG"
+
+# Optionally, DRBOT can save PRAW's logging output to a file.
+# This records every single request made to the reddit API (which can get big fast).
+# It's off by default, but you can turn it on by setting this to a filename like "data/praw.log".
+praw_log_file = ""

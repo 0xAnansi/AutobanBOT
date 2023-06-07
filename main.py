@@ -1,6 +1,7 @@
 """
 DRBOT - Do Really Boring Overhead Tasks
-Developed for r/DebateReligion by u/c0d3rman
+Originally eveloped for r/DebateReligion by u/c0d3rman @ https://github.com/c0d3rman/DRBOT
+Forked and customized for the french community's needs @ https://github.com/0xAnansi/AutobanBOT
 Free to use by anyone for any reason (licensed under CC0)
 """
 
@@ -9,13 +10,14 @@ import logging
 import schedule
 import time
 from drbot import settings, log, reddit
+from drbot.agents.CommentAgent import CommentAgent
 from drbot.stores import *
 from drbot.agents import *
 from drbot.handlers import *
 
 
 def main():
-    log.info(f"DRBOT for r/{settings.subreddit} starting up")
+    log.info(f"AutobanBOT for r/{settings.subreddit} starting up")
 
     reddit.login()
 
@@ -23,34 +25,23 @@ def main():
     schedule.every(1).minute.do(data_store.save)
 
     # Modlog agent
+
     modlog_agent = ModlogAgent(data_store)
     points_handler = PointsHandler()
     modlog_agent.register(points_handler)
-    modlog_agent.register(SelfModerationHandler())
     modlog_agent.register(AdminHandler())
-    schedule.every(5).seconds.do(modlog_agent.run)
+    config_handler = ConfigEditHandler()
+    modlog_agent.register(config_handler)
+    schedule.every(30).seconds.do(modlog_agent.run)
+    schedule.every().hour.do(points_handler.scan_all)
 
-    # Post agent
-    post_agent = PostAgent(data_store)
-    post_agent.register(WeekdayFlairEnforcerHandler(flair_id="3674207c-e8cc-11ed-83d0-52d642db35f8", weekday=4))
-    schedule.every().friday.at("00:00").do(
-        lambda: schedule.every(5).seconds.until("23:59").do(post_agent.run)).tag("no_initial")
-
-    # Sidebar sync
-    sidebar_sync_agent = SidebarSyncAgent(data_store)
-    schedule.every(1).hour.do(sidebar_sync_agent.run)
-
-    # Modmail mobile link fixing
-    archived_modmail_agent = ModmailAgent(data_store, state="archived")
-    archived_modmail_agent.register(ModmailMobileLinkHandler())
-    schedule.every(5).seconds.do(archived_modmail_agent.run)
-
-    # Star User flair enforcement
-    user_flair_agent = UserFlairAgent(data_store, restricted_phrase="⭐", permitted_css_class="staruser")
-    schedule.every(1).hour.do(user_flair_agent.run)
+    # Comment agent
+    comment_agent = CommentAgent(data_store)
+    comment_agent.register(AutobanHandler())
+    schedule.every(10).seconds.do(comment_agent.run)
 
     # Periodic scan of points (scheduled last so other stuff happens first)
-    schedule.every().hour.do(points_handler.scan_all)
+
 
     # Load from wiki last to load data into the existing agents' data stores
     if settings.wiki_page != "":
@@ -58,7 +49,7 @@ def main():
         schedule.every(1).minute.do(wiki_store.save)
 
     # Run all jobs immediately except those that shouldn't be run initially
-    [job.run() for job in schedule.get_jobs() if not "no_initial" in job.tags]
+    [job.run() for job in schedule.get_jobs() if "no_initial" not in job.tags]
     # The scheduler loop
     while True:
         schedule.run_pending()

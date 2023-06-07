@@ -1,3 +1,4 @@
+import os
 import re
 from prawcore.exceptions import NotFound
 from drbot import settings, log, reddit
@@ -5,8 +6,11 @@ from drbot.stores import DataStore
 
 
 class WikiStore:
+    ROOT_PAGE = f"{settings.wiki_page}"
     DATA_PAGE = f"{settings.wiki_page}/data"
+    SETTINGS_PAGE = f"{settings.wiki_page}/settings"
     MAX_PAGE_SIZE = 524288  # Experimentally verified
+    SETTINGS_PATH = "data/settings.toml"
 
     def __init__(self, data_store: DataStore):
         assert settings.wiki_page != ""
@@ -16,10 +20,16 @@ class WikiStore:
         # First time setup - wiki page creation
         if not reddit().page_exists(settings.wiki_page):
             self._create_pages()
+        # else:
+        #     data = reddit().sub.wiki[WikiStore.ROOT_PAGE].content_md
+        #     log.info(f"Creating because data is [{data}]")
+        #     if len(data) <= 0:
+        #         self._create_pages()
 
         self._load()
 
-    def save(self) -> None:
+
+    def save_data_store(self) -> None:
         dump = f"// This page houses [DRBOT](https://github.com/c0d3rman/DRBOT)'s user records. **DO NOT EDIT!**\n\n{self.data_store.to_json()}"
 
         if len(dump) > WikiStore.MAX_PAGE_SIZE:
@@ -49,8 +59,12 @@ class WikiStore:
             content=dump,
             reason="Automated page for DRBOT")
 
+    def save(self) -> None:
+        self.save_data_store(self)
+        return
+
     def _load(self) -> None:
-        log.info("Loading data from wiki.")
+        log.info("Loading data store from wiki.")
         try:
             data = reddit().sub.wiki[WikiStore.DATA_PAGE].content_md
         except NotFound:
@@ -60,6 +74,17 @@ class WikiStore:
             raise Exception("WikiStore couldn't load data because the necessary pages don't exist! Are you trying to manually call _load()?")
         data = re.sub(r"^//.*?\n", "", data)  # Remove comments
         self.data_store.from_json(data)
+        log.info("Data loaded")
+
+        # log.info("Loading settings from wiki.")
+        # try:
+        #     data = reddit().sub.wiki[WikiStore.SETTINGS_PAGE].content_md
+        # except NotFound:
+        #     if settings.dry_run:
+        #         log.info("[DRY RUN: because dry-run mode is active, no wiki pages have been created, so no data was loaded from the wiki.]")
+        #         return
+        #     raise Exception("WikiStore couldn't load data because the necessary pages don't exist! Are you trying to manually call _load()?")
+        # self.data_store.from_json(data)
 
     def _create_pages(self) -> None:
         log.info(f"Creating necessary wiki pages.")
@@ -76,8 +101,18 @@ class WikiStore:
 
         reddit().sub.wiki.create(
             name=WikiStore.DATA_PAGE,
-            content="",
+            content="{}",
             reason="Automated page for DRBOT")
         reddit().sub.wiki[WikiStore.DATA_PAGE].mod.update(listed=True, permlevel=2)  # Make it mod-only
+
+        settings_content = ""
+        if os.path.isfile(self.SETTINGS_PATH):
+            with open(self.SETTINGS_PATH, "r") as f:
+                settings_content = f.read()
+        reddit().sub.wiki.create(
+            name=WikiStore.SETTINGS_PAGE,
+            content=settings_content,
+            reason="Automated page for DRBOT")
+        reddit().sub.wiki[WikiStore.SETTINGS_PAGE].mod.update(listed=True, permlevel=2)  # Make it mod-only
 
         self.save()  # Populate the pages

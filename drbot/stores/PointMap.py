@@ -9,7 +9,7 @@ class PointMap:
     Also manages info about expiration durations.
     """
 
-    def __init__(self):
+    def refresh_values(self):
         log.info("Loading removal reasons.")
 
         # Check for dupes
@@ -37,9 +37,13 @@ class PointMap:
 
         self.point_map = point_map
 
+    def __init__(self):
+        self.point_map = {}
+        self.refresh_values()
+
     def __getitem__(self, removal_reason):
         """Get the point value for a removal reason."""
-        if not removal_reason in self.point_map:
+        if removal_reason not in self.point_map:
             log.debug(f"Unknown removal reason '{removal_reason}', defaulting to 0 points.")
             return 0
 
@@ -49,7 +53,7 @@ class PointMap:
         """Get the expiration months for a removal reason (or the default if no special duration is specified)."""
 
         # Use default if this removal reason is unknown
-        if not removal_reason in self.point_map:
+        if removal_reason not in self.point_map:
             expiration = settings.expiration_months if settings.expiration_months > 0 else None
             log.debug(f"Unknown removal reason '{removal_reason}', using default expiration ({expiration}).")
             return expiration
