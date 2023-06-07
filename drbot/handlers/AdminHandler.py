@@ -23,27 +23,11 @@ class AdminHandler(Handler[ModAction]):
                 # Strange action, send a simple modmail and return
                 if settings.admin_modmail:
                     reddit().send_modmail(subject=f'Admins took action "{item.action}" in your sub',
-                                          body=f"Reddit's Anti-Evil Operations took action {item.action} in your sub. See DRBOT's log for more details.")
+                                          body=f"Reddit's Anti-Evil Operations took action {item.action} in your sub.")
                 log.info(f"Full info for unknown action type:\n{vars(item)}")
                 return
 
             if settings.admin_modmail:
-                message = f"On {datetime.fromtimestamp(item.created_utc)}, reddit's Anti-Evil Operations removed a {kind} in your sub."
-                data = []
-                message = f"Due to pushshift being shutdown, [the original message available here]({item.target_permalink})"
-                # data = json.loads(urllib.request.urlopen(
-                #     f"https://api.pushshift.io/reddit/{'comment' if kind == 'comment' else 'submission'}/search?ids={item.target_fullname[3:]}&limit=1"
-                # ).read())['data']
-                #
-                # message += f"\n\nThe [{kind}](https://www.unddit.com{item.target_permalink}) by u/{item.target_author}"
-
-                if len(data) == 0:
-                    message += " could not be retrieved."
-                else:
-                    data = data[0]
-                    message += f":\n\n"
-                    if kind == "post":
-                        message += f">**{data['title']}**\n>\n"
-                    message += re.sub(r"^", ">", data['body' if kind == 'comment' else 'selftext'], flags=re.MULTILINE)
+                message = f"On {datetime.fromtimestamp(item.created_utc)}, reddit's Anti-Evil Operations removed a {kind} in your sub.\n\nDue to pushshift being shutdown, the message originally available here could bot be retrieved: [{item.target_permalink}]({item.target_permalink})"
 
                 reddit().send_modmail(subject=f"Admins removed a {kind} in your sub", body=message)
