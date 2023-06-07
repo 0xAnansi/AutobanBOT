@@ -47,7 +47,7 @@ class AutobanHandler(Handler[Comment]):
     def end_run(self):
         # ran at the end of each batch
         if len(self.banned_users) > 0:
-            banned = "\n\n/u".join(self.banned_users)
+            banned = "\n\n/u/".join(self.banned_users)
             reddit().send_modmail(subject=f"New Autoban actions",
                                   body=f"These users were automatically banned from your sub: \n\n/u/{banned}")
 
