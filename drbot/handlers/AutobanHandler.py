@@ -1,5 +1,6 @@
 from __future__ import annotations
 import praw
+import prawcore
 from praw.models import ModAction, Comment
 from datetime import datetime
 from drbot import settings, log, reddit
@@ -113,11 +114,19 @@ class AutobanHandler(Handler[Comment]):
             return
         log.info(f"Checking history for: {comment_author.name}")
         # This user was suspended by reddit, do nothing
-        if hasattr(comment_author, 'is_suspended') and comment_author.is_suspended:
-            log.info(f"User is suspended: {comment_author.name}")
+        try:
+            if hasattr(comment_author, 'is_suspended') and comment_author.is_suspended:
+                log.info(f"User is suspended: {comment_author.name}")
+                self.cache.append(comment_author.name)
+                return
+        except prawcore.exceptions.NotFound as e:
+            log.warning(f"User {comment_author.name} seem to be shadowbanned")
+            self.clear_modqueue_for_user(comment_author)
             self.cache.append(comment_author.name)
             return
-
+        except Exception as e:
+            log.error(f"Error processing user {comment_author.name}: {e.message}")
+            return
         # User is already banned from the sub, do nothing
         if next(reddit().sub.banned(comment_author.name), None) is not None:
             log.info(f"u/{comment_author.name} is already banned from sub; skipping action.")
