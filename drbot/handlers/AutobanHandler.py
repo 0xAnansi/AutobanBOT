@@ -44,11 +44,10 @@ class AutobanHandler(Handler[Comment]):
 
     def end_run(self):
         # ran at the end of each batch
-        if len(self.banned_users) > 0 or len(self.watched_users) > 0:
-            banned = "\n".join(self.banned_users)
-            watched = "\n".join(self.watched_users)
-            reddit().send_modmail(ubject=f"New Autoban actions",
-                                  body=f"These users were automatically banned from your sub: {banned}\nThese users were put on watch on your sub: {watched}")
+        if len(self.banned_users) > 0:
+            banned = "\n\n".join(self.banned_users)
+            reddit().send_modmail(subject=f"New Autoban actions",
+                                  body=f"These users were automatically banned from your sub: {banned}")
 
     def clear_modqueue_for_user(self, reddit_user):
         modqueue = reddit().sub.mod.modqueue(limit=None)
@@ -150,7 +149,7 @@ class AutobanHandler(Handler[Comment]):
         # Avoid checking for our subreddit
         sub_cache.append(settings.subreddit)
         # Check for submissions in shitty subs (faster than comments in case of positive)
-        for submission in comment_author.submissions.new(limit=None):
+        for submission in comment_author.submissions.new(limit=250):
             check = submission.subreddit.display_name
             # We already checked and processed the sub for this user
             if check in sub_cache:
@@ -163,7 +162,7 @@ class AutobanHandler(Handler[Comment]):
             else:
                 sub_cache.append(check)
         # If no submission, check comments
-        for comment in comment_author.comments.new(limit=None):
+        for comment in comment_author.comments.new(limit=250):
             check = comment.subreddit.display_name
             # We already checked and processed the sub for this user
             if check in sub_cache:

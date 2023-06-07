@@ -33,13 +33,13 @@ def main():
     modlog_agent.register(AdminHandler())
     config_handler = ConfigEditHandler()
     modlog_agent.register(config_handler)
-    schedule.every(30).seconds.do(modlog_agent.run)
+    schedule.every(120).seconds.do(modlog_agent.run)
     schedule.every().hour.do(points_handler.scan_all)
 
     # Comment agent
     comment_agent = CommentAgent(data_store)
     comment_agent.register(AutobanHandler())
-    schedule.every(10).seconds.do(comment_agent.run)
+    schedule.every(30).seconds.do(comment_agent.run)
 
     # Periodic scan of points (scheduled last so other stuff happens first)
 

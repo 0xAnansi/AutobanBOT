@@ -60,7 +60,7 @@ class WikiStore:
             reason="Automated page for DRBOT")
 
     def save(self) -> None:
-        self.save_data_store(self)
+        self.save_data_store()
         return
 
     def _load(self) -> None:
