@@ -21,14 +21,14 @@ class AutobanHandler(Handler[Comment]):
     def setup(self, agent: Agent[Comment]) -> None:
         super().setup(agent)
         self.monitored_subs_map = MonitoredSubsMap()
-        self.cache = []
+        self.cache = ["Automoderator"]
         self.banned_users = []
         self.watched_users = []
 
     def start_run(self) -> None:
         log.debug("Invalidating cache if needed.")
         if len(self.cache) > 4096:
-            self.cache = []
+            self.cache = ["Automoderator"]
         # Refreshed map values from config
         self.monitored_subs_map.refresh_values()
         self.banned_users = []
