@@ -150,23 +150,24 @@ def login() -> praw.Reddit:
     except prawcore.exceptions.NotFound:
         raise Exception(f"r/{settings.subreddit} is banned.")
 
-    # Set up logging to modmail
-#     modmail_handler = ModmailLoggingHandler(_reddit)
-#     modmail_handler.setFormatter(TemplateLoggingFormatter(fmt=BASE_FORMAT, template={
-#         logging.ERROR: """DRBOT has encountered a non-fatal error:
-#
-# ```
-# {log}
-# ```
-#
-# DRBOT is still running. Check the log for more details.""",
-#         logging.CRITICAL: """DRBOT has encountered a fatal error and crashed:
-#
-# ```
-# {log}
-# ```"""}))
-#     modmail_handler.setLevel(logging.ERROR)
-#     log.addHandler(modmail_handler)
+    # Set up logging to modmail for non test run
+    if not settings.dry_run:
+        modmail_handler = ModmailLoggingHandler(_reddit)
+        modmail_handler.setFormatter(TemplateLoggingFormatter(fmt=BASE_FORMAT, template={
+            logging.ERROR: """DRBOT has encountered a non-fatal error:
+    
+    ```
+    {log}
+    ```
+    
+    DRBOT is still running. Check the log for more details.""",
+            logging.CRITICAL: """DRBOT has encountered a fatal error and crashed:
+    
+    ```
+    {log}
+    ```"""}))
+        modmail_handler.setLevel(logging.ERROR)
+        log.addHandler(modmail_handler)
 
 
 reddit.login = login
