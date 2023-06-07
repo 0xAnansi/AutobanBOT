@@ -25,6 +25,7 @@ class AutobanHandler(Handler[Comment]):
     def setup(self, agent: Agent[Comment]) -> None:
         # Ran once at handler registration in agent
         super().setup(agent)
+        self.cache = []
         self.monitored_subs_map = MonitoredSubsMap()
         self._refresh_cache()
         self.cache = ["AutoModerator"]
@@ -43,8 +44,10 @@ class AutobanHandler(Handler[Comment]):
     def end_run(self):
         # ran at the end of each batch
         if len(self.banned_users) > 0 or len(self.watched_users) > 0:
-            reddit().sub.message(subject=f"New Autoban actions",
-                                  body=f"These users were automatically banned from your sub: {self.banned_users}\nThese users were put on watch on your sub: {self.watched_users}")
+            banned = "\n".join(self.banned_users)
+            watched = "\n".join(self.watched_users)
+            reddit().send_modmail(ubject=f"New Autoban actions",
+                                  body=f"These users were automatically banned from your sub: {banned}\nThese users were put on watch on your sub: {watched}")
 
 
     def clear_modqueue_for_user(self, reddit_user):
@@ -95,7 +98,8 @@ class AutobanHandler(Handler[Comment]):
                     if modnote.label == target_label and modnote.note == target_note:
                         # note already exists, do nothing
                         log.info(f"[{reddit_user.name}] already has a note for posting in [{sub_name}]")
-                        break
+                        self.watched_users.append(reddit_user.name)
+                        return
                 if not settings.dry_run:
                     log.warning(f"Watching user [{reddit_user.name}] for posting in [{sub_name}], creating note")
                     reddit().sub.mod.notes.create(redditor=reddit_user.name, label=target_label,

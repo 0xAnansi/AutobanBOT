@@ -1,6 +1,6 @@
 """
 DRBOT - Do Really Boring Overhead Tasks
-Originally eveloped for r/DebateReligion by u/c0d3rman @ https://github.com/c0d3rman/DRBOT
+Originally developed for r/DebateReligion by u/c0d3rman @ https://github.com/c0d3rman/DRBOT
 Forked and customized for the french community's needs @ https://github.com/0xAnansi/AutobanBOT
 Free to use by anyone for any reason (licensed under CC0)
 """
@@ -22,6 +22,7 @@ def main():
     reddit.login()
 
     data_store = DataStore()
+
     schedule.every(1).minute.do(data_store.save)
 
     # Modlog agent
