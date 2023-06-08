@@ -73,7 +73,7 @@ class AutobanHandler(Handler[Comment]):
                 pass
             pass
 
-    def process_entries_for_user(self, reddit_user, trigger, rule):
+    def process_user_entries(self, reddit_user, trigger, rule):
         entries = []
         for comment in reddit().user(reddit_user).comments(limit=None):
             if comment.subreddit.display_name == settings.subreddit:
@@ -92,11 +92,6 @@ class AutobanHandler(Handler[Comment]):
                         item.report(reason=reason)
                     else:
                         log.info(f"DRY RUN: Would have reported comment of user {reddit_user.name} with reason [{reason}]")
-                case "modalert":
-                    body = f"This modalert was triggered by the user /u/{reddit_user.name} posting in the sub /r/{rule.sub_name}\n\n"
-                    body += f"The comment triggering this alert is the following: [{item.permalink}]({item.permalink})"
-                    reddit().send_modmail(subject=f"New modalert targeting user /u/{reddit_user.name} from /r/{rule.sub_name}",
-                                          body=body)
                 case "remove":
                     if not settings.dry_run:
                         item.mod.lock()
@@ -153,8 +148,13 @@ class AutobanHandler(Handler[Comment]):
                     self.watched_users_cache.add(reddit_user.name)
                 else:
                     log.info(f"DRY RUN : watching user [{reddit_user.name}] for posting in [{rule.sub_name}]")
-            case "report" | "modalert":
-                self.process_entries_for_user(reddit_user, trigger, rule)
+            case "report":
+                self.process_user_entries(reddit_user, trigger, rule)
+            case "modalert":
+                body = f"This modalert was triggered by the user /u/{reddit_user.name} posting in the sub /r/{rule.sub_name}\n\n"
+                body += f"The comment triggering this alert is the following: [{trigger.permalink}]({trigger.permalink})"
+                reddit().send_modmail(subject=f"New modalert targeting user /u/{reddit_user.name} from /r/{rule.sub_name}",
+                                      body=body)
             case _:
                 log.error(f"Processing unmanaged action {rule.action}")
 
@@ -177,27 +177,8 @@ class AutobanHandler(Handler[Comment]):
             log.info(f"u/{reddit_user.name} is already in banned cache")
             return UserStatus.BANNED
 
-    def handle(self, item: Comment) -> None:
-        # Comment was removed, we cannot get the author
-        if item.body == "[removed]":  # or item.body == "[ Removed by Reddit ]":
-            return
-        comment_author = item.author
 
-        # We already processed this user, do nothing
-        if comment_author.name in self.processed_users_cache:
-            return
-        log.debug(f"Checking history for: {comment_author.name}")
-        user_status = self.get_user_status(comment_author)
-        if user_status is not UserStatus.ACTIVE:
-            match user_status:
-                case UserStatus.SHADOWBANNED:
-                    self.clear_modqueue_for_user(comment_author)
-                case UserStatus.BANNED:
-                    self.banned_users_cache.add(comment_author.name)
-                    self.clear_modqueue_for_user(comment_author.name)
-            self.processed_users_cache.add(comment_author.name)
-            return
-
+    def process_user_history(self, comment_author):
         # Check if the user posts in monitored subs
         sub_cache = set([])
         # Avoid checking for our subreddit
@@ -228,5 +209,29 @@ class AutobanHandler(Handler[Comment]):
                 break
             else:
                 sub_cache.add(check)
+
+    def handle(self, item: Comment) -> None:
+        # Comment was removed, we cannot get the author
+        if item.body == "[removed]":  # or item.body == "[ Removed by Reddit ]":
+            return
+        comment_author = item.author
+
+        # We already processed this user, do nothing
+        if comment_author.name in self.processed_users_cache:
+            return
+        log.debug(f"Checking history for: {comment_author.name}")
+        user_status = self.get_user_status(comment_author)
+        if user_status is not UserStatus.ACTIVE:
+            match user_status:
+                case UserStatus.SHADOWBANNED:
+                    self.clear_modqueue_for_user(comment_author)
+                case UserStatus.BANNED:
+                    self.banned_users_cache.add(comment_author.name)
+                    self.clear_modqueue_for_user(comment_author.name)
+            self.processed_users_cache.add(comment_author.name)
+            return
+
+        # Check if the user posts in monitored subs
+        self.process_user_history(comment_author)
         # user was processed, add to cache to avoid spamming the API
         self.processed_users_cache.add(comment_author.name)

@@ -28,15 +28,17 @@ def main():
     # Modlog agent
 
     modlog_agent = ModlogAgent(data_store)
+    modlog_agent.register(ModNotesHandler())
     points_handler = PointsHandler()
     modlog_agent.register(points_handler)
     modlog_agent.register(AdminHandler())
     config_handler = ConfigEditHandler()
     modlog_agent.register(config_handler)
-    schedule.every(120).seconds.do(modlog_agent.run)
+    schedule.every(10).seconds.do(modlog_agent.run)
     schedule.every().hour.do(points_handler.scan_all)
 
     # Comment agent
+
     comment_agent = CommentAgent(data_store)
     comment_agent.register(AutobanHandler())
     schedule.every(30).seconds.do(comment_agent.run)

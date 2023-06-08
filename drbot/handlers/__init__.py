@@ -5,3 +5,4 @@ from drbot.handlers.SelfModerationHandler import SelfModerationHandler
 from drbot.handlers.ModmailMobileLinkHandler import ModmailMobileLinkHandler
 from drbot.handlers.AutobanHandler import AutobanHandler
 from drbot.handlers.ConfigEditHandler import ConfigEditHandler
+from drbot.handlers.ModNotesHandler import ModNotesHandler
