@@ -22,7 +22,7 @@ class MonitoredSubsMap:
         # Build the map
         subs_map = {}
         for x in settings.monitored_subs:
-            subs_map[x["id"]] = {"action": str(x["action"]), "display_name": str(x["id"])}
+            subs_map[x["id"]] = {"action": str(x["action"]), "sub_name": str(x["id"])}
             if "label" in x:
                 subs_map[x["id"]]["label"] = str(x["label"])
             if "note" in x:
@@ -56,7 +56,8 @@ class MonitoredSubsMap:
             log.debug(f"Unknown note for '{sub}', using default note ({note}).")
             return note
 
-        return self.subs_map[sub]["note"]
+        ret_val = self.subs_map[sub]["note"] + f" - {sub}"
+        return ret_val
 
     def get_action(self, sub):
 
