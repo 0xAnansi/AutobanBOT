@@ -151,7 +151,8 @@ def login() -> praw.Reddit:
         raise Exception(f"r/{settings.subreddit} is banned.")
 
     # Set up logging to modmail for non test run
-    if not settings.dry_run:
+    manual_override = 1
+    if not settings.dry_run and manual_override == 0:
         modmail_handler = ModmailLoggingHandler(_reddit)
         modmail_handler.setFormatter(TemplateLoggingFormatter(fmt=BASE_FORMAT, template={
             logging.ERROR: """DRBOT has encountered a non-fatal error:

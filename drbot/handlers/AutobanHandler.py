@@ -22,7 +22,7 @@ class AutobanHandler(Handler[Comment]):
     Acts on the user if this is the case by either adding a modnote or banning, depending on the configuration for this specific sub.
     """
 
-    def refresh_processing_cache(self):
+    def _refresh_processing_cache(self):
         if not self.processed_users_cache or len(self.processed_users_cache) > 4096 or len(self.processed_users_cache) <= 0:
             self.processed_users_cache = set([])
             # add the generic account used for communication
@@ -38,7 +38,7 @@ class AutobanHandler(Handler[Comment]):
         super().setup(agent)
         self.processed_users_cache = set([])
         self.monitored_subs_map = MonitoredSubsMap()
-        self.refresh_processing_cache()
+        self._refresh_processing_cache()
         self.banned_users_cache = set([])
         self.watched_users_cache = set([])
         self.ban_list_infos = []
@@ -46,7 +46,7 @@ class AutobanHandler(Handler[Comment]):
     def start_run(self) -> None:
         # ran at the beginning of each batch
         log.debug("Invalidating cache if needed.")
-        self.refresh_processing_cache()
+        self._refresh_processing_cache()
         # Refreshed map values from config
         self.monitored_subs_map.refresh_values()
         self.banned_users_cache = set([])
