@@ -206,7 +206,7 @@ class AutobanHandler(Handler[Comment]):
             check = comment.subreddit.display_name
             # We already checked and processed the sub for this user
             if check in sub_cache:
-                log.debug(f"Skipping sub {check} since already processed")
+                #log.debug(f"Skipping sub {check} since already processed")
                 continue
             if comment.subreddit.display_name in self.monitored_subs_map.subs_map:
                 # action = self.monitored_subs_map[comment.subreddit]["action"]
