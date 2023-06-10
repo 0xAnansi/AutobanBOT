@@ -1,3 +1,5 @@
+import shutil
+
 from dynaconf import Dynaconf, Validator
 from dynaconf.validator import OrValidator
 from dynaconf.utils.boxing import DynaBox
@@ -47,15 +49,21 @@ def validate_monitored_subs_config(l):
 
 
 SETTINGS_PATH = os.path.join(os.path.dirname(__file__), '../data/settings.toml')
-AUTH_SETTINGS_PATH = os.path.join(os.path.dirname(__file__), '../data/auth.toml')
+AUTH_SETTINGS_PATH = os.path.join(os.path.dirname(__file__), '../data/server_settings.toml')
+OLD_AUTH_SETTINGS_PATH = os.path.join(os.path.dirname(__file__), '../data/auth.toml')
 
 if not os.path.isfile(AUTH_SETTINGS_PATH):
-    print("There's no auth file. Run first_time_setup.py")
-    sys.exit(1)
+    if os.path.isfile(OLD_AUTH_SETTINGS_PATH):
+        print("Old settings file detected, backuping and replacing")
+        shutil.copy2(OLD_AUTH_SETTINGS_PATH, AUTH_SETTINGS_PATH)
+        shutil.move(OLD_AUTH_SETTINGS_PATH, f"{OLD_AUTH_SETTINGS_PATH}.old")
+    else:
+        print("There's no server settings file. Run first_time_setup.py")
+        sys.exit(1)
 
 if not os.path.isfile(SETTINGS_PATH):
     # todo: check if there is a settings version in the wiki
-    print("There's no settings file. Run first_time_setup.py")
+    print("There's no application settings file. Run first_time_setup.py")
     sys.exit(1)
 
 settings = Dynaconf(
@@ -71,6 +79,8 @@ settings = Dynaconf(
         ),
         Validator('trusted_users',
                   is_type_of=list, default=[], messages={"trusted_users": "Invalid '{name}' in the config"}),
+        Validator('modmail_logging',
+                  is_type_of=bool, default=True, messages={"modmail_logging": "Invalid '{name}' in the config"}),
         Validator('subreddit',
                   ne="", is_type_of=str, messages={"operations": "You must set '{name}' in the config"}),
         Validator('log_file', 'praw_log_file', 'wiki_page', 'local_backup_file',

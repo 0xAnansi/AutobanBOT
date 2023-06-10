@@ -86,7 +86,7 @@ class AutobanHandler(Handler[Comment]):
             match self.monitored_subs_map.get_action(rule['sub_name']):
                 case "report":
                     reason = self.monitored_subs_map.get_note(rule['sub_name'])
-                    reason += " - trigger sub = "
+                    reason += " - trigger sub = /r/"
                     reason += rule['sub_name']
                     if not settings.dry_run:
                         item.report(reason=reason)

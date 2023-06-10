@@ -1,11 +1,14 @@
+import praw
 import prawcore
-from praw.models import SubredditHelper, ModNote
+from praw.models import ModNote, Submission, Comment
 
 from drbot import log
 import pandas as pd
 import base64
 import zlib
 import json
+
+from praw import Reddit
 
 """
     Once decoded, the following information is structured as follows:
@@ -108,6 +111,17 @@ class BlobDecoder:
 
 
 class ToolBoxManipulator:
+    def __init__(self, reddit: Reddit, bot_name: str):
+        self.tb_converter = Converter()
+        self.tb_decoder = BlobDecoder()
+        self.mod_notes = []
+        self.mod_notes_constants = []
+        self.tb_notes_version = 0
+        self.wiki_content = ""
+        self.reddit = reddit
+        self.subreddit = reddit.sub
+        self.bot_name = bot_name
+        self.refresh_tb()
 
     @staticmethod
     def _get_index_from_val(entries: dict, val: str):
@@ -135,6 +149,89 @@ class ToolBoxManipulator:
     def get_index_from_note_type(self, modo: str) -> int:
         return self._get_index_from_val(self.mod_notes_constants["warnings"], modo)
 
+    @staticmethod
+    def get_modnote_label_from_tb_label(tb_label):
+        match tb_label:
+            case "spamwarning" | 'spamwarn':
+                return "SPAM_WARNING"
+            case 'spamwatch':
+                return "SPAM_WATCH"
+            case "ban_permanent" | 'permanent_ban':
+                return "PERMA_BAN"
+            case 'ban_1j' | 'ban_3j' | 'ban_7j' | 'ban_15j' | 'ban_30j' | 'ban':
+                return "BAN"
+            case "abusewarning" | 'abusewarn':
+                return "ABUSE_WARNING"
+            case 'niaisere' | 'gooduser' | 'good':
+                return "HELPFUL_USER"
+            case 'botban':
+                return "BOT_BAN"
+            case 'non_signale':
+                # Cases where I've no idea what the category initially meant
+                return None
+            case _:
+                return None
+
+    def get_note_modnote_label(self, note: dict):
+        #['spamwarning', 'ban_permanent', 'abusewarning', 'ban_1j', 'abusewarn', 'ban_7j', 'non_signale', None, 'ban_30j', 'spamwatch', 'niaisere', 'gooduser', 'botban',
+        # 'ban_3j', 'good', 'spamwarn', 'ban', 'ban_15j', 'permanent_ban']
+        #"ABUSE_WARNING", "BAN", "BOT_BAN", "HELPFUL_USER", "PERMA_BAN", "SOLID_CONTRIBUTOR", "SPAM_WARNING", "SPAM_WATCH", or None.
+        tb_label = self.get_note_type_from_index(note['w'])
+        return self.get_modnote_label_from_tb_label(tb_label)
+
+        pass
+    def get_note_type(self, note: dict):
+        return self.get_note_type_from_index(note['w'])
+
+    def get_note_owner(self, note: dict):
+        return self.get_modo_from_index(note['m'])
+
+    def get_note_content(self, note: dict):
+        return note['n']
+
+    def get_note_target_link(self, note: dict):
+        return note['l']
+
+    def get_note_modnote_thing(self, note: dict) -> Submission | Comment | str | None:
+        #  https://github.com/toolbox-team/reddit-moderator-toolbox/wiki/Subreddit-Wikis%3A-usernotes
+        """
+        l,(SUBMISSION_ID),(COMMENT_ID) represents a link to a comment, and can be expanded to https://www.reddit.com/comments/(SUBMISSION_ID)/_/(COMMENT_ID).
+        l,(SUBMISSION_ID) represents a link to a submission, and can be expanded to https://www.reddit.com/comments/(SUBMISSION_ID) or https://redd.it/(SUBMISSION_ID).
+        m,(THREAD_ID) represents a link to an old modmail thread and is equivalent to https://www.reddit.com/message/messages/(THREAD_ID).
+        Full URLs are sometimes stored directly. Toolbox itself stores links to new modmail threads as full URLs, for example.
+        Writing full URLs other than new modmail permalinks is discouraged—don't introduce external URLs, and use the shorthand formats for other resources on Reddit.
+        However, for legacy support, you should support reading arbitrary URLs (not just new modmail links), and optionally convert them to the shorthand formats when applicable.
+        """
+        target = self.get_note_target_link(note)
+        if target.startswith('http'):
+            return target
+        elif len(target) > 4:
+            t_components = target.split(',')
+            if 2 <= len(t_components) <= 3:
+                l_type = t_components[0]
+                if l_type == 'l':
+                    l_sub = self.reddit.submission(t_components[1])
+                    if len(t_components) == 3:
+                        l_com = self.reddit.comment(t_components[2])
+                        return l_com
+                    return l_sub
+                elif l_type == 'm':
+                    return f"https://www.reddit.com/message/messages/{t_components[1]}"
+            else:
+                log.error(f"Unexpected value while parsing tb_note link [{target}]")
+                return None
+        else:
+            log.error(f"Unexpected value while parsing tb_note link [{target}]")
+            return None
+
+    def get_note_modnote_target(self, note: dict):
+        target = self.get_note_modnote_thing(note)
+        if isinstance(target, Comment) or isinstance(target, Submission):
+            return target
+        else:
+            log.info("Cannot convert TB link to modnote format, dropping info")
+            return None
+
     def refresh_tb(self):
         try:
             wiki = self.subreddit.wiki["usernotes"].content_md
@@ -153,23 +250,10 @@ class ToolBoxManipulator:
             self.mod_notes = self.tb_decoder.blob_to_string(self.wiki_content["blob"])
             self.mod_notes_constants = self.wiki_content['constants']
 
-
-
-    def __init__(self, subreddit: SubredditHelper, bot_name: str):
-        self.tb_converter = Converter()
-        self.tb_decoder = BlobDecoder()
-        self.mod_notes = []
-        self.mod_notes_constants = []
-        self.tb_notes_version = 0
-        self.wiki_content = ""
-        self.subreddit = subreddit
-        self.bot_name = bot_name
-        self.refresh_tb()
-
     def get_user_notes(self, username: str) -> []:
         ret = []
         if username in self.mod_notes:
-            return self.mod_notes[username]
+            return list(reversed(self.mod_notes[username]['ns']))
         return ret
 
     @staticmethod
@@ -199,6 +283,7 @@ class ToolBoxManipulator:
             type: The type of note, currently one of: "APPROVAL", "BAN", "CONTENT_CHANGE", "INVITE", "MUTE", "NOTE", "REMOVAL", or "SPAM".
             user: The redditor the note is for.
 
+        https://github.com/toolbox-team/reddit-moderator-toolbox/wiki/Subreddit-Wikis%3A-usernotes
         tb_note structure:
             note['n']: content of the note (str)
             note['t']: timestamp (int)

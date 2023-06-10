@@ -10,7 +10,7 @@ import os.path
 
 
 SETTINGS_PATH = "data/settings.toml"
-AUTH_PATH = "data/auth.toml"
+AUTH_PATH = "data/settings.toml"
 DEFAULT_SETTINGS_PATH = "drbot/default_settings.toml"
 DEFAULT_AUTH_PATH = "drbot/default_auth.toml"
 DRBOT_CLIENT_ID_PATH = "drbot/drbot_client_id.txt"
