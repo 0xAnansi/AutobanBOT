@@ -58,7 +58,7 @@ class AutobanHandler(Handler[Comment]):
         if len(self.ban_list_infos) > 0:
             lines = []
             for ban in self.ban_list_infos:
-                line = f"/u/{ban.username} for [{ban.reason}] based on trigger [{ban.trigger}]({ban.trigger})"
+                line = f"/u/{ban['username']} for [{ban['reason']}] based on trigger [{ban['trigger']}]({ban['trigger']})"
                 lines.append(line)
             body = "\n\n".join(lines)
             reddit().send_modmail(subject=f"New Autoban actions",
@@ -83,11 +83,11 @@ class AutobanHandler(Handler[Comment]):
                 entries.append(post)
 
         for item in entries:
-            match rule.action:
+            match self.monitored_subs_map.get_action(rule['sub_name']):
                 case "report":
-                    reason = self.monitored_subs_map.get_note(rule.sub_name)
+                    reason = self.monitored_subs_map.get_note(rule['sub_name'])
                     reason += " - trigger sub = "
-                    reason += rule.sub_name
+                    reason += rule['sub_name']
                     if not settings.dry_run:
                         item.report(reason=reason)
                     else:
@@ -101,36 +101,36 @@ class AutobanHandler(Handler[Comment]):
 
     def act_on(self, reddit_user, trigger, rule):
         if not self.get_user_status(reddit_user) == UserStatus.ACTIVE:
-            log.error(f"Tried to act on user that is not active {reddit_user.name}")
+            log.warning(f"Tried to act on user that is not active {reddit_user.name}")
             return
-
-        match rule.action:
+        #sub_name = rule['sub_name']
+        match self.monitored_subs_map.get_action(rule['sub_name']):
             case "ban":
                 if not settings.dry_run:
                     try:
-                        log.warning(f"Banning user [{reddit_user.name}] for posting in [{rule.sub_name}]")
-                        reddit().sub.banned.add(reddit_user.name, ban_reason=self.monitored_subs_map.get_note(rule.display_name),
+                        log.warning(f"Banning user [{reddit_user.name}] for posting in [{rule['sub_name']}]")
+                        reddit().sub.banned.add(reddit_user.name, ban_reason=self.monitored_subs_map.get_note(rule['sub_name']),
                                                 ban_message="You have been automatically and permanently banned from the sub, if you think this is an error, write us a modmail!")
                         reddit().sub.mod.notes.create(redditor=reddit_user.name,
-                                                      label=self.monitored_subs_map.get_label(rule.sub_name),
-                                                      note=self.monitored_subs_map.get_note(rule.sub_name))
+                                                      label=self.monitored_subs_map.get_label(rule['sub_name']),
+                                                      note=self.monitored_subs_map.get_note(rule['sub_name']))
                         self.clear_modqueue_for_user(reddit_user.name)
                         self.banned_users_cache.add(reddit_user.name)
                         self.ban_list_infos.append({
                             "username": reddit_user.name,
-                            "reason": rule.get_note(),
+                            "reason": self.monitored_subs_map.get_note(rule['sub_name']),
                             "trigger": trigger.permalink
                         })
                     except Exception as e:
                         log.error(f"Failed to ban user [{reddit_user.name}]: {e.message}")
                 else:
-                    log.info(f"DRY RUN : [NOT] banning user [{reddit_user.name}] for posting in [{rule.sub_name}]")
+                    log.info(f"DRY RUN : [NOT] banning user [{reddit_user.name}] for posting in [{rule['sub_name']}]")
             case "watch":
                 if reddit_user.name in self.watched_users_cache:
                     log.info(f"User {reddit_user.name} in watched list already, not further action needed")
                     return False
-                target_label = self.monitored_subs_map.get_label(rule.sub_name)
-                target_note = self.monitored_subs_map.get_note(rule.sub_name)
+                target_label = self.monitored_subs_map.get_label(rule['sub_name'])
+                target_note = self.monitored_subs_map.get_note(rule['sub_name'])
                 user_notes = reddit().sub.mod.notes.redditors(reddit_user, all_notes=True)
                 for modnote in user_notes:
                     if modnote is None:
@@ -138,25 +138,25 @@ class AutobanHandler(Handler[Comment]):
                         continue
                     if modnote.label == target_label and modnote.note == target_note:
                         # note already exists, do nothing
-                        log.info(f"[{reddit_user.name}] already has a note for posting in [{rule.sub_name}]")
+                        log.info(f"[{reddit_user.name}] already has a note for posting in [{rule['sub_name']}]")
                         self.watched_users_cache.add(reddit_user.name)
                         return
                 if not settings.dry_run:
-                    log.warning(f"Watching user [{reddit_user.name}] for posting in [{rule.sub_name}], creating note")
+                    log.warning(f"Watching user [{reddit_user.name}] for posting in [{rule['sub_name']}], creating note")
                     reddit().sub.mod.notes.create(redditor=reddit_user.name, label=target_label,
                                                   note=target_note)
                     self.watched_users_cache.add(reddit_user.name)
                 else:
-                    log.info(f"DRY RUN : watching user [{reddit_user.name}] for posting in [{rule.sub_name}]")
+                    log.info(f"DRY RUN : watching user [{reddit_user.name}] for posting in [{rule['sub_name']}]")
             case "report":
                 self.process_user_entries(reddit_user, trigger, rule)
             case "modalert":
-                body = f"This modalert was triggered by the user /u/{reddit_user.name} posting in the sub /r/{rule.sub_name}\n\n"
+                body = f"This modalert was triggered by the user /u/{reddit_user.name} posting in the sub /r/{rule['sub_name']}\n\n"
                 body += f"The comment triggering this alert is the following: [{trigger.permalink}]({trigger.permalink})"
-                reddit().send_modmail(subject=f"New modalert targeting user /u/{reddit_user.name} from /r/{rule.sub_name}",
+                reddit().send_modmail(subject=f"New modalert targeting user /u/{reddit_user.name} from /r/{rule['sub_name']}",
                                       body=body)
             case _:
-                log.error(f"Processing unmanaged action {rule.action}")
+                log.error(f"Processing unmanaged action {self.monitored_subs_map.get_action(rule['sub_name'])}")
 
     def get_user_status(self, reddit_user):
         try:
@@ -170,12 +170,14 @@ class AutobanHandler(Handler[Comment]):
             log.error(f"Error processing user {reddit_user.name}: {e.message}")
             # default to active
             return UserStatus.UNEXPECTED
-        if next(reddit().sub.banned(reddit_user.name), None) is not None:
+        #any(reddit.subreddit('SUBREDDIT').banned(redditor='USERNAME'))
+        if any(reddit().sub.banned(reddit_user.name)):
             log.info(f"u/{reddit_user.name} is already banned from sub")
             return UserStatus.BANNED
         if reddit_user.name in self.banned_users_cache:
             log.info(f"u/{reddit_user.name} is already in banned cache")
             return UserStatus.BANNED
+        log.debug(f"u/{reddit_user.name} is active")
         return UserStatus.ACTIVE
 
 
@@ -189,11 +191,11 @@ class AutobanHandler(Handler[Comment]):
             check = submission.subreddit.display_name
             # We already checked and processed the sub for this user
             if check in sub_cache:
-                log.debug(f"Skipping sub {check} since already processed")
+                #log.debug(f"Skipping sub {check} since already processed")
                 continue
             if submission.subreddit.display_name in self.monitored_subs_map.subs_map:
                 # action = self.monitored_subs_map[comment.subreddit]["action"]
-                log.debug(f"Found matching rule for sub {check}")
+                log.info(f"Found matching rule for sub {check} and user {comment_author.name}")
                 self.act_on(comment_author, submission,
                             self.monitored_subs_map.subs_map[submission.subreddit.display_name])
                 break
@@ -208,7 +210,7 @@ class AutobanHandler(Handler[Comment]):
                 continue
             if comment.subreddit.display_name in self.monitored_subs_map.subs_map:
                 # action = self.monitored_subs_map[comment.subreddit]["action"]
-                log.debug(f"Found matching rule for sub {check}")
+                log.info(f"Found matching rule for sub {check} and user {comment_author.name}")
                 self.act_on(comment_author, comment,
                             self.monitored_subs_map.subs_map[comment.subreddit.display_name])
                 break
