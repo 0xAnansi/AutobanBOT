@@ -10,7 +10,7 @@ import os.path
 
 
 SETTINGS_PATH = "data/settings.toml"
-AUTH_PATH = "data/auth.toml"
+AUTH_PATH = "data/settings.toml"
 DEFAULT_SETTINGS_PATH = "drbot/default_settings.toml"
 DEFAULT_AUTH_PATH = "drbot/default_auth.toml"
 DRBOT_CLIENT_ID_PATH = "drbot/drbot_client_id.txt"
@@ -100,8 +100,8 @@ Content-Length: {len(body)}
     # Get authentication URL and open it for the user
     state = str(random.randint(0, 65000))
     url = reddit.auth.url(duration="permanent", scopes=scopes, state=state)
-    print(f"Your browser should take you to the reddit login page, or click this link: {url}")
-    webbrowser.open(url, new=0, autoraise=True)
+    print(f"Click this link: {url}")
+    #webbrowser.open(url, new=0, autoraise=True)
 
     # Receive the callback from Reddit with the refresh token
     client = receive_connection()
