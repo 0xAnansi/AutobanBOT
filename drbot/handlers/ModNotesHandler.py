@@ -20,15 +20,41 @@ class ModNotesHandler(Handler[ModAction]):
     Aims to create a TB note when a new modnote is created via new
     """
 
+    def _test(self):
+        notelist = []
+        cache = []
+        h = 0
+
+        #red = "fengapappit"
+        c = 0
+        params = {
+            "filter": "NOTE"
+        }
+        #params["filter"] = "NOTE"
+        comments = reddit().sub.comments(limit=1000)
+        redditors = set([])
+        for comment in comments: #comment.author.notes.subreddits("france", params=params):
+            redditors.add(comment.author.name)
+            if len(redditors) >= 10:
+                redditors.add("FengaPappit")
+                break
+        for note in reddit().sub.mod.notes.redditors(redditors, all_notes=True, limit=None, params=params):
+            # if note is not None and note.label is not None:
+            #     notelist.append(note)
+            notelist.append(note)
+            c += 1
+            # log.info(c)
+        #cache.append(note.author.name)
+        if c > h:
+            h = c
+        pass
+
     def setup(self, agent: Agent[ModAction]) -> None:
         super().setup(agent)
         #comments = reddit().sub.comments(limit=None)
-        notelist = []
         # todo delete after debugging
-        # for comments in reddit().sub.comments(limit=None):
-        #     for note in reddit().notes.things(comments):
-        #         if note is not None:
-        #             notelist.append(note)
+        #comments = reddit().sub.comments(limit=1000)
+        #self._test()
         self.tb_manipulator = ToolBoxUtils.ToolBoxManipulator(reddit().sub, settings.username)
         self.cache = {}
         self.mod_notes = {}

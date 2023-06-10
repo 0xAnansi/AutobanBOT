@@ -8,6 +8,12 @@ from drbot.log import ModmailLoggingHandler, TemplateLoggingFormatter, BASE_FORM
 
 DRBOT_CLIENT_ID_PATH = "drbot/drbot_client_id.txt"
 
+handler = logging.StreamHandler()
+handler.setLevel(logging.DEBUG)
+for logger_name in ("praw", "prawcore"):
+    logger = logging.getLogger(logger_name)
+    logger.setLevel(logging.DEBUG)
+    logger.addHandler(handler)
 
 class InfiniteRetryStrategy(prawcore.sessions.RetryStrategy):
     """For use with PRAW.

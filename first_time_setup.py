@@ -40,20 +40,49 @@ Content-Length: {len(body)}
 
     # The scopes DRBOT needs - see https://praw.readthedocs.io/en/latest/tutorials/refresh_token.html#reddit-oauth2-scopes
     scopes = [
-        "flair",  # For Fresh Friday flair.
-        "identity",  # Basic - know the username of the account we log into.
-        "modconfig",  # For uploading images to the sidebar.
-        "modcontributors",  # For banning users.
-        "modflair",  # For managing flair (Fresh Friday + star user).
-        "modlog",  # For reading the modlog.
-        "modmail",  # For sending modmail to mods.
-        "modposts",  # To remove posts for Fresh Friday flair.
-        "modself",  # Unused - for accepting mod invites.
-        "modwiki",  # For making DRBOT's wiki pages mod-only.
-        "read",  # For reading posts/comments.
-        "structuredstyles",  # For reading the sidebar in SidebarSyncAgent.
-        "wikiedit",  # For editing the DRBOT data stored in the wiki.
-        "wikiread"  # For editing the DRBOT data stored in the wiki.
+        # "flair",  # For Fresh Friday flair.
+        # "identity",  # Basic - know the username of the account we log into.
+        # "modconfig",  # For uploading images to the sidebar.
+        # "modcontributors",  # For banning users.
+        # "modflair",  # For managing flair (Fresh Friday + star user).
+        # "modlog",  # For reading the modlog.
+        # "modmail",  # For sending modmail to mods.
+        # "modposts",  # To remove posts for Fresh Friday flair.
+        # "modself",  # Unused - for accepting mod invites.
+        # "modwiki",  # For making DRBOT's wiki pages mod-only.
+        # "read",  # For reading posts/comments.
+        # "structuredstyles",  # For reading the sidebar in SidebarSyncAgent.
+        # "wikiedit",  # For editing the DRBOT data stored in the wiki.
+        # "wikiread"  # For editing the DRBOT data stored in the wiki.
+        "account",
+        "creddits",
+        "edit",
+        "flair",
+        "history",
+        "identity",
+        "livemanage",
+        "modconfig",
+        "modcontributors",
+        "modflair",
+        "modlog",
+        "modmail",
+        "modnote",
+        "modothers",
+        "modposts",
+        "modself",
+        "modtraffic",
+        "modwiki",
+        "mysubreddits",
+        "privatemessages",
+        "read",
+        "report",
+        "save",
+        "structuredstyles",
+        "submit",
+        "subscribe",
+        "vote",
+        "wikiedit",
+        "wikiread"
     ]
 
     # Get ID

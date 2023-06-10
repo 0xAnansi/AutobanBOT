@@ -176,6 +176,7 @@ class AutobanHandler(Handler[Comment]):
         if reddit_user.name in self.banned_users_cache:
             log.info(f"u/{reddit_user.name} is already in banned cache")
             return UserStatus.BANNED
+        return UserStatus.ACTIVE
 
 
     def process_user_history(self, comment_author):
@@ -188,9 +189,11 @@ class AutobanHandler(Handler[Comment]):
             check = submission.subreddit.display_name
             # We already checked and processed the sub for this user
             if check in sub_cache:
+                log.debug(f"Skipping sub {check} since already processed")
                 continue
             if submission.subreddit.display_name in self.monitored_subs_map.subs_map:
                 # action = self.monitored_subs_map[comment.subreddit]["action"]
+                log.debug(f"Found matching rule for sub {check}")
                 self.act_on(comment_author, submission,
                             self.monitored_subs_map.subs_map[submission.subreddit.display_name])
                 break
@@ -201,9 +204,11 @@ class AutobanHandler(Handler[Comment]):
             check = comment.subreddit.display_name
             # We already checked and processed the sub for this user
             if check in sub_cache:
+                log.debug(f"Skipping sub {check} since already processed")
                 continue
             if comment.subreddit.display_name in self.monitored_subs_map.subs_map:
                 # action = self.monitored_subs_map[comment.subreddit]["action"]
+                log.debug(f"Found matching rule for sub {check}")
                 self.act_on(comment_author, comment,
                             self.monitored_subs_map.subs_map[comment.subreddit.display_name])
                 break
@@ -221,6 +226,7 @@ class AutobanHandler(Handler[Comment]):
             return
         log.debug(f"Checking history for: {comment_author.name}")
         user_status = self.get_user_status(comment_author)
+        log.debug(f"User {comment_author.name} is {user_status.name}")
         if user_status is not UserStatus.ACTIVE:
             match user_status:
                 case UserStatus.SHADOWBANNED:
