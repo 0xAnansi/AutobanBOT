@@ -28,7 +28,7 @@ class ModNotesHandler(Handler[ModAction]):
         self.mod_notes = {}
 
     def start_run(self) -> None:
-        log.debug("Invalidating cache.")
+        log.debug("Invalidating cache")
         self.cache = {}
         self.tb_manipulator.refresh_tb()
 
