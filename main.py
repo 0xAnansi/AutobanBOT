@@ -28,14 +28,19 @@ def main():
     # Modlog agent
 
     modlog_agent = ModlogAgent(data_store)
-    modlog_agent.register(ModNotesHandler())
+    # Disable while praw does not handle 429 on modnote endpoint
+    #modlog_agent.register(ModNotesHandler())
+
     points_handler = PointsHandler()
     modlog_agent.register(points_handler)
+    schedule.every().hour.do(points_handler.scan_all)
     modlog_agent.register(AdminHandler())
+
     config_handler = ConfigEditHandler()
     modlog_agent.register(config_handler)
+
     schedule.every(10).seconds.do(modlog_agent.run)
-    schedule.every().hour.do(points_handler.scan_all)
+
 
     # Comment agent
 

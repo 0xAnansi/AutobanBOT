@@ -84,6 +84,12 @@ class ModNotesHandler(Handler[ModAction]):
                         return True
         return False
 
+    def get_user_modnotes(self, username):
+        notes = []
+        for note in reddit().sub.mod.notes.redditors(username, all_notes=True, params={"filter": "NOTE"}):
+            notes.append(note)
+        return notes
+
     def handle(self, item: ModAction) -> None:
         # Assume that the bot handle note creation correctly and doesn't need to process its own entries
         if item.mod.name == settings.username:
@@ -100,9 +106,9 @@ class ModNotesHandler(Handler[ModAction]):
                             log.error(f"Failed to retrieve username, dropping modnote processing")
                             return
                         usernotes_tb = self.tb_manipulator.get_user_notes(username)
-                        #usernotes_reddit = reddit().sub.mod.notes.redditors(username, all_notes=True, params={"filter": "NOTE"})
+                        usernotes_reddit = self.get_user_modnotes(username)
                         for tb_note in usernotes_tb:
-                            if self.is_tb_in_modnote(tb_note, reddit().sub.mod.notes.redditors(username, all_notes=True, params={"filter": "NOTE"})):
+                            if self.is_tb_in_modnote(tb_note, usernotes_reddit):
                                 # Found match, nothing to do
                                 log.debug("Found matching note, checking next entry")
                                 continue
