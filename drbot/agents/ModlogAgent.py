@@ -10,8 +10,7 @@ class ModlogAgent(HandlerAgent[ModAction]):
         items = []
         # items = reddit().sub.mod.log(
         #     limit=None, params={"before": self.data_store["_meta"]["last_processed"]})  # Yes really, it's 'before' not 'after' - reddit convention has the top of the list being the 'first'
-        for item in reddit().sub.mod.log(
-            limit=None, params={"before": self.data_store["_meta"]["last_processed"]}):
+        for item in reddit().sub.mod.log(limit=None, params={"before": self.data_store["_meta"]["last_processed"]}):
             items.append(item)# Yes really, it's 'before' not 'after' - reddit convention has the top of the list being the 'first'
         return list(reversed(list(items)))  # Process from earliest to latest
 
