@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+from time import sleep
 from typing import Tuple
 
 import praw
@@ -9,9 +10,11 @@ from praw.models import ModAction, ModNote
 from datetime import datetime
 from drbot import settings, log, reddit
 from drbot.agents import Agent
+from drbot.const.BotConstants import UserStatus
 from drbot.handlers import Handler
 import re
 from drbot.tools import ToolBoxUtils
+from drbot.tools.RedditUserUtils import RedditUserUtils
 
 
 class ModNotesHandler(Handler[ModAction]):
@@ -24,6 +27,7 @@ class ModNotesHandler(Handler[ModAction]):
     def setup(self, agent: Agent[ModAction]) -> None:
         super().setup(agent)
         self.tb_manipulator = ToolBoxUtils.ToolBoxManipulator(reddit(), settings.username)
+        self.user_utils = RedditUserUtils()
         self.cache = {}
         self.mod_notes = {}
 
@@ -45,14 +49,14 @@ class ModNotesHandler(Handler[ModAction]):
         firstWord = firstWord[1:]
         match firstWord:
             case "create":
-                pattern = r"^\"create new note on user (.+)\" via toolbox$"
+                pattern = r"^\"create new note on.+user (.+)\" via toolbox$"
                 results = re.findall(pattern, item.description)
                 if len(results) != 1:
                     log.error(f"Matched more than once or not at all while extracting username from new TB note entry {item.description}")
                     return "", ""
                 return firstWord, results[0]
             case "delete":
-                pattern = r"^\"delete note .+ on user (.+)\" via toolbox$"
+                pattern = r"^\"delete note .+ on.+user (.+)\" via toolbox$"
                 results = re.findall(pattern, item.description)
                 if len(results) != 1:
                     log.error(
@@ -101,12 +105,19 @@ class ModNotesHandler(Handler[ModAction]):
             case "wikirevise":
                 if self.is_tb_note_action(item):
                     type, username = self.extract_type_and_username_from_tb_action(item)
+                    if len(username) <= 0:
+                        log.error(f"Failed to retrieve username, dropping modnote processing")
+                        return
+                    user_status = self.user_utils.get_user_status(username)
+                    if user_status == UserStatus.SUSPENDED \
+                            or user_status == UserStatus.UNEXPECTED \
+                            or user_status == UserStatus.SHADOWBANNED:
+                        log.error(f"Retrieved unwanted status {user_status.name} for user {username}, dropping modnote processing")
+                        return
                     if type == "create":
-                        if len(username) <= 0:
-                            log.error(f"Failed to retrieve username, dropping modnote processing")
-                            return
                         usernotes_tb = self.tb_manipulator.get_user_notes(username)
                         usernotes_reddit = self.get_user_modnotes(username)
+                        sleep(0.5)
                         for tb_note in usernotes_tb:
                             if self.is_tb_in_modnote(tb_note, usernotes_reddit):
                                 # Found match, nothing to do

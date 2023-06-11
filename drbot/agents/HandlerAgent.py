@@ -58,6 +58,7 @@ class HandlerAgent(Agent, Generic[T]):
             for handler in self.handlers.values():
                 handler.handle(item)
                 self.data_store["_meta"]["last_processed"] = self.id(item)
+                self._data_store.save()
 
         #self._data_store.save()
         # Let all the handlers know the run has ended

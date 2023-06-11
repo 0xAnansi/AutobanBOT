@@ -81,6 +81,8 @@ settings = Dynaconf(
                   is_type_of=list, default=[], messages={"trusted_users": "Invalid '{name}' in the config"}),
         Validator('modmail_logging',
                   is_type_of=bool, default=True, messages={"modmail_logging": "Invalid '{name}' in the config"}),
+        Validator('is_test_env',
+                  is_type_of=bool, default=False, messages={"is_test_env": "Invalid '{name}' in the config"}),
         Validator('subreddit',
                   ne="", is_type_of=str, messages={"operations": "You must set '{name}' in the config"}),
         Validator('log_file', 'praw_log_file', 'wiki_page', 'local_backup_file',

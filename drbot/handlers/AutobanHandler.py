@@ -5,16 +5,13 @@ from praw.models import Comment
 
 from drbot import settings, log, reddit
 from drbot.agents import Agent
+from drbot.const.BotConstants import UserStatus
 from drbot.handlers import Handler
 from drbot.stores import MonitoredSubsMap
 from enum import Enum, auto
 
-class UserStatus(Enum):
-    ACTIVE = auto()
-    SUSPENDED = auto()
-    SHADOWBANNED = auto()
-    BANNED = auto()
-    UNEXPECTED = auto()
+from drbot.tools.RedditUserUtils import RedditUserUtils
+
 
 class AutobanHandler(Handler[Comment]):
     """
@@ -38,6 +35,7 @@ class AutobanHandler(Handler[Comment]):
         super().setup(agent)
         self.processed_users_cache = set([])
         self.monitored_subs_map = MonitoredSubsMap()
+        self.user_utils = RedditUserUtils()
         self._refresh_processing_cache()
         self.banned_users_cache = set([])
         self.watched_users_cache = set([])
@@ -100,7 +98,7 @@ class AutobanHandler(Handler[Comment]):
                         log.info(f"DRY RUN: Would have removed entry of user {reddit_user.name}")
 
     def act_on(self, reddit_user, trigger, rule):
-        if not self.get_user_status(reddit_user) == UserStatus.ACTIVE:
+        if not self.user_utils.get_user_status(reddit_user) == UserStatus.ACTIVE:
             log.warning(f"Tried to act on user that is not active {reddit_user.name}")
             return
         #sub_name = rule['sub_name']
@@ -158,27 +156,7 @@ class AutobanHandler(Handler[Comment]):
             case _:
                 log.error(f"Processing unmanaged action {self.monitored_subs_map.get_action(rule['sub_name'])}")
 
-    def get_user_status(self, reddit_user):
-        try:
-            if hasattr(reddit_user, 'is_suspended') and reddit_user.is_suspended:
-                log.info(f"User is suspended: {reddit_user.name}")
-                return UserStatus.SUSPENDED
-        except prawcore.exceptions.NotFound as e:
-            log.warning(f"User {reddit_user.name} seems to be shadowbanned")
-            return UserStatus.SHADOWBANNED
-        except Exception as e:
-            log.error(f"Error processing user {reddit_user.name}: {e.message}")
-            # default to active
-            return UserStatus.UNEXPECTED
-        #any(reddit.subreddit('SUBREDDIT').banned(redditor='USERNAME'))
-        if any(reddit().sub.banned(reddit_user.name)):
-            log.info(f"u/{reddit_user.name} is already banned from sub")
-            return UserStatus.BANNED
-        if reddit_user.name in self.banned_users_cache:
-            log.info(f"u/{reddit_user.name} is already in banned cache")
-            return UserStatus.BANNED
-        log.debug(f"u/{reddit_user.name} is active")
-        return UserStatus.ACTIVE
+
 
 
     def process_user_history(self, comment_author):
@@ -227,7 +205,10 @@ class AutobanHandler(Handler[Comment]):
         if comment_author.name in self.processed_users_cache:
             return
         log.debug(f"Checking history for: {comment_author.name}")
-        user_status = self.get_user_status(comment_author)
+        user_status = self.user_utils.get_user_status(comment_author)
+        if comment_author.name in self.banned_users_cache:
+            log.info(f"u/{comment_author.name} is already in banned cache")
+            user_status = UserStatus.BANNED
         log.debug(f"User {comment_author.name} is {user_status.name}")
         if user_status is not UserStatus.ACTIVE:
             match user_status:

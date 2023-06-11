@@ -23,39 +23,45 @@ def main():
 
     data_store = DataStore()
 
+    # Save locally every minute
     schedule.every(1).minute.do(data_store.save)
 
-    # Modlog agent
+    if not settings.is_test_env:
+        # Modlog agent
 
-    modlog_agent = ModlogAgent(data_store)
-    # Disable while praw does not handle 429 on modnote endpoint
-    #modlog_agent.register(ModNotesHandler())
+        modlog_agent = ModlogAgent(data_store)
+        # Disable while praw does not handle 429 on modnote endpoint
+        #modlog_agent.register(ModNotesHandler())
 
-    points_handler = PointsHandler()
-    modlog_agent.register(points_handler)
-    schedule.every().hour.do(points_handler.scan_all)
-    modlog_agent.register(AdminHandler())
+        points_handler = PointsHandler()
+        modlog_agent.register(points_handler)
+        schedule.every().hour.do(points_handler.scan_all)
+        modlog_agent.register(AdminHandler())
 
-    config_handler = ConfigEditHandler()
-    modlog_agent.register(config_handler)
+        config_handler = ConfigEditHandler()
+        modlog_agent.register(config_handler)
 
-    schedule.every(10).seconds.do(modlog_agent.run)
-
-
-    # Comment agent
-
-    comment_agent = CommentAgent(data_store)
-    comment_agent.register(AutobanHandler())
-    schedule.every(30).seconds.do(comment_agent.run)
-
-    # Periodic scan of points (scheduled last so other stuff happens first)
+        schedule.every(10).seconds.do(modlog_agent.run)
 
 
-    # Load from wiki last to load data into the existing agents' data stores
-    if settings.wiki_page != "":
-        wiki_store = WikiStore(data_store)
-        schedule.every(1).minute.do(wiki_store.save)
+        # Comment agent
 
+        comment_agent = CommentAgent(data_store)
+        comment_agent.register(AutobanHandler())
+        schedule.every(30).seconds.do(comment_agent.run)
+
+        # Periodic scan of points (scheduled last so other stuff happens first)
+
+
+        # Load from wiki last to load data into the existing agents' data stores
+        if settings.wiki_page != "":
+            wiki_store = WikiStore(data_store)
+            # Push save into wiki every 30mn to avoid spamming modlog
+            schedule.every(30).minutes.do(wiki_store.save)
+    else:
+        modlog_agent = ModlogAgent(data_store)
+        modlog_agent.register(ModNotesHandler())
+        schedule.every(30).seconds.do(modlog_agent.run)
     # Run all jobs immediately except those that shouldn't be run initially
     [job.run() for job in schedule.get_jobs() if "no_initial" not in job.tags]
     # The scheduler loop
