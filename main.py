@@ -57,7 +57,7 @@ def main():
         if settings.wiki_page != "":
             wiki_store = WikiStore(data_store)
             # Push save into wiki every 30mn to avoid spamming modlog
-            schedule.every(30).minutes.do(wiki_store.save)
+            schedule.every(15).minutes.do(wiki_store.save)
     else:
         modlog_agent = ModlogAgent(data_store)
         modlog_agent.register(ModNotesHandler())
