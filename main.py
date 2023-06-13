@@ -35,8 +35,6 @@ def main():
     modlog_agent = ModlogAgent(data_store)
     modlog_agent.register(ModNotesHandler())
 
-    schedule.every(30).seconds.do(modlog_agent.run)
-
     points_handler = PointsHandler()
     modlog_agent.register(points_handler)
     schedule.every().hour.do(points_handler.scan_all)
@@ -45,7 +43,7 @@ def main():
     config_handler = ConfigEditHandler()
     modlog_agent.register(config_handler)
 
-    #schedule.every(10).seconds.do(modlog_agent.run)
+    schedule.every(10).seconds.do(modlog_agent.run)
 
 
     # Comment agent
@@ -56,7 +54,7 @@ def main():
 
     # Periodic scan of points (scheduled last so other stuff happens first)
 
-
+    data_store.from_backup()
     # Load from wiki last to load data into the existing agents' data stores
     if settings.wiki_page != "":
         wiki_store = WikiStore(data_store)

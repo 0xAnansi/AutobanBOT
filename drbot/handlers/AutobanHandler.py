@@ -137,6 +137,7 @@ class AutobanHandler(Handler[Comment]):
                 while manual_retry >= 1:
                     try:
                         user_notes = reddit().sub.mod.notes.redditors(reddit_user, all_notes=True)
+                        manual_retry = 0
                     except TooManyRequests as e:
                         log.warning("Hitting rate limiting during note creation, sleeping")
                         time.sleep(manual_retry * 10)
@@ -157,6 +158,7 @@ class AutobanHandler(Handler[Comment]):
                         try:
                             reddit().sub.mod.notes.create(redditor=reddit_user.name, label=target_label,
                                                   note=target_note)
+                            manual_retry = 0
                         except TooManyRequests as e:
                             log.warning("Hitting rate limiting during note creation, sleeping")
                             time.sleep(manual_retry * 10)
