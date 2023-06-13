@@ -61,6 +61,7 @@ def main():
     else:
         modlog_agent = ModlogAgent(data_store)
         modlog_agent.register(ModNotesHandler())
+        data_store.from_backup()
         schedule.every(30).seconds.do(modlog_agent.run)
     # Run all jobs immediately except those that shouldn't be run initially
     [job.run() for job in schedule.get_jobs() if "no_initial" not in job.tags]

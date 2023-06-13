@@ -1,5 +1,7 @@
 import datetime
 import json
+import os
+from pathlib import Path
 from typing import Any
 from drbot import settings, log
 
@@ -32,6 +34,14 @@ class DataStore(dict):
         for k, v in json.loads(s, object_hook=DataStore._json_decoder).items():
             self[k] = v
         assert "_meta" in self
+
+    def from_backup(self):
+        if os.path.isfile(settings.local_backup_file):
+            contents = Path(settings.local_backup_file).read_text()
+            #data = contents.sub(r"^//.*?\n", "", contents)  # Remove comments
+            self.from_json(contents)
+        else:
+            self["_meta"] = {"version": "1.0"}
 
     def save(self) -> None:
         """Save the DataStore to a local file."""

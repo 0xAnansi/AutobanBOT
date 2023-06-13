@@ -28,12 +28,12 @@ class ModNotesHandler(Handler[ModAction]):
         super().setup(agent)
         self.tb_manipulator = ToolBoxUtils.ToolBoxManipulator(reddit(), settings.username)
         self.user_utils = RedditUserUtils()
-        self.cache = {}
+        self.cache = set([])
         self.mod_notes = {}
 
     def start_run(self) -> None:
         log.debug("Invalidating cache")
-        self.cache = {}
+        #self.cache = {}
         self.tb_manipulator.refresh_tb()
 
     @staticmethod
@@ -99,7 +99,6 @@ class ModNotesHandler(Handler[ModAction]):
         if item.mod.name == settings.username:
             log.debug(f"Dropping ModNote management since I am the creator of the entry")
             return
-
         match item.action:
             # Process a new TB entry (old modnote)
             case "wikirevise":
@@ -108,7 +107,11 @@ class ModNotesHandler(Handler[ModAction]):
                     if len(username) <= 0:
                         log.error(f"Failed to retrieve username, dropping modnote processing")
                         return
+                    if username in self.cache:
+                        log.debug(f"User in cache, dropping {username}")
+                        return
                     user_status = self.user_utils.get_user_status(username)
+                    self.cache.add(username)
                     if user_status == UserStatus.SUSPENDED \
                             or user_status == UserStatus.UNEXPECTED \
                             or user_status == UserStatus.SHADOWBANNED:
@@ -135,6 +138,7 @@ class ModNotesHandler(Handler[ModAction]):
                     elif type == "delete":
                         # todo
                         pass
+
 
             # Process a new modnote entry (new modnote)
             case "addnote":
