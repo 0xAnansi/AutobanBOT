@@ -123,7 +123,7 @@ class ModNotesHandler(Handler[ModAction]):
                     if user_status == UserStatus.SUSPENDED \
                             or user_status == UserStatus.UNEXPECTED \
                             or user_status == UserStatus.SHADOWBANNED:
-                        log.error(f"Retrieved unwanted status {user_status.name} for user {username}, dropping modnote processing")
+                        log.warning(f"Retrieved unwanted status {user_status.name} for user {username}, dropping modnote processing")
                         return
                     if type == "create":
                         usernotes_tb = self.tb_manipulator.get_user_notes(username)
