@@ -1,7 +1,10 @@
 from __future__ import annotations
 
+import time
+
 import prawcore
 from praw.models import Comment
+from prawcore import TooManyRequests
 
 from drbot import settings, log, reddit
 from drbot.agents import Agent
@@ -130,7 +133,14 @@ class AutobanHandler(Handler[Comment]):
                     return False
                 target_label = self.monitored_subs_map.get_label(rule['sub_name'])
                 target_note = self.monitored_subs_map.get_note(rule['sub_name'])
-                user_notes = reddit().sub.mod.notes.redditors(reddit_user, all_notes=True)
+                manual_retry = 1
+                while manual_retry >= 1:
+                    try:
+                        user_notes = reddit().sub.mod.notes.redditors(reddit_user, all_notes=True)
+                    except TooManyRequests as e:
+                        log.warning("Hitting rate limiting during note creation, sleeping")
+                        time.sleep(manual_retry * 10)
+                        manual_retry += 1
                 for modnote in user_notes:
                     if modnote is None:
                         # can return None even in iterator
@@ -142,8 +152,15 @@ class AutobanHandler(Handler[Comment]):
                         return
                 if not settings.dry_run:
                     log.warning(f"Watching user [{reddit_user.name}] for posting in [{rule['sub_name']}], creating note")
-                    reddit().sub.mod.notes.create(redditor=reddit_user.name, label=target_label,
+                    manual_retry = 1
+                    while manual_retry >= 1:
+                        try:
+                            reddit().sub.mod.notes.create(redditor=reddit_user.name, label=target_label,
                                                   note=target_note)
+                        except TooManyRequests as e:
+                            log.warning("Hitting rate limiting during note creation, sleeping")
+                            time.sleep(manual_retry * 10)
+                            manual_retry += 1
                     self.watched_users_cache.add(reddit_user.name)
                 else:
                     log.info(f"DRY RUN : watching user [{reddit_user.name}] for posting in [{rule['sub_name']}]")
