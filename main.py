@@ -9,6 +9,9 @@ Free to use by anyone for any reason (licensed under CC0)
 import logging
 import schedule
 import time
+
+from prawcore import TooManyRequests
+
 from drbot import settings, log, reddit
 from drbot.agents.CommentAgent import CommentAgent
 from drbot.stores import *
@@ -59,15 +62,31 @@ def main():
             # Push save into wiki every 30mn to avoid spamming modlog
             schedule.every(15).minutes.do(wiki_store.save)
     else:
+
         modlog_agent = ModlogAgent(data_store)
         modlog_agent.register(ModNotesHandler())
         data_store.from_backup()
         schedule.every(30).seconds.do(modlog_agent.run)
     # Run all jobs immediately except those that shouldn't be run initially
-    [job.run() for job in schedule.get_jobs() if "no_initial" not in job.tags]
+    cont = 1
+    while cont == 1:
+        try:
+            [job.run() for job in schedule.get_jobs() if "no_initial" not in job.tags]
+            cont = 0
+        except TooManyRequests as e:
+            log.warning("Hitting general rate limiting, missing management in method, sleeping")
+            time.sleep(30)
+
     # The scheduler loop
     while True:
-        schedule.run_pending()
+        cont = 1
+        while cont == 1:
+            try:
+                schedule.run_pending()
+                cont = 0
+            except TooManyRequests as e:
+                log.warning("Hitting general rate limiting, missing management in method, sleeping")
+                time.sleep(30)
         t = schedule.idle_seconds()
         if t > 0:
             time.sleep(t)

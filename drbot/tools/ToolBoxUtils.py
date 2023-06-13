@@ -149,6 +149,7 @@ class ToolBoxManipulator:
     def get_index_from_note_type(self, modo: str) -> int:
         return self._get_index_from_val(self.mod_notes_constants["warnings"], modo)
 
+
     @staticmethod
     def get_modnote_label_from_tb_label(tb_label):
         match tb_label:
@@ -186,8 +187,20 @@ class ToolBoxManipulator:
     def get_note_owner(self, note: dict):
         return self.get_modo_from_index(note['m'])
 
+    def get_note_date(self, note: dict):
+        timest = self.get_note_timestamp(note)
+        try:
+            dt = pd.to_datetime(int(timest), utc=True, unit='s')
+            return dt.date()
+        except:
+            log.error(f"Failed to transform timestamp to date, sending default value")
+            return "None"
+
     def get_note_content(self, note: dict):
         return note['n']
+
+    def get_note_timestamp(self, note: dict):
+        return note['t']
 
     def get_note_target_link(self, note: dict):
         return note['l']

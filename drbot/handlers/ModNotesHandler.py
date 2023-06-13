@@ -1,13 +1,16 @@
 from __future__ import annotations
 
 import json
-from time import sleep
+import time
 from typing import Tuple
 
 import praw
 import prawcore
 from praw.models import ModAction, ModNote
 from datetime import datetime
+
+from prawcore import TooManyRequests
+
 from drbot import settings, log, reddit
 from drbot.agents import Agent
 from drbot.const.BotConstants import UserStatus
@@ -56,7 +59,7 @@ class ModNotesHandler(Handler[ModAction]):
                     return "", ""
                 return firstWord, results[0]
             case "delete":
-                pattern = r"^\"delete note .+ on.+user (.+)\" via toolbox$"
+                pattern = r"^\"delete note.*on.*user (.+)\" via toolbox$"
                 results = re.findall(pattern, item.description)
                 if len(results) != 1:
                     log.error(
@@ -71,6 +74,8 @@ class ModNotesHandler(Handler[ModAction]):
         target_owner = self.tb_manipulator.get_note_owner(tb_note)
         target_label = self.tb_manipulator.get_note_modnote_label(tb_note)
         target_note = self.tb_manipulator.get_note_content(tb_note)
+        target_datetime = self.tb_manipulator.get_note_date(tb_note)
+        target_date = f"{target_datetime}"
         for modnote in modnotes:
             if modnote is None:
                 # can return None even in iterator
@@ -83,8 +88,11 @@ class ModNotesHandler(Handler[ModAction]):
                         return True
                 else:
                     # Note was created by bot, check if the note content mentions the text and mod name
-                    if target_note in modnote.note and modnote.note.startswith(target_owner):
+                    if target_note in modnote.note and target_owner in modnote.note and target_date in modnote.note:
                         # Matching note found, skip this tb_note
+                        return True
+                    # Old format was not starting with date but with owner
+                    if target_note in modnote.note and modnote.note.startswith(target_owner):
                         return True
         return False
 
@@ -119,8 +127,15 @@ class ModNotesHandler(Handler[ModAction]):
                         return
                     if type == "create":
                         usernotes_tb = self.tb_manipulator.get_user_notes(username)
-                        usernotes_reddit = self.get_user_modnotes(username)
-                        sleep(0.5)
+                        manual_retry = 1
+                        while manual_retry >= 1:
+                            try:
+                                usernotes_reddit = self.get_user_modnotes(username)
+                                manual_retry = 0
+                            except TooManyRequests as e:
+                                log.warning("Hitting rate limiting while fetching user notes, sleeping")
+                                time.sleep(manual_retry * 10)
+                                manual_retry += 1
                         for tb_note in usernotes_tb:
                             if self.is_tb_in_modnote(tb_note, usernotes_reddit):
                                 # Found match, nothing to do
@@ -130,11 +145,20 @@ class ModNotesHandler(Handler[ModAction]):
                                 # Need to create the note in reddit
                                 redditor = username
                                 label = self.tb_manipulator.get_note_modnote_label(tb_note)
-                                note = f"{self.tb_manipulator.get_note_owner(tb_note)} | {self.tb_manipulator.get_note_content(tb_note)}"
+                                date_s = self.tb_manipulator.get_note_date(tb_note)
+                                note = f"{date_s} | {self.tb_manipulator.get_note_owner(tb_note)} | {self.tb_manipulator.get_note_content(tb_note)}"
                                 thing = self.tb_manipulator.get_note_modnote_target(tb_note)
                                 log.info(f"Creating mod note in new reddit from tb_note - user [{redditor}] label [{label}] content [{note}]")
-                                reddit().sub.mod.notes.create(redditor=redditor, label=label,
-                                                              note=note, thing=thing)
+                                manual_retry = 1
+                                while manual_retry >= 1:
+                                    try:
+                                        reddit().sub.mod.notes.create(redditor=redditor, label=label,
+                                                                    note=note, thing=thing)
+                                        manual_retry = 0
+                                    except TooManyRequests as e:
+                                        log.warning("Hitting rate limiting during note creation, sleeping")
+                                        time.sleep(manual_retry * 10)
+                                        manual_retry += 1
                     elif type == "delete":
                         # todo
                         pass
