@@ -6,11 +6,14 @@ import re
 import tomlkit
 from praw.models import ModAction
 from drbot import settings, log, reddit
+from drbot.agents import Agent
 from drbot.handlers import Handler
 
 
 class ConfigEditHandler(Handler[ModAction]):
 
+    def setup(self, agent: Agent[ModAction]) -> None:
+        super().setup(agent)
     def handle(self, item: ModAction) -> None:
         SETTINGS_PATH = os.path.join(os.path.dirname(__file__), '../../data/settings.toml')
         SETTINGS_PAGE = f"{settings.wiki_page}/settings"
