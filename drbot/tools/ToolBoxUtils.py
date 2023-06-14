@@ -153,13 +153,13 @@ class ToolBoxManipulator:
     @staticmethod
     def get_modnote_label_from_tb_label(tb_label):
         match tb_label:
-            case "spamwarning" | 'spamwarn':
+            case "spamwarning" | 'spamwarn' | "spam":
                 return "SPAM_WARNING"
             case 'spamwatch':
                 return "SPAM_WATCH"
-            case "ban_permanent" | 'permanent_ban':
+            case "ban_permanent" | 'permanent_ban' | 'permban':
                 return "PERMA_BAN"
-            case 'ban_1j' | 'ban_3j' | 'ban_7j' | 'ban_15j' | 'ban_30j' | 'ban':
+            case 'ban_1j' | 'ban_3j' | 'ban_7j' | 'ban_15j' | 'ban_30j' | 'ban_non_perma' | 'ban':
                 return "BAN"
             case "abusewarning" | 'abusewarn':
                 return "ABUSE_WARNING"

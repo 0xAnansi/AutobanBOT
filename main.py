@@ -13,7 +13,6 @@ import time
 from prawcore import TooManyRequests
 
 from drbot import settings, log, reddit
-from drbot.agents.CommentAgent import CommentAgent
 from drbot.stores import *
 from drbot.agents import *
 from drbot.handlers import *
@@ -30,7 +29,7 @@ def main():
     schedule.every(1).minute.do(data_store.save)
 
     #if not settings.is_test_env:
-        # Modlog agent
+    # Modlog agent
 
     modlog_agent = ModlogAgent(data_store)
     modlog_agent.register(ModNotesHandler())
