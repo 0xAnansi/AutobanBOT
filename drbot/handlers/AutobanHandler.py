@@ -28,7 +28,7 @@ class AutobanHandler(Handler[Comment]):
             # add the generic account used for communication
             gen_reddit_name = settings.subreddit + "-ModTeam"
             self.processed_users_cache.add(gen_reddit_name)
-            self.processed_users_cache.add("Automoderator")
+            self.processed_users_cache.add("AutoModerator")
             for moderator in reddit().sub.moderator():
                 self.processed_users_cache.add(moderator.name)
             for trusted_user in settings.trusted_users:
