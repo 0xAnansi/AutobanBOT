@@ -68,6 +68,22 @@ monitored_subs = [
     # Watch
     ## XXX
 ]
+# =======================================================
+# Poll feature options
+# =======================================================
+# Threads that are actually polls the bot should monitor results for
+# For example:
+#   polls = [
+#       {thread_id="149bxnl", options=["Option 1", "Option 2", "Option 3"], min_account_age="3m", name="The pollest poll of all polls", duration="2d"},
+#   ]
+# thread_id should be the id of the thread to monitor
+# options should be the list of choices in the poll
+# min_account_age (optionnal) can be used to eliminate answers from accounts newer than the given period. Format is [number][d|w|m|y] which resolves to number*1, 7, 30 or 365 days repectively
+## Note that I strongly advise setting the thread restriction at the automod level instead of the bot, due to the more flexibility it offers
+# name (optionnal) is the name of the poll displayed in the tally message of the bot in the thread
+# duration (optionnal) is the time given to users to vote from the creation of the thread. Format is [number][h|d|w|m|y] which resolves to number* hour, day, week, month and year repectively
+polls = []
+
 # Users the rules will not apply to. Won't be flagged by any of the actions linked to subreddits setup above
 trusted_users = []
 # =======================================================

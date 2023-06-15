@@ -6,3 +6,4 @@ from drbot.handlers.ModmailMobileLinkHandler import ModmailMobileLinkHandler
 from drbot.handlers.AutobanHandler import AutobanHandler
 from drbot.handlers.ConfigEditHandler import ConfigEditHandler
 from drbot.handlers.ModNotesHandler import ModNotesHandler
+from drbot.handlers.PollHandler import PollHandler

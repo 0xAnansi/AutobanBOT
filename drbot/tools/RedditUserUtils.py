@@ -13,6 +13,8 @@ from enum import Enum, auto
 
 class RedditUserUtils:
     def get_user_status(self, redditor_in: str | Redditor):
+        if redditor_in is None:
+            return UserStatus.UNEXPECTED
         reddit_user = redditor_in
         if isinstance(redditor_in, str):
             try:

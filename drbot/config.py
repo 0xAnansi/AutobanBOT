@@ -7,6 +7,7 @@ import sys
 import os.path
 
 
+
 def validate_points_config(l):
     for i, c in enumerate(l):
         i += 1  # Convert from 0-indexed to 1-indexed
@@ -24,6 +25,30 @@ def validate_points_config(l):
             return False
         for k in c:
             if not k in ["id", "points", "expires"]:
+                print(f"Unknown key '{k}' in removal reason #{i} ({c['id']})")
+                return False
+    return True
+
+def validate_polls_config(l):
+    for i, c in enumerate(l):
+        i += 1  # Convert from 0-indexed to 1-indexed
+        if not type(c) is DynaBox:
+            print(f"Broken removal reason #{i}: {c}")
+            return False
+        if not ("thread_id" in c and type(c["thread_id"]) is str):
+            print(f"Missing or invalid 'thread_id' for poll #{i}")
+            return False
+        if not ("options" in c and len(c["options"]) > 0):
+            print(f"Missing or invalid 'options' for poll #{i} ({c['thread_id']}) - must be a list with entries")
+            return False
+        if "name" in c and not (type(c["name"]) is str):
+            print(f"Invalid 'name' for poll #{i} ({c['thread_id']}) - must be a string ")
+            return False
+        if "duration" in c and not (type(c["duration"]) is str):
+            print(f"Invalid 'duration' for poll #{i} ({c['thread_id']}) - must be a string ")
+            return False
+        for k in c:
+            if not k in ["thread_id", "options", "name", "duration", "min_age"]:
                 print(f"Unknown key '{k}' in removal reason #{i} ({c['id']})")
                 return False
     return True
@@ -48,6 +73,7 @@ def validate_monitored_subs_config(l):
     return True
 
 
+
 SETTINGS_PATH = os.path.join(os.path.dirname(__file__), '../data/settings.toml')
 AUTH_SETTINGS_PATH = os.path.join(os.path.dirname(__file__), '../data/server_settings.toml')
 OLD_AUTH_SETTINGS_PATH = os.path.join(os.path.dirname(__file__), '../data/auth.toml')
@@ -70,7 +96,7 @@ settings = Dynaconf(
     envvar_prefix="AutobanBOT",
     settings_files=[SETTINGS_PATH, AUTH_SETTINGS_PATH],
     validate_on_update="all",
-    fresh_vars=["point_threshold", "point_config", "monitored_subs", "expiration_months", "autoban_mode", "dry_run", "trusted_users"],
+    fresh_vars=["point_threshold", "point_config", "monitored_subs", "expiration_months", "autoban_mode", "dry_run", "trusted_users", "polls"],
     validators=[
         OrValidator(
             Validator('refresh_token', ne="", is_type_of=str),
@@ -93,6 +119,8 @@ settings = Dynaconf(
                   is_type_of=list, condition=validate_points_config, messages={"condition": "Invalid {name} in the config"}),
         Validator('monitored_subs',
                   is_type_of=list, condition=validate_monitored_subs_config, messages={"condition": "Invalid {name} in the config"}),
+        Validator('polls',
+                  is_type_of=list, condition=validate_polls_config, default=[], messages={"condition": "Invalid {name} in the config"}),
         Validator('expiration_months', 'modmail_truncate_len',
                   gte=0, is_type_of=int, messages={"operations": "{name} ({value}) must be a whole number (or 0 to turn it off) in in the config"}),
         Validator('autoban_mode',
