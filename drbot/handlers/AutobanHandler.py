@@ -221,7 +221,7 @@ class AutobanHandler(Handler[Comment]):
             return
         comment_author = item.author
         if comment_author is None:
-            log.info("Item has no author, dropping")
+            log.info(f"Item {item.permalink} has no author, dropping")
             return
         # We already processed this user, do nothing
         if comment_author.name in self.processed_users_cache:
