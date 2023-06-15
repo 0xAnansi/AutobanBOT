@@ -220,7 +220,9 @@ class AutobanHandler(Handler[Comment]):
         if item.body == "[removed]":  # or item.body == "[ Removed by Reddit ]":
             return
         comment_author = item.author
-
+        if comment_author is None:
+            log.info("Item has no author, dropping")
+            return
         # We already processed this user, do nothing
         if comment_author.name in self.processed_users_cache:
             return
