@@ -47,7 +47,7 @@ def main():
     comment_agent = CommentAgent(data_store)
     comment_agent.register(AutobanHandler())
     poll_handler = PollHandler()
-    comment_agent.register()
+    comment_agent.register(poll_handler)
     schedule.every(30).seconds.do(poll_handler.run_tally)
     schedule.every(30).seconds.do(comment_agent.run)
 
