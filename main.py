@@ -28,40 +28,43 @@ def main():
     # Save locally every minute
     schedule.every(1).minute.do(data_store.save)
 
-    if not settings.is_test_env:
-        # Modlog agent
+    #if not settings.is_test_env:
+    # Modlog agent
 
-        modlog_agent = ModlogAgent(data_store)
-        modlog_agent.register(ModNotesHandler())
+    modlog_agent = ModlogAgent(data_store)
+    modlog_agent.register(ModNotesHandler())
 
-        points_handler = PointsHandler()
-        modlog_agent.register(points_handler)
-        schedule.every().hour.do(points_handler.scan_all)
-        modlog_agent.register(AdminHandler())
-        config_handler = ConfigEditHandler()
-        modlog_agent.register(config_handler)
+    points_handler = PointsHandler()
+    modlog_agent.register(points_handler)
+    schedule.every().hour.do(points_handler.scan_all)
+    modlog_agent.register(AdminHandler())
+    config_handler = ConfigEditHandler()
+    modlog_agent.register(config_handler)
 
-        schedule.every(10).seconds.do(modlog_agent.run)
+    schedule.every(10).seconds.do(modlog_agent.run)
 
-        # Comment agent
-        comment_agent = CommentAgent(data_store)
-        comment_agent.register(AutobanHandler())
-        schedule.every(30).seconds.do(comment_agent.run)
+    # Comment agent
+    comment_agent = CommentAgent(data_store)
+    comment_agent.register(AutobanHandler())
+    poll_handler = PollHandler()
+    comment_agent.register()
+    schedule.every(30).seconds.do(poll_handler.run_tally)
+    schedule.every(30).seconds.do(comment_agent.run)
 
-        # Periodic scan of points (scheduled last so other stuff happens first)
+    # Periodic scan of points (scheduled last so other stuff happens first)
 
-        #data_store.from_backup()
-        # Load from wiki last to load data into the existing agents' data stores
-        if settings.wiki_page != "":
-            wiki_store = WikiStore(data_store)
-            # Push save into wiki every 30mn to avoid spamming modlog
-            schedule.every(15).minutes.do(wiki_store.save)
+    #data_store.from_backup()
+    # Load from wiki last to load data into the existing agents' data stores
+    if settings.wiki_page != "":
+        wiki_store = WikiStore(data_store)
+        # Push save into wiki every 30mn to avoid spamming modlog
+        schedule.every(15).minutes.do(wiki_store.save)
 
-    else:
-        poll_handler = PollHandler()
-        comment_agent = CommentAgent(data_store)
-        comment_agent.register(poll_handler)
-        schedule.every(30).seconds.do(poll_handler.run_tally)
+    #else:
+        # poll_handler = PollHandler()
+        # comment_agent = CommentAgent(data_store)
+        # comment_agent.register(PollHandler())
+        # schedule.every(30).seconds.do(poll_handler.run_tally)
     #     pass
 
     # Load from local backup just in case
