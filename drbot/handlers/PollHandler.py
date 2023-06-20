@@ -123,10 +123,9 @@ This is a beta feature, you can blame the mods if it does strange things.
         if hasattr(comment.author, "name"):
             if comment.author.name in self.users_whitelist or comment.locked:
                 return
-            else:
-                comment.mod.lock()
-                comment.mod.remove()
-                comment.reply(f"Ce message a été automatiquement supprimé: {message}")
+        comment.mod.lock()
+        comment.mod.remove()
+        comment.reply(f"Ce message a été automatiquement supprimé: {message}")
 
     def tally_poll(self, poll: dict):
         thread_id = poll["thread_id"]
