@@ -48,7 +48,7 @@ def main():
     comment_agent.register(AutobanHandler())
     poll_handler = PollHandler()
     comment_agent.register(poll_handler)
-    schedule.every(30).seconds.do(poll_handler.run_tally)
+    schedule.every(60).minutes.do(poll_handler.run_tally)
     schedule.every(30).seconds.do(comment_agent.run)
 
     # Periodic scan of points (scheduled last so other stuff happens first)

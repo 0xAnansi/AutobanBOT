@@ -84,6 +84,20 @@ monitored_subs = [
 # duration (optionnal) is the time given to users to vote from the creation of the thread. Format is [number][h|d|w|m|y] which resolves to number* hour, day, week, month and year repectively
 polls = []
 
+#constant_polling = [
+#        {
+#        thread_id = "default",
+#        # Account requirements
+#        min_acc_age = 180,
+#        min_comments = 25,
+#        # Poll options
+#        valid_options = ["Populaire", "Impopulaire", "Pas une opinion"],
+#        check_level = "first",
+#        threshold_percent = 66,
+#        action = "lock"
+#    },
+#]
+
 # Users the rules will not apply to. Won't be flagged by any of the actions linked to subreddits setup above
 trusted_users = []
 # =======================================================

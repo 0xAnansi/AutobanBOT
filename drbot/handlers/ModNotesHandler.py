@@ -102,6 +102,63 @@ class ModNotesHandler(Handler[ModAction]):
             notes.append(note)
         return notes
 
+
+    def handle_tb_action(self, item: ModAction):
+        type, username = self.extract_type_and_username_from_tb_action(item)
+        if len(username) <= 0:
+            log.error(f"Failed to retrieve username, dropping modnote processing")
+            return
+        if username in self.cache:
+            log.debug(f"User in cache, dropping {username}")
+            return
+        user_status = self.user_utils.get_user_status(username)
+        self.cache.add(username)
+        if user_status == UserStatus.SUSPENDED \
+                or user_status == UserStatus.UNEXPECTED \
+                or user_status == UserStatus.SHADOWBANNED:
+            log.warning(
+                f"Retrieved unwanted status {user_status.name} for user {username}, dropping modnote processing")
+            return
+        if type == "create":
+            usernotes_tb = self.tb_manipulator.get_user_notes(username)
+            manual_retry = 1
+            while manual_retry >= 1:
+                try:
+                    usernotes_reddit = self.get_user_modnotes(username)
+                    manual_retry = 0
+                except TooManyRequests as e:
+                    log.warning("Hitting rate limiting while fetching user notes, sleeping")
+                    time.sleep(manual_retry * 10)
+                    manual_retry += 1
+            for tb_note in usernotes_tb:
+                if self.is_tb_in_modnote(tb_note, usernotes_reddit):
+                    # Found match, nothing to do
+                    log.debug("Found matching note, checking next entry")
+                    continue
+                else:
+                    # Need to create the note in reddit
+                    redditor = username
+                    label = self.tb_manipulator.get_note_modnote_label(tb_note)
+                    date_s = self.tb_manipulator.get_note_date(tb_note)
+                    note = f"{date_s} | {self.tb_manipulator.get_note_owner(tb_note)} | {self.tb_manipulator.get_note_content(tb_note)}"
+                    thing = self.tb_manipulator.get_note_modnote_target(tb_note)
+                    log.info(
+                        f"Creating mod note in new reddit from tb_note - user [{redditor}] label [{label}] content [{note}]")
+                    manual_retry = 1
+                    while manual_retry >= 1:
+                        try:
+                            reddit().sub.mod.notes.create(redditor=redditor, label=label,
+                                                          note=note, thing=thing)
+                            manual_retry = 0
+                        except TooManyRequests as e:
+                            log.warning("Hitting rate limiting during note creation, sleeping")
+                            time.sleep(manual_retry * 10)
+                            manual_retry += 1
+        elif type == "delete":
+            # todo
+            pass
+
+
     def handle(self, item: ModAction) -> None:
         # Assume that the bot handle note creation correctly and doesn't need to process its own entries
         if item.mod.name == settings.username:
@@ -111,59 +168,17 @@ class ModNotesHandler(Handler[ModAction]):
             # Process a new TB entry (old modnote)
             case "wikirevise":
                 if self.is_tb_note_action(item):
-                    type, username = self.extract_type_and_username_from_tb_action(item)
-                    if len(username) <= 0:
-                        log.error(f"Failed to retrieve username, dropping modnote processing")
-                        return
-                    if username in self.cache:
-                        log.debug(f"User in cache, dropping {username}")
-                        return
-                    user_status = self.user_utils.get_user_status(username)
-                    self.cache.add(username)
-                    if user_status == UserStatus.SUSPENDED \
-                            or user_status == UserStatus.UNEXPECTED \
-                            or user_status == UserStatus.SHADOWBANNED:
-                        log.warning(f"Retrieved unwanted status {user_status.name} for user {username}, dropping modnote processing")
-                        return
-                    if type == "create":
-                        usernotes_tb = self.tb_manipulator.get_user_notes(username)
-                        manual_retry = 1
-                        while manual_retry >= 1:
-                            try:
-                                usernotes_reddit = self.get_user_modnotes(username)
-                                manual_retry = 0
-                            except TooManyRequests as e:
-                                log.warning("Hitting rate limiting while fetching user notes, sleeping")
-                                time.sleep(manual_retry * 10)
-                                manual_retry += 1
-                        for tb_note in usernotes_tb:
-                            if self.is_tb_in_modnote(tb_note, usernotes_reddit):
-                                # Found match, nothing to do
-                                log.debug("Found matching note, checking next entry")
-                                continue
-                            else:
-                                # Need to create the note in reddit
-                                redditor = username
-                                label = self.tb_manipulator.get_note_modnote_label(tb_note)
-                                date_s = self.tb_manipulator.get_note_date(tb_note)
-                                note = f"{date_s} | {self.tb_manipulator.get_note_owner(tb_note)} | {self.tb_manipulator.get_note_content(tb_note)}"
-                                thing = self.tb_manipulator.get_note_modnote_target(tb_note)
-                                log.info(f"Creating mod note in new reddit from tb_note - user [{redditor}] label [{label}] content [{note}]")
-                                manual_retry = 1
-                                while manual_retry >= 1:
-                                    try:
-                                        reddit().sub.mod.notes.create(redditor=redditor, label=label,
-                                                                    note=note, thing=thing)
-                                        manual_retry = 0
-                                    except TooManyRequests as e:
-                                        log.warning("Hitting rate limiting during note creation, sleeping")
-                                        time.sleep(manual_retry * 10)
-                                        manual_retry += 1
-                    elif type == "delete":
-                        # todo
-                        pass
+                    self.handle_tb_action(item)
 
 
             # Process a new modnote entry (new modnote)
             case "addnote":
+                # Fetch tb of target user
+                # check for duplicate
+                # if yes, do nothing
+                # else
+                # build new TB array with new note
+                # if note type or modo does not exist, create in constants array
+                # replace user TB in full TB
+                # save TB to wiki
                 pass

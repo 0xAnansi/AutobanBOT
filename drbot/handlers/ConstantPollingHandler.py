@@ -20,7 +20,7 @@ from drbot.stores.PollsMap import PollsMap
 from drbot.tools.RedditUserUtils import RedditUserUtils
 
 
-class PollHandler(Handler[Comment]):
+class ConstantPollingHandler(Handler[Comment]):
     """
     Scan the comments of the sub and check if the author posted previously in monitored subs.
     Acts on the user if this is the case by either adding a modnote or banning, depending on the configuration for this specific sub.
@@ -120,13 +120,10 @@ This is a beta feature, you can blame the mods if it does strange things.
         return "none"
 
     def remove_valid_comment(self, comment: Comment, message: str):
-        if hasattr(comment.author, "name"):
-            if comment.author.name in self.users_whitelist or comment.locked:
-                return
-            else:
-                comment.mod.lock()
-                comment.mod.remove()
-                comment.reply(f"Ce message a été automatiquement supprimé: {message}")
+        if comment.author.name not in self.users_whitelist and not comment.locked:
+            comment.mod.lock()
+            comment.mod.remove()
+            comment.reply(f"Ce message a été automatiquement supprimé: {message}")
 
     def tally_poll(self, poll: dict):
         thread_id = poll["thread_id"]
