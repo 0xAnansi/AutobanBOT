@@ -15,6 +15,7 @@ class ModQueueCleanerHandler(Handler[ModAction]):
         self.user_utils = RedditUserUtils()
         self.cache = set([])
         super().setup(agent)
+        log.info(f"Setting up ModQueueCleaner with autoremoval of contribs set to {settings.wipe_contrib_on_permaban}")
 
     def wipe_user_entries(self, reddit_user: Redditor):
         entries = []
@@ -57,6 +58,7 @@ class ModQueueCleanerHandler(Handler[ModAction]):
                     log.debug("User already processed")
                     return
                 if "permanent" in item.details:
+                    log.info(f"Handling modqueue and comment removal from permabanned user {item.target_author}")
                     red = reddit().redditor(item.target_author)
                     self.clear_modqueue_for_user(red)
                     if settings.wipe_contrib_on_permaban:
