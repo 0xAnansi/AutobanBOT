@@ -8,3 +8,4 @@ from drbot.handlers.ConfigEditHandler import ConfigEditHandler
 from drbot.handlers.ModNotesHandler import ModNotesHandler
 from drbot.handlers.PollHandler import PollHandler
 from drbot.handlers.ConstantPollingHandler import ConstantPollingHandler
+from drbot.handlers.ModQueueCleanerHandler import ModQueueCleanerHandler

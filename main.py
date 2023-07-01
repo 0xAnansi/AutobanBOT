@@ -32,6 +32,8 @@ def main():
     # Modlog agent
 
     modlog_agent = ModlogAgent(data_store)
+    modlog_agent.register(ModQueueCleanerHandler())
+
     modlog_agent.register(ModNotesHandler())
 
     points_handler = PointsHandler()

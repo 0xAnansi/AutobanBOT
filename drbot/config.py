@@ -96,7 +96,7 @@ settings = Dynaconf(
     envvar_prefix="AutobanBOT",
     settings_files=[SETTINGS_PATH, AUTH_SETTINGS_PATH],
     validate_on_update="all",
-    fresh_vars=["point_threshold", "point_config", "monitored_subs", "expiration_months", "autoban_mode", "dry_run", "trusted_users", "polls"],
+    fresh_vars=["point_threshold", "point_config", "monitored_subs", "expiration_months", "autoban_mode", "dry_run", "trusted_users", "polls", "wipe_contrib_on_permaban"],
     validators=[
         OrValidator(
             Validator('refresh_token', ne="", is_type_of=str),
@@ -107,6 +107,8 @@ settings = Dynaconf(
                   is_type_of=list, default=[], messages={"trusted_users": "Invalid '{name}' in the config"}),
         Validator('modmail_logging',
                   is_type_of=bool, default=True, messages={"modmail_logging": "Invalid '{name}' in the config"}),
+        Validator('wipe_contrib_on_permaban',
+                  is_type_of=bool, default=False, messages={"wipe_contrib_on_permaban": "Invalid '{name}' in the config"}),
         Validator('is_test_env',
                   is_type_of=bool, default=False, messages={"is_test_env": "Invalid '{name}' in the config"}),
         Validator('subreddit',

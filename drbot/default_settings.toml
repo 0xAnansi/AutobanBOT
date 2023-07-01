@@ -32,7 +32,8 @@ expiration_months = 24
 # 2: autoban and notify the mods
 # 3: autoban silently
 autoban_mode = 1
-
+# Remove all contribution of users on permaban if set to true
+wipe_contrib_on_permaban = false
 # =======================================================
 # Auto ban feature options
 # =======================================================
