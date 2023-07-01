@@ -35,7 +35,7 @@ class ModQueueCleanerHandler(Handler[ModAction]):
 
         for item in entries:
             if not settings.dry_run:
-                if not item.locked:
+                if not item.locked and item.archived is False:
                     item.mod.lock()
                 item.mod.remove(mod_note="AutobanBOT: removed user's entry after permaban")
             else:
@@ -45,7 +45,7 @@ class ModQueueCleanerHandler(Handler[ModAction]):
         modqueue = reddit().sub.mod.modqueue(limit=None)
         for item in modqueue:
             if item.author == reddit_user:
-                if not item.locked:
+                if not item.locked and item.archived is False:
                     item.mod.lock()
                 item.mod.remove(mod_note="AutobanBOT: removed banned user's entry from modqueue")
                 pass
