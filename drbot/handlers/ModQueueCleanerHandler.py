@@ -60,8 +60,11 @@ class ModQueueCleanerHandler(Handler[ModAction]):
                 if "permanent" in item.details:
                     log.info(f"Handling modqueue and comment removal from permabanned user {item.target_author}")
                     red = reddit().redditor(item.target_author)
-                    self.clear_modqueue_for_user(red)
-                    if settings.wipe_contrib_on_permaban:
-                        self.wipe_user_entries(red)
+                    user_status = self.user_utils.get_user_status(red)
+                    # double check that user is still banned in case it was a mistake
+                    if user_status is UserStatus.BANNED:
+                        self.clear_modqueue_for_user(red)
+                        if settings.wipe_contrib_on_permaban:
+                            self.wipe_user_entries(red)
                     self.cache.add(item.target_author)
 
