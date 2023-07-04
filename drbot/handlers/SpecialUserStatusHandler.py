@@ -26,7 +26,7 @@ class SpecialUserStatusHandler(Handler[Comment]):
         # Ran once at handler registration in agent
         super().setup(agent)
         self.user_utils = RedditUserUtils()
-        self.user_cache = []
+        self.user_cache = {}
         self.user_cache["AutoModerator"] = UserStatus.ACTIVE
 
     def start_run(self) -> None:
