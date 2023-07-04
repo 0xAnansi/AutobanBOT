@@ -56,6 +56,7 @@ class SpecialUserStatusHandler(Handler[Comment]):
             case UserStatus.SHADOWBANNED:
                 reason = f"User {comment_author.name} has posted while being shadowbanned"
                 if not settings.dry_run:
+                    log.info(f"Sending report for user {comment_author.name} on comment {item.permalink}")
                     item.report(reason=reason)
                 else:
                     log.info(f"DRY RUN: Would have reported comment of user {comment_author.name} with reason [{reason}]")
