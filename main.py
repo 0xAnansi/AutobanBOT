@@ -48,6 +48,7 @@ def main():
     # Comment agent
     comment_agent = CommentAgent(data_store)
     comment_agent.register(AutobanHandler())
+    comment_agent.register(SpecialUserStatusHandler())
     poll_handler = PollHandler()
     comment_agent.register(poll_handler)
     schedule.every(60).minutes.do(poll_handler.run_tally)

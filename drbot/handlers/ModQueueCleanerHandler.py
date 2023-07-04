@@ -66,7 +66,8 @@ class ModQueueCleanerHandler(Handler[ModAction]):
                     # double check that user is still banned in case it was a mistake
                     if user_status is UserStatus.BANNED:
                         self.clear_modqueue_for_user(red)
-                        if settings.wipe_contrib_on_permaban:
+                        wipe_on_perma = settings.wipe_contrib_on_permaban
+                        if wipe_on_perma:
                             self.wipe_user_entries(red)
                     self.cache.add(item.target_author)
 
