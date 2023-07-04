@@ -67,7 +67,7 @@ class ModQueueCleanerHandler(Handler[ModAction]):
                     if user_status is UserStatus.BANNED:
                         self.clear_modqueue_for_user(red)
                         wipe_on_perma = settings.wipe_contrib_on_permaban
-                        if wipe_on_perma:
+                        if wipe_on_perma or "botwipe" in item.description:
                             self.wipe_user_entries(red)
                     self.cache.add(item.target_author)
 
