@@ -17,6 +17,10 @@ class ModQueueCleanerHandler(Handler[ModAction]):
         super().setup(agent)
         log.info(f"Setting up ModQueueCleaner with autoremoval of contribs set to {settings.wipe_contrib_on_permaban}")
 
+    def start_run(self) -> None:
+        log.debug("Invalidating cache")
+        self.cache = set([])
+
     def wipe_user_entries(self, reddit_user: Redditor):
         entries = []
         if reddit_user.name == "[deleted]":
@@ -37,7 +41,7 @@ class ModQueueCleanerHandler(Handler[ModAction]):
             if not settings.dry_run:
                 if not item.locked and item.archived is False:
                     item.mod.lock()
-                item.mod.remove(mod_note="AutobanBOT: removed user's entry after permaban")
+                item.mod.remove(mod_note="AutobanBOT (botwipe): removed user's entry after permaban")
             else:
                 log.info(f"DRY RUN: Would have removed entry of user {reddit_user.name}")
 
@@ -70,4 +74,6 @@ class ModQueueCleanerHandler(Handler[ModAction]):
                         if wipe_on_perma or "botwipe" in item.description:
                             self.wipe_user_entries(red)
                     self.cache.add(item.target_author)
+            case "unbanuser":
+                pass
 
