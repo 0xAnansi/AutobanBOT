@@ -43,7 +43,7 @@ def main():
     config_handler = ConfigEditHandler()
     modlog_agent.register(config_handler)
 
-    schedule.every(10).seconds.do(modlog_agent.run)
+    schedule.every(30).seconds.do(modlog_agent.run)
 
     # Comment agent
     comment_agent = CommentAgent(data_store)
