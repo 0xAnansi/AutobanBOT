@@ -13,13 +13,13 @@ class ModQueueCleanerHandler(Handler[ModAction]):
     def setup(self, agent: Agent[ModAction]) -> None:
         # Ran once at handler registration in agent
         self.user_utils = RedditUserUtils()
-        self.cache = set([])
+        #self.cache = set([])
         super().setup(agent)
         log.info(f"Setting up ModQueueCleaner with autoremoval of contribs set to {settings.wipe_contrib_on_permaban}")
 
     def start_run(self) -> None:
         log.debug("Invalidating cache")
-        self.cache = set([])
+        #self.cache = set([])
 
     def wipe_user_entries(self, reddit_user: Redditor):
         entries = []
@@ -60,9 +60,9 @@ class ModQueueCleanerHandler(Handler[ModAction]):
             return
         match item.action:
             case "banuser":
-                if item.target_author in self.cache:
-                    log.debug("User already processed")
-                    return
+                # if item.target_author in self.cache:
+                #     log.debug("User already processed")
+                #     return
                 if "permanent" in item.details:
                     log.info(f"Handling modqueue and comment removal from permabanned user {item.target_author}")
                     red = reddit().redditor(item.target_author)
