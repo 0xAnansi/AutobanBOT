@@ -9,6 +9,7 @@ Free to use by anyone for any reason (licensed under CC0)
 import logging
 import schedule
 import time
+from safe_schedule import SafeScheduler
 
 from prawcore import TooManyRequests
 
@@ -24,9 +25,9 @@ def main():
     reddit.login()
 
     data_store = DataStore()
-
+    schedule = SafeScheduler()
     # Save locally every minute
-    schedule.every(1).minute.do(data_store.save)
+    schedule.every(15).minutes.do(data_store.save)
 
     #if not settings.is_test_env:
     # Modlog agent
@@ -51,7 +52,7 @@ def main():
     comment_agent.register(SpecialUserStatusHandler())
     poll_handler = PollHandler()
     comment_agent.register(poll_handler)
-    schedule.every(60).minutes.do(poll_handler.run_tally)
+    schedule.every(12).hours.do(poll_handler.run_tally)
     schedule.every(30).seconds.do(comment_agent.run)
 
     # Periodic scan of points (scheduled last so other stuff happens first)
@@ -92,9 +93,9 @@ def main():
             except TooManyRequests as e:
                 log.warning("Hitting general rate limiting, missing management in method, sleeping")
                 time.sleep(30)
-        t = schedule.idle_seconds()
-        if t > 0:
-            time.sleep(t)
+        #t = schedule.idle_seconds()
+        #if t > 0:
+        time.sleep(1)
 
 
 if __name__ == "__main__":

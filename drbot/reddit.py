@@ -1,7 +1,10 @@
 import praw
+import json
 import prawcore
+from prawcore import Requestor
 import random
 from typing import Optional
+from requests.status_codes import codes
 import logging
 from drbot import settings, log
 from drbot.log import ModmailLoggingHandler, TemplateLoggingFormatter, BASE_FORMAT
@@ -41,6 +44,20 @@ class InfiniteRetryStrategy(prawcore.sessions.RetryStrategy):
     def should_retry_on_failure(self):
         return True
 
+
+del prawcore.Session.STATUS_EXCEPTIONS[codes["too_many_requests"]]
+prawcore.Session.RETRY_STATUSES.add(codes["too_many_requests"])
+    
+class JSONDebugRequestor(Requestor):
+    def request(self, *args, **kwargs):
+        response = super().request(*args, **kwargs)
+        with open("log_file.json", "a") as f:
+            if "https://oauth.reddit.com/api/mod/notes" in args[1]:
+                log.warn("Logging modnote request")
+                #f.write(json.dumps({"args": args, "kwargs": kwargs, "response": response.json()}) + '\n' + '\n')
+                f.write(response.text + '\n' + '\n')
+                log.warn("Request logged")
+        return response
 
 class Reddit(praw.Reddit):
     def __init__(self, *args, **kwargs):
@@ -138,12 +155,14 @@ def login() -> praw.Reddit:
         _reddit = Reddit(client_id=drbot_client_id,
                          client_secret=None,
                          refresh_token=settings.refresh_token,
+                         requestor_class=JSONDebugRequestor,
                          user_agent="Moderation helper https://github.com/0xAnansi/AutobanBOT v1.0 (by /u/FromModToSirius")
     else:
         _reddit = Reddit(client_id=settings.client_id,
                          client_secret=settings.client_secret,
                          username=settings.username,
                          password=settings.password,
+                         requestor_class=JSONDebugRequestor,
                          user_agent="Moderation helper https://github.com/0xAnansi/AutobanBOT v1.0 (by /u/FromModToSirius")
 
     log.info(f"Logged in to Reddit as u/{_reddit.user.me().name}")

@@ -134,23 +134,37 @@ class AutobanHandler(Handler[Comment]):
                 target_label = self.monitored_subs_map.get_label(rule['sub_name'])
                 target_note = self.monitored_subs_map.get_note(rule['sub_name'])
                 manual_retry = 1
-                while manual_retry >= 1:
+                while manual_retry >= 1 and manual_retry <= 5:
                     try:
-                        user_notes = reddit().sub.mod.notes.redditors(reddit_user, all_notes=True)
-                        manual_retry = 0
+                        log.info(f"Recovering notes of user {reddit_user.name}")
+                        user_notes = reddit().sub.mod.notes.redditors(reddit_user.name, all_notes=True)
+
+                        for modnote in user_notes:
+                            if modnote is None:
+                                manual_retry = 0
+                        # can return None even in iterator
+                                continue
+                            if modnote.operator_id == "":
+                                reddit().sub.mod.notes.create(redditor=modnote.user, label=modnote.user_note_data.label, note=modnote.user_note_data.note)
+                                reddit().sub.mod.notes.delete(note_id=modnote.id)
+                                continue
+                            if modnote.label == target_label and modnote.note == target_note:
+                        # note already exists, do nothing
+                                log.info(f"[{reddit_user.name}] already has a note for posting in [{rule['sub_name']}]")
+                                manual_retry = 0
+                                self.watched_users_cache.add(reddit_user.name)
+                                return
                     except TooManyRequests as e:
                         log.warning("Hitting rate limiting during note creation, sleeping")
                         time.sleep(manual_retry * 10)
                         manual_retry += 1
-                for modnote in user_notes:
-                    if modnote is None:
-                        # can return None even in iterator
-                        continue
-                    if modnote.label == target_label and modnote.note == target_note:
-                        # note already exists, do nothing
-                        log.info(f"[{reddit_user.name}] already has a note for posting in [{rule['sub_name']}]")
-                        self.watched_users_cache.add(reddit_user.name)
-                        return
+                    except Exception as e:
+                        r = repr(e)
+                        log.warning(f"Hitting unexpected error while processing modnotes, retrying: {r}")
+                        time.sleep(manual_retry * 10)
+                        manual_retry += 5
+                if manual_retry >= 5:
+                    log.error(f"Failed to recover modnotes for user {reddit_user.name}")
                 if not settings.dry_run:
                     log.warning(f"Watching user [{reddit_user.name}] for posting in [{rule['sub_name']}], creating note")
                     manual_retry = 1

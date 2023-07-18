@@ -11,17 +11,18 @@ from drbot.tools.RedditUserUtils import RedditUserUtils
 
 class ModQueueCleanerHandler(Handler[ModAction]):
     def setup(self, agent: Agent[ModAction]) -> None:
+        super().setup(agent)
         # Ran once at handler registration in agent
         self.user_utils = RedditUserUtils()
         self.cache = set([])
-        super().setup(agent)
         log.info(f"Setting up ModQueueCleaner with autoremoval of contribs set to {settings.wipe_contrib_on_permaban}")
 
     def start_run(self) -> None:
-        log.debug("Invalidating cache")
+        log.debug("Invalidating cache of ModQueueCleaner")
         self.cache = set([])
 
     def wipe_user_entries(self, reddit_user: Redditor):
+        log.info(f"Wiping history of user {reddit_user.name}")
         entries = []
         if reddit_user.name == "[deleted]":
             log.warn("Should have removed user contrib but user has deleted its account")
@@ -54,26 +55,35 @@ class ModQueueCleanerHandler(Handler[ModAction]):
                 item.mod.remove(mod_note="AutobanBOT: removed banned user's entry from modqueue")
                 pass
             pass
+
+
     def handle(self, item: ModAction) -> None:
         if item.mod.name == settings.username:
             log.debug(f"Dropping ModNote management since I am the creator of the entry")
             return
+        log.debug(f"Checking for action {item.action} and detail {item.details}")
         match item.action:
             case "banuser":
                 if item.target_author in self.cache:
-                    log.debug("User already processed")
-                    return
+                     log.debug("User already processed")
+                     return
                 if "permanent" in item.details:
                     log.info(f"Handling modqueue and comment removal from permabanned user {item.target_author}")
                     red = reddit().redditor(item.target_author)
                     user_status = self.user_utils.get_user_status(red)
                     # double check that user is still banned in case it was a mistake
                     if user_status is UserStatus.BANNED:
+                        
                         self.clear_modqueue_for_user(red)
                         wipe_on_perma = settings.wipe_contrib_on_permaban
                         if wipe_on_perma or "botwipe" in item.description:
+                            log.debug(f"User is banned from sub and conditions match a botwipe, processing")
                             self.wipe_user_entries(red)
-                    #self.cache.add(item.target_author)
+                        else:
+                            log.debug(f"User is banned from sub but conditions DO NOT match a botwipe, doing nothing")
+                    else:
+                        log.warn(f"Tried to wipe user {item.target_author} history when he's not banned from reddit")
+                    self.cache.add(item.target_author)
             case "unbanuser":
                 pass
 

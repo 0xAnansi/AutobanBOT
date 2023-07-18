@@ -31,6 +31,7 @@ class SpecialUserStatusHandler(Handler[Comment]):
 
     def start_run(self) -> None:
         log.info("Starting to check for special user status")
+        self.user_cache = {}
         self.user_cache["AutoModerator"] = UserStatus.ACTIVE
 
     def end_run(self):
