@@ -1,0 +1,155 @@
+nohup: ignoring input
+[1;33m[2024-06-04 18:47:14,926] [PointMap.py/refresh_values:36] WARNING | Some removal reasons on your sub don't have an entry in config/settings.toml (they will be treated as costing 0 points):
+	Megathread
+	redirection forum libre[0m
+[1;33m[2024-06-04 18:53:49,292] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:53:49,293] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:53:49,318] [AutobanHandler.py/act_on:159] WARNING | Hitting unexpected error while processing modnotes, retrying: TypeError("Exactly one of 'name', 'fullname', or '_data' must be provided.")[0m
+[1;31m[2024-06-04 18:53:59,320] [AutobanHandler.py/act_on:163] ERROR | Failed to recover modnotes for user Mwakay[0m
+[1;33m[2024-06-04 18:54:00,036] [AutobanHandler.py/act_on:165] WARNING | Watching user [Mwakay] for posting in [2westerneurope4u], creating note[0m
+[1;33m[2024-06-04 18:54:00,261] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:54:00,262] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:54:54,608] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:54:54,609] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:55:16,947] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:55:16,948] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:56:09,940] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:56:09,942] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:57:21,263] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:57:21,264] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:58:46,731] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:58:46,732] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:58:46,977] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:58:46,978] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:58:47,210] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:58:47,211] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:58:47,436] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:58:47,437] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:58:47,696] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:58:47,697] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:58:48,005] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:58:48,006] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:58:48,257] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:58:48,258] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:58:48,480] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:58:48,481] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:58:48,756] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:58:48,757] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:58:48,974] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:58:48,975] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:58:49,203] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:58:49,204] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:58:49,447] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:58:49,448] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:58:49,691] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:58:49,692] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:58:49,927] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:58:49,927] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:58:50,161] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:58:50,163] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:58:50,436] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:58:50,437] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:58:50,674] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:58:50,675] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:58:50,977] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:58:50,978] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:58:51,210] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:58:51,211] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:58:51,439] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:58:51,440] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:58:51,676] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:58:51,677] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:58:51,904] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:58:51,906] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:58:52,177] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:58:52,178] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:58:52,413] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:58:52,415] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:58:53,072] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:58:53,073] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:58:53,520] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:58:53,521] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:58:53,782] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:58:53,783] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:58:54,014] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:58:54,015] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:58:54,243] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:58:54,245] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:58:54,501] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:58:54,503] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:58:54,761] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:58:54,762] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:58:57,954] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:58:57,956] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:59:01,165] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:59:01,167] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:59:01,440] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:59:01,442] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:59:01,665] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:59:01,667] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:59:01,891] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:59:01,892] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:59:02,139] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:59:02,140] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:59:02,417] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:59:02,419] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:59:02,711] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:59:02,712] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:59:02,940] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:59:02,941] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:59:03,175] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:59:03,176] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:59:03,416] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:59:03,417] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:59:03,656] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:59:03,658] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:59:03,931] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:59:03,932] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:59:04,162] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:59:04,163] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:59:04,401] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:59:04,402] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:59:04,627] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:59:04,628] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:59:04,912] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:59:04,913] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:59:05,148] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:59:05,148] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:59:05,384] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:59:05,386] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:59:05,663] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:59:05,664] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:59:05,973] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:59:05,974] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:59:06,195] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:59:06,197] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:59:06,480] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:59:06,482] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:59:06,760] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:59:06,762] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:59:07,026] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:59:07,027] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:59:07,268] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:59:07,269] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:59:07,957] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:59:07,959] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:59:08,218] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:59:08,219] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:59:08,456] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:59:08,458] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:59:08,735] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:59:08,736] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:59:08,978] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:59:08,980] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:59:09,266] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:59:09,267] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:59:10,474] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:59:10,476] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:59:14,689] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:59:14,690] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:59:20,879] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:59:20,881] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:59:20,882] [reddit.py/_sleep_seconds:33] WARNING | Request still failing after multiple tries, retrying... (4)[0m
+[1;33m[2024-06-04 18:59:46,098] [reddit.py/request:56] WARNING | Logging modnote request[0m
+[1;33m[2024-06-04 18:59:46,100] [reddit.py/request:59] WARNING | Request logged[0m
+[1;33m[2024-06-04 18:59:46,101] [reddit.py/_sleep_seconds:33] WARNING | Request still failing after multiple tries, retrying... (5)[0m

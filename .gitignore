@@ -2,3 +2,6 @@ __pycache__/
 .DS_Store
 settings.toml
 auth.toml
+data/*
+log_file.json
+*.out

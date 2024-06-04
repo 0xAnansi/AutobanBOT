@@ -1,0 +1,1000 @@
+[2023-07-09 12:24:35,983] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:24:39,372] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:24:39,605] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 3 new items.
+[2023-07-09 12:25:10,357] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 12:25:10,358] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:25:10,509] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:25:10,510] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:25:10,537] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:25:41,578] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 12:25:41,580] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:25:41,730] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:25:41,731] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:25:41,775] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:26:12,782] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 12:26:12,783] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:26:12,934] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:26:12,935] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:26:12,978] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:27:14,987] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 12:27:14,988] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:27:15,139] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:27:15,140] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:27:15,183] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:27:25,830] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 12:27:46,167] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 12:27:46,167] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:27:46,318] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:27:46,319] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:27:46,345] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:28:17,382] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 12:28:17,383] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:28:17,533] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:28:17,534] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:28:33,619] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:29:35,839] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 12:30:06,652] [HandlerAgent.py/run:49] INFO | CommentAgent processing 3 new items.
+[2023-07-09 12:30:06,653] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:30:06,804] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:30:06,805] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:30:09,680] [AutobanHandler.py/process_user_history:211] INFO | Found matching rule for sub francais and user Galopa
+[2023-07-09 12:30:10,084] [AutobanHandler.py/act_on:155] WARNING | Watching user [Galopa] for posting in [francais], creating note
+[2023-07-09 12:30:12,336] [AutobanHandler.py/process_user_history:196] INFO | Found matching rule for sub YahooQR and user Apo-El-Patron
+[2023-07-09 12:30:12,725] [AutobanHandler.py/act_on:155] WARNING | Watching user [Apo-El-Patron] for posting in [YahooQR], creating note
+[2023-07-09 12:30:14,366] [AutobanHandler.py/process_user_history:211] INFO | Found matching rule for sub France_Actu_Debats and user Apo-El-Patron
+[2023-07-09 12:30:14,557] [AutobanHandler.py/act_on:132] INFO | User Apo-El-Patron in watched list already, not further action needed
+[2023-07-09 12:30:14,768] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:30:44,787] [WikiStore.py/save_data_store:51] INFO | Saving data to wiki.
+[2023-07-09 12:30:46,108] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 12:30:46,109] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:30:46,260] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:30:46,261] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:30:46,305] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:31:17,419] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 12:31:17,419] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:31:17,578] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:31:17,579] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:31:23,256] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:31:54,278] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 12:31:54,279] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:31:54,431] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:31:54,432] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:31:54,459] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:32:25,465] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 12:32:25,466] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:32:25,619] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:32:25,620] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:32:25,664] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:32:56,667] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 12:32:56,668] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:32:56,820] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:32:56,821] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:32:56,847] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:33:27,860] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 12:33:27,861] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:33:28,013] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:33:28,014] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:33:28,041] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:33:59,258] [HandlerAgent.py/run:49] INFO | CommentAgent processing 3 new items.
+[2023-07-09 12:33:59,258] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:33:59,410] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:33:59,411] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:33:59,472] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:33:59,692] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 12:35:01,430] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 12:35:01,431] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:35:01,582] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:35:01,583] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:35:01,610] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:35:32,609] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 12:35:32,610] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:35:32,762] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:35:32,763] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:35:40,492] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:36:11,488] [HandlerAgent.py/run:49] INFO | CommentAgent processing 6 new items.
+[2023-07-09 12:36:11,489] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:36:11,639] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:36:11,640] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:36:19,555] [AutobanHandler.py/process_user_history:211] INFO | Found matching rule for sub francais and user Teword
+[2023-07-09 12:36:19,909] [AutobanHandler.py/act_on:155] WARNING | Watching user [Teword] for posting in [francais], creating note
+[2023-07-09 12:36:29,170] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:37:00,189] [HandlerAgent.py/run:49] INFO | CommentAgent processing 4 new items.
+[2023-07-09 12:37:00,190] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:37:00,341] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:37:00,342] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:37:05,553] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:37:36,688] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 12:37:36,689] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:37:36,839] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:37:36,840] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:37:36,884] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:38:07,829] [HandlerAgent.py/run:49] INFO | CommentAgent processing 4 new items.
+[2023-07-09 12:38:07,829] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:38:07,980] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:38:07,981] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:38:12,562] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:38:43,568] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 12:38:43,568] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:38:43,719] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:38:43,720] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:38:43,763] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:39:14,881] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 12:39:14,882] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:39:15,034] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:39:15,035] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:39:20,317] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:39:51,437] [HandlerAgent.py/run:49] INFO | CommentAgent processing 5 new items.
+[2023-07-09 12:39:51,438] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:39:51,589] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:39:51,590] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:39:58,015] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:40:28,949] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 12:40:28,950] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:40:29,102] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:40:29,102] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:40:29,129] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:42:02,076] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 12:42:02,077] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:42:02,228] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:42:02,229] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:42:02,255] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:42:33,180] [HandlerAgent.py/run:49] INFO | CommentAgent processing 4 new items.
+[2023-07-09 12:42:33,181] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:42:33,332] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:42:33,333] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:42:35,837] [AutobanHandler.py/process_user_history:211] INFO | Found matching rule for sub francais and user Ornito49
+[2023-07-09 12:42:36,278] [AutobanHandler.py/act_on:155] WARNING | Watching user [Ornito49] for posting in [francais], creating note
+[2023-07-09 12:42:36,832] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:43:07,777] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 12:43:07,777] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:43:07,930] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:43:07,931] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:43:09,128] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:43:09,384] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 12:43:40,141] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 12:43:40,142] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:43:40,292] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:43:40,293] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:43:40,336] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:44:01,719] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 12:44:11,287] [HandlerAgent.py/run:49] INFO | CommentAgent processing 3 new items.
+[2023-07-09 12:44:11,288] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:44:11,438] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:44:11,439] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:44:16,886] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:45:08,666] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 12:45:18,917] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 12:45:18,918] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:45:19,070] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:45:19,071] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:45:21,614] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:45:32,352] [PointsHandler.py/scan_all:206] INFO | Starting full scan (92 users).
+[2023-07-09 12:46:31,344] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:46:39,431] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 2 new items.
+[2023-07-09 12:46:40,938] [WikiStore.py/save_data_store:51] INFO | Saving data to wiki.
+[2023-07-09 12:46:42,305] [HandlerAgent.py/run:49] INFO | CommentAgent processing 6 new items.
+[2023-07-09 12:46:42,306] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:46:42,458] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:46:42,459] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:46:44,968] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:47:16,025] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 12:47:16,026] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:47:16,178] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:47:16,179] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:47:16,223] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:47:47,207] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 12:47:47,208] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:47:47,360] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:47:47,361] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:47:52,709] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:48:23,560] [HandlerAgent.py/run:49] INFO | CommentAgent processing 5 new items.
+[2023-07-09 12:48:23,561] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:48:23,712] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:48:23,713] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:48:31,756] [AutobanHandler.py/process_user_history:211] INFO | Found matching rule for sub francais and user nanescar
+[2023-07-09 12:48:32,138] [AutobanHandler.py/act_on:155] WARNING | Watching user [nanescar] for posting in [francais], creating note
+[2023-07-09 12:48:32,623] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:48:32,870] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 12:49:03,617] [HandlerAgent.py/run:49] INFO | CommentAgent processing 4 new items.
+[2023-07-09 12:49:03,618] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:49:03,768] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:49:03,769] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:49:09,800] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:49:30,534] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 12:49:40,991] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 12:49:40,992] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:49:41,143] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:49:41,144] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:49:46,694] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:49:46,942] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 12:50:17,745] [HandlerAgent.py/run:49] INFO | CommentAgent processing 5 new items.
+[2023-07-09 12:50:17,745] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:50:17,897] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:50:17,898] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:50:20,318] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:50:40,988] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 12:50:51,241] [HandlerAgent.py/run:49] INFO | CommentAgent processing 5 new items.
+[2023-07-09 12:50:51,242] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:50:51,393] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:50:51,394] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:50:51,489] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:50:52,698] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 12:51:04,162] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 2 new items.
+[2023-07-09 12:51:15,545] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 12:51:22,438] [HandlerAgent.py/run:49] INFO | CommentAgent processing 4 new items.
+[2023-07-09 12:51:22,439] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:51:22,589] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:51:22,590] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:51:28,725] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:51:59,713] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 12:51:59,713] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:51:59,864] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:51:59,865] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:51:59,891] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:52:00,124] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 12:52:11,616] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 12:52:30,869] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 12:52:30,870] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:52:31,022] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:52:31,022] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:52:35,982] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:52:36,203] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 12:53:06,939] [HandlerAgent.py/run:49] INFO | CommentAgent processing 7 new items.
+[2023-07-09 12:53:06,940] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:53:07,092] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:53:07,093] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:53:23,965] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:53:54,893] [HandlerAgent.py/run:49] INFO | CommentAgent processing 3 new items.
+[2023-07-09 12:53:54,894] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:53:55,045] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:53:55,046] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:53:59,547] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:53:59,775] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 12:54:30,521] [HandlerAgent.py/run:49] INFO | CommentAgent processing 3 new items.
+[2023-07-09 12:54:30,521] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:54:30,673] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:54:30,674] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:54:33,423] [AutobanHandler.py/process_user_history:211] INFO | Found matching rule for sub francais and user CompteDeMonteChristo
+[2023-07-09 12:54:33,786] [AutobanHandler.py/act_on:155] WARNING | Watching user [CompteDeMonteChristo] for posting in [francais], creating note
+[2023-07-09 12:54:34,263] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:54:44,749] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 12:55:05,277] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 12:55:05,278] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:55:05,430] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:55:05,431] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:55:05,481] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:55:26,847] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 12:55:36,408] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 12:55:36,409] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:55:36,565] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:55:36,566] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:55:36,593] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:55:58,741] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 12:56:07,393] [HandlerAgent.py/run:49] INFO | CommentAgent processing 4 new items.
+[2023-07-09 12:56:07,394] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:56:07,544] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:56:07,545] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:56:07,623] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:56:10,206] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 12:56:38,638] [HandlerAgent.py/run:49] INFO | CommentAgent processing 4 new items.
+[2023-07-09 12:56:38,639] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:56:38,790] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:56:38,791] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:56:38,871] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:57:09,905] [HandlerAgent.py/run:49] INFO | CommentAgent processing 3 new items.
+[2023-07-09 12:57:09,906] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:57:10,057] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:57:10,058] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:57:10,122] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:57:12,821] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 12:57:24,233] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 12:57:41,006] [HandlerAgent.py/run:49] INFO | CommentAgent processing 4 new items.
+[2023-07-09 12:57:41,007] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:57:41,157] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:57:41,158] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:57:47,624] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:57:47,841] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 12:58:18,757] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 12:58:18,758] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:58:18,910] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:58:18,911] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:58:18,937] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:58:50,119] [HandlerAgent.py/run:49] INFO | CommentAgent processing 3 new items.
+[2023-07-09 12:58:50,120] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:58:50,269] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:58:50,270] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:58:50,331] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:59:21,229] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 12:59:21,230] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:59:21,381] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:59:21,382] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:59:21,426] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 12:59:31,874] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 12:59:43,414] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 12:59:52,402] [HandlerAgent.py/run:49] INFO | CommentAgent processing 4 new items.
+[2023-07-09 12:59:52,403] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 12:59:52,554] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 12:59:52,555] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 12:59:54,154] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:00:25,117] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 13:00:25,118] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:00:25,270] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:00:25,272] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:00:25,309] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:00:56,666] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 13:01:08,352] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 13:01:27,340] [HandlerAgent.py/run:49] INFO | CommentAgent processing 7 new items.
+[2023-07-09 13:01:27,341] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:01:27,492] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:01:27,493] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:01:28,550] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:01:41,517] [WikiStore.py/save_data_store:51] INFO | Saving data to wiki.
+[2023-07-09 13:01:59,525] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 13:01:59,526] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:01:59,678] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:01:59,679] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:02:05,224] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:02:36,219] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 13:02:36,220] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:02:36,371] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:02:36,372] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:02:36,415] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:03:07,355] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 13:03:07,356] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:03:07,506] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:03:07,507] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:03:10,129] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:03:41,166] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 13:03:41,167] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:03:41,319] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:03:41,320] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:03:41,346] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:03:41,595] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 13:04:12,394] [HandlerAgent.py/run:49] INFO | CommentAgent processing 3 new items.
+[2023-07-09 13:04:12,395] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:04:12,546] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:04:12,547] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:04:13,826] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:04:44,912] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 13:04:44,913] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:04:45,064] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:04:45,065] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:04:51,169] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:04:51,406] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 13:05:02,844] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 2 new items.
+[2023-07-09 13:05:14,445] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 3 new items.
+[2023-07-09 13:05:16,087] [RedditUserUtils.py/get_user_status:38] INFO | u/FantasticAbility1786 is banned from sub
+[2023-07-09 13:05:16,293] [ModNotesHandler.py/handle_tb_action:145] INFO | Creating mod note in new reddit from tb_note - user [FantasticAbility1786] label [BAN] content [2023-07-09 | Seuum41 | 15j troll]
+[2023-07-09 13:05:22,113] [HandlerAgent.py/run:49] INFO | CommentAgent processing 4 new items.
+[2023-07-09 13:05:22,114] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:05:22,264] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:05:22,265] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:05:24,585] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:05:47,313] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 5 new items.
+[2023-07-09 13:05:48,634] [ModQueueCleanerHandler.py/handle:63] INFO | Handling modqueue and comment removal from permabanned user Oshyoumax
+[2023-07-09 13:05:49,111] [RedditUserUtils.py/get_user_status:38] INFO | u/Oshyoumax is banned from sub
+[2023-07-09 13:05:55,589] [HandlerAgent.py/run:49] INFO | CommentAgent processing 3 new items.
+[2023-07-09 13:05:55,590] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:05:55,749] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:05:55,749] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:05:55,810] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:05:59,879] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 13:06:01,488] [RedditUserUtils.py/get_user_status:38] INFO | u/Oshyoumax is banned from sub
+[2023-07-09 13:06:01,686] [ModNotesHandler.py/handle_tb_action:145] INFO | Creating mod note in new reddit from tb_note - user [Oshyoumax] label [PERMA_BAN] content [2023-07-09 | Seuum41 | dw]
+[2023-07-09 13:06:12,234] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 2 new items.
+[2023-07-09 13:06:26,812] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 13:06:26,813] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:06:26,964] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:06:26,965] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:06:33,290] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:07:04,289] [HandlerAgent.py/run:49] INFO | CommentAgent processing 3 new items.
+[2023-07-09 13:07:04,289] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:07:04,441] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:07:04,442] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:07:04,503] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:07:25,147] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 13:07:35,463] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 13:07:35,464] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:07:35,614] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:07:35,615] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:07:35,641] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:07:46,857] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 13:08:06,742] [HandlerAgent.py/run:49] INFO | CommentAgent processing 3 new items.
+[2023-07-09 13:08:06,743] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:08:06,893] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:08:06,894] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:08:06,955] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:08:37,967] [HandlerAgent.py/run:49] INFO | CommentAgent processing 4 new items.
+[2023-07-09 13:08:37,968] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:08:38,118] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:08:38,119] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:08:40,119] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:09:11,065] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 13:09:11,066] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:09:11,215] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:09:11,216] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:09:11,242] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:10:13,268] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 13:10:13,269] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:10:13,419] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:10:13,420] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:10:15,232] [AutobanHandler.py/process_user_history:211] INFO | Found matching rule for sub francais and user X1l4r
+[2023-07-09 13:10:15,719] [AutobanHandler.py/act_on:151] INFO | [X1l4r] already has a note for posting in [francais]
+[2023-07-09 13:10:15,757] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:10:15,993] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 13:10:27,419] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 13:10:46,932] [HandlerAgent.py/run:49] INFO | CommentAgent processing 3 new items.
+[2023-07-09 13:10:46,932] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:10:47,083] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:10:47,084] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:10:47,145] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:11:18,002] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 13:11:18,003] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:11:18,155] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:11:18,156] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:11:24,251] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:11:55,238] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 13:11:55,239] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:11:55,390] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:11:55,391] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:11:55,417] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:12:26,367] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 13:12:26,367] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:12:26,519] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:12:26,520] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:12:26,546] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:12:57,561] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 13:12:57,562] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:12:57,714] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:12:57,715] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:13:06,265] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:13:37,209] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 13:13:37,209] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:13:37,362] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:13:37,363] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:13:37,390] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:14:08,377] [HandlerAgent.py/run:49] INFO | CommentAgent processing 3 new items.
+[2023-07-09 13:14:08,378] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:14:08,529] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:14:08,530] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:14:08,591] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:15:31,345] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 13:15:41,443] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 13:15:41,443] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:15:41,594] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:15:41,595] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:15:43,029] [AutobanHandler.py/process_user_history:211] INFO | Found matching rule for sub francais and user Small_Money8598
+[2023-07-09 13:15:43,437] [AutobanHandler.py/act_on:155] WARNING | Watching user [Small_Money8598] for posting in [francais], creating note
+[2023-07-09 13:15:43,929] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:15:54,406] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 2 new items.
+[2023-07-09 13:16:14,985] [HandlerAgent.py/run:49] INFO | CommentAgent processing 3 new items.
+[2023-07-09 13:16:14,985] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:16:15,137] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:16:15,138] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:16:23,547] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:16:42,123] [WikiStore.py/save_data_store:51] INFO | Saving data to wiki.
+[2023-07-09 13:16:54,512] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 13:16:54,513] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:16:54,663] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:16:54,664] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:16:54,691] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:18:07,323] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 13:18:27,833] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 13:18:27,834] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:18:27,984] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:18:27,985] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:18:28,897] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:18:39,360] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 13:19:00,291] [HandlerAgent.py/run:49] INFO | CommentAgent processing 3 new items.
+[2023-07-09 13:19:00,291] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:19:00,441] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:19:00,442] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:19:01,612] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:19:32,638] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 13:19:32,639] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:19:32,789] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:19:32,790] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:19:32,816] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:20:03,896] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 13:20:03,897] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:20:04,063] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:20:04,065] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:20:04,106] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:20:35,284] [HandlerAgent.py/run:49] INFO | CommentAgent processing 3 new items.
+[2023-07-09 13:20:35,285] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:20:35,456] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:20:35,457] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:20:41,122] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:20:51,559] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 2 new items.
+[2023-07-09 13:21:12,336] [HandlerAgent.py/run:49] INFO | CommentAgent processing 4 new items.
+[2023-07-09 13:21:12,337] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:21:12,488] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:21:12,489] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:21:23,271] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:21:23,475] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 13:21:54,350] [HandlerAgent.py/run:49] INFO | CommentAgent processing 3 new items.
+[2023-07-09 13:21:54,351] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:21:54,505] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:21:54,507] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:22:01,615] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:22:32,688] [HandlerAgent.py/run:49] INFO | CommentAgent processing 3 new items.
+[2023-07-09 13:22:32,689] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:22:32,840] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:22:32,841] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:22:32,903] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:23:03,906] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 13:23:03,906] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:23:04,063] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:23:04,064] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:23:04,090] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:23:04,340] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 13:23:35,100] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 13:23:35,101] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:23:35,257] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:23:35,258] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:23:35,302] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:24:06,273] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 13:24:06,274] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:24:06,427] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:24:06,428] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:24:06,454] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:24:37,426] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 13:24:37,427] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:24:37,579] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:24:37,580] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:24:37,606] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:25:08,655] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 13:25:08,655] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:25:08,808] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:25:08,809] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:25:14,686] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:25:45,661] [HandlerAgent.py/run:49] INFO | CommentAgent processing 3 new items.
+[2023-07-09 13:25:45,662] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:25:45,813] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:25:45,814] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:25:50,845] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:26:21,818] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 13:26:21,819] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:26:21,985] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:26:21,986] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:26:22,012] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:26:52,972] [HandlerAgent.py/run:49] INFO | CommentAgent processing 4 new items.
+[2023-07-09 13:26:52,973] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:26:53,128] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:26:53,129] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:26:59,988] [AutobanHandler.py/process_user_history:211] INFO | Found matching rule for sub francais and user Anxious_Vegetable463
+[2023-07-09 13:27:00,404] [AutobanHandler.py/act_on:155] WARNING | Watching user [Anxious_Vegetable463] for posting in [francais], creating note
+[2023-07-09 13:27:00,682] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:27:00,935] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 13:27:32,906] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 13:27:54,801] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 13:28:02,537] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 13:28:02,538] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:28:02,690] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:28:02,691] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:28:02,717] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:28:06,307] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 2 new items.
+[2023-07-09 13:28:18,001] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 2 new items.
+[2023-07-09 13:28:33,781] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 13:28:33,782] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:28:33,932] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:28:33,933] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:28:33,982] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:29:04,960] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 13:29:04,961] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:29:05,116] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:29:05,117] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:29:05,144] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:29:20,804] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 13:29:36,289] [HandlerAgent.py/run:49] INFO | CommentAgent processing 3 new items.
+[2023-07-09 13:29:36,290] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:29:36,441] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:29:36,443] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:29:45,413] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:29:45,650] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 13:30:16,395] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 13:30:16,396] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:30:16,592] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:30:16,593] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:30:16,636] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:30:47,782] [HandlerAgent.py/run:49] INFO | CommentAgent processing 3 new items.
+[2023-07-09 13:30:47,783] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:30:47,934] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:30:47,935] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:30:47,996] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:31:18,990] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 13:31:18,991] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:31:19,142] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:31:19,143] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:31:24,012] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:31:42,714] [WikiStore.py/save_data_store:51] INFO | Saving data to wiki.
+[2023-07-09 13:31:54,925] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 13:31:54,926] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:31:55,078] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:31:55,079] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:31:55,123] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:32:26,034] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 13:32:26,035] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:32:26,186] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:32:26,187] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:32:26,231] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:32:36,691] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 13:32:57,426] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 13:32:57,427] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:32:57,578] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:32:57,579] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:32:57,623] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:33:28,953] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 13:33:28,954] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:33:29,105] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:33:29,106] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:33:31,459] [AutobanHandler.py/process_user_history:211] INFO | Found matching rule for sub francais and user Dingobyte
+[2023-07-09 13:33:31,869] [AutobanHandler.py/act_on:151] INFO | [Dingobyte] already has a note for posting in [francais]
+[2023-07-09 13:33:31,888] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:34:34,017] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 13:34:34,018] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:34:34,168] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:34:34,169] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:34:36,393] [AutobanHandler.py/process_user_history:211] INFO | Found matching rule for sub france6 and user Brinbrain
+[2023-07-09 13:34:36,775] [AutobanHandler.py/act_on:151] INFO | [Brinbrain] already has a note for posting in [france6]
+[2023-07-09 13:34:36,800] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:35:28,331] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 13:35:38,796] [HandlerAgent.py/run:49] INFO | CommentAgent processing 5 new items.
+[2023-07-09 13:35:38,797] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:35:38,971] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:35:38,972] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:35:40,597] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:35:51,058] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 13:36:02,665] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 13:36:11,618] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 13:36:11,619] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:36:11,769] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:36:11,770] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:36:11,796] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:36:24,655] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 13:36:42,867] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 13:36:42,868] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:36:43,019] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:36:43,020] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:36:43,046] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:37:45,111] [HandlerAgent.py/run:49] INFO | CommentAgent processing 3 new items.
+[2023-07-09 13:37:45,112] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:37:45,263] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:37:45,264] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:37:45,324] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:39:18,397] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 13:39:18,398] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:39:18,550] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:39:18,551] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:39:24,321] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:39:55,495] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 13:39:55,495] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:39:55,647] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:39:55,648] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:40:00,342] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:40:31,386] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 13:40:31,387] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:40:31,537] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:40:31,538] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:40:31,564] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:41:02,558] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 13:41:02,559] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:41:02,710] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:41:02,711] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:41:15,329] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:41:46,452] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 13:41:46,453] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:41:46,603] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:41:46,604] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:41:46,631] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:42:49,122] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 13:42:49,123] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:42:49,273] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:42:49,274] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:42:49,300] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:43:20,288] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 13:43:20,288] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:43:20,446] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:43:20,447] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:43:20,473] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:43:51,522] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 13:43:51,523] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:43:51,673] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:43:51,674] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:43:56,847] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:44:27,798] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 13:44:27,799] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:44:27,989] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:44:27,990] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:44:33,675] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:45:04,698] [HandlerAgent.py/run:49] INFO | CommentAgent processing 6 new items.
+[2023-07-09 13:45:04,699] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:45:04,849] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:45:04,850] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:45:07,218] [AutobanHandler.py/process_user_history:211] INFO | Found matching rule for sub francais and user TrickyYoghurt
+[2023-07-09 13:45:07,586] [AutobanHandler.py/act_on:155] WARNING | Watching user [TrickyYoghurt] for posting in [francais], creating note
+[2023-07-09 13:45:14,887] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:45:45,895] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 13:45:45,896] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:45:46,048] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:45:46,048] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:45:46,075] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:46:31,344] [PointsHandler.py/scan_all:206] INFO | Starting full scan (92 users).
+[2023-07-09 13:47:31,210] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:47:39,813] [WikiStore.py/save_data_store:51] INFO | Saving data to wiki.
+[2023-07-09 13:47:41,387] [HandlerAgent.py/run:49] INFO | CommentAgent processing 5 new items.
+[2023-07-09 13:47:41,387] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:47:41,539] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:47:41,540] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:47:53,852] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:48:25,009] [HandlerAgent.py/run:49] INFO | CommentAgent processing 4 new items.
+[2023-07-09 13:48:25,010] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:48:25,160] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:48:25,161] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:48:31,582] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:49:02,792] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 13:49:02,793] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:49:02,944] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:49:02,945] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:49:02,972] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:49:33,963] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 13:49:33,963] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:49:34,116] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:49:34,117] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:49:34,144] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:50:05,401] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 13:50:05,402] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:50:05,552] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:50:05,553] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:50:05,580] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:50:36,608] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 13:50:36,608] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:50:36,760] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:50:36,761] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:50:36,805] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:51:07,840] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 13:51:07,841] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:51:07,993] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:51:07,994] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:51:08,038] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:51:39,029] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 13:51:39,030] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:51:39,181] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:51:39,182] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:51:39,226] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:52:10,269] [HandlerAgent.py/run:49] INFO | CommentAgent processing 3 new items.
+[2023-07-09 13:52:10,269] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:52:10,420] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:52:10,421] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:52:11,957] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:52:42,988] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 13:52:42,988] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:52:43,140] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:52:43,141] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:52:43,167] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:53:14,150] [HandlerAgent.py/run:49] INFO | CommentAgent processing 4 new items.
+[2023-07-09 13:53:14,150] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:53:14,302] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:53:14,303] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:53:34,621] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:53:34,893] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 13:54:05,668] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 13:54:05,669] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:54:05,820] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:54:05,821] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:54:05,848] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:55:39,050] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 13:55:39,051] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:55:39,203] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:55:39,204] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:55:50,758] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:56:21,853] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 13:56:21,854] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:56:22,005] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:56:22,006] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:56:26,963] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:56:58,410] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 13:56:58,411] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:56:58,561] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:56:58,562] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:56:58,588] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:57:29,565] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 13:57:29,565] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:57:29,716] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:57:29,717] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:57:29,744] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:58:00,793] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 13:58:00,794] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:58:00,972] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:58:00,973] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:58:01,046] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:58:32,287] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 13:58:32,288] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:58:32,438] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:58:32,439] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:58:32,466] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:59:03,516] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 13:59:03,517] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:59:03,668] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:59:03,669] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:59:09,884] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 13:59:40,924] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 13:59:40,924] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 13:59:41,076] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 13:59:41,077] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 13:59:41,120] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 14:00:11,993] [HandlerAgent.py/run:49] INFO | CommentAgent processing 3 new items.
+[2023-07-09 14:00:11,994] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 14:00:12,144] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 14:00:12,145] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 14:00:12,206] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 14:01:45,568] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 14:01:45,569] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 14:01:45,719] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 14:01:45,721] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 14:01:45,759] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 14:02:06,578] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 2 new items.
+[2023-07-09 14:02:16,761] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 14:02:16,762] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 14:02:16,911] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 14:02:16,912] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 14:02:16,939] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 14:02:40,369] [WikiStore.py/save_data_store:51] INFO | Saving data to wiki.
+[2023-07-09 14:03:19,103] [HandlerAgent.py/run:49] INFO | CommentAgent processing 4 new items.
+[2023-07-09 14:03:19,104] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 14:03:19,254] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 14:03:19,255] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 14:03:27,026] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 14:04:18,676] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 14:04:28,955] [HandlerAgent.py/run:49] INFO | CommentAgent processing 3 new items.
+[2023-07-09 14:04:28,956] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 14:04:29,105] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 14:04:29,106] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 14:04:30,482] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 14:04:30,728] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 14:05:32,912] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 14:05:32,913] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 14:05:33,062] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 14:05:33,063] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 14:05:35,421] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 14:05:35,654] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 14:06:06,450] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 14:06:06,451] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 14:06:06,602] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 14:06:06,603] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 14:06:06,629] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 14:07:39,821] [HandlerAgent.py/run:49] INFO | CommentAgent processing 4 new items.
+[2023-07-09 14:07:39,822] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 14:07:39,973] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 14:07:39,974] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 14:07:41,807] [AutobanHandler.py/process_user_history:211] INFO | Found matching rule for sub France_Actu_Debats and user pouetpouetcamion2
+[2023-07-09 14:07:42,245] [AutobanHandler.py/act_on:151] INFO | [pouetpouetcamion2] already has a note for posting in [France_Actu_Debats]
+[2023-07-09 14:07:42,306] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 14:08:44,501] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 14:08:44,502] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 14:08:44,653] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 14:08:44,654] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 14:08:44,698] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 14:09:26,210] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 14:09:46,759] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 14:09:46,760] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 14:09:46,912] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 14:09:46,913] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 14:09:58,884] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 14:11:00,994] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 14:11:00,995] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 14:11:01,153] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 14:11:01,154] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 14:11:01,198] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 14:11:32,358] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 14:11:32,359] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 14:11:32,510] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 14:11:32,511] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 14:11:32,555] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 14:12:03,591] [HandlerAgent.py/run:49] INFO | CommentAgent processing 3 new items.
+[2023-07-09 14:12:03,592] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 14:12:03,743] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 14:12:03,744] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 14:12:14,814] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 14:12:46,164] [HandlerAgent.py/run:49] INFO | CommentAgent processing 3 new items.
+[2023-07-09 14:12:46,165] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 14:12:46,315] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 14:12:46,316] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 14:12:46,377] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 14:14:19,508] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 14:14:19,508] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 14:14:19,659] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 14:14:19,660] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 14:14:19,687] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 14:14:50,933] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 14:14:50,933] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 14:14:51,086] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 14:14:51,087] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 14:14:51,113] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 14:15:22,349] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 14:15:22,349] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 14:15:22,501] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 14:15:22,502] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 14:15:22,528] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 14:15:53,869] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 14:15:53,870] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 14:15:54,021] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 14:15:54,022] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 14:15:54,049] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 14:16:25,046] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 14:16:25,047] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 14:16:25,197] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 14:16:25,198] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 14:16:35,114] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 14:16:35,364] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 14:17:06,114] [HandlerAgent.py/run:49] INFO | CommentAgent processing 5 new items.
+[2023-07-09 14:17:06,115] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 14:17:06,266] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 14:17:06,267] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 14:17:06,363] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 14:17:37,368] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 14:17:37,368] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 14:17:37,519] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 14:17:37,520] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 14:17:37,546] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 14:17:40,946] [WikiStore.py/save_data_store:51] INFO | Saving data to wiki.
+[2023-07-09 14:18:39,687] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 14:18:39,688] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 14:18:39,840] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 14:18:39,841] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 14:18:49,800] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 14:19:20,964] [HandlerAgent.py/run:49] INFO | CommentAgent processing 3 new items.
+[2023-07-09 14:19:20,965] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 14:19:21,116] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 14:19:21,117] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 14:19:21,179] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 14:19:52,166] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 14:19:52,167] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 14:19:52,319] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 14:19:52,320] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 14:19:52,364] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 14:20:23,514] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 14:20:23,515] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 14:20:23,666] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 14:20:23,667] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 14:20:23,694] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 14:20:54,891] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 14:20:54,892] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 14:20:55,043] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 14:20:55,044] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 14:20:55,070] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 14:21:26,158] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 14:21:26,159] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 14:21:26,310] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 14:21:26,310] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 14:21:26,355] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 14:21:57,319] [HandlerAgent.py/run:49] INFO | CommentAgent processing 3 new items.
+[2023-07-09 14:21:57,319] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 14:21:57,470] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 14:21:57,471] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 14:21:57,532] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 14:22:28,588] [HandlerAgent.py/run:49] INFO | CommentAgent processing 1 new items.
+[2023-07-09 14:22:28,588] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 14:22:28,739] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 14:22:28,740] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 14:22:28,767] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 14:22:49,446] [HandlerAgent.py/run:49] INFO | ModlogAgent processing 1 new items.
+[2023-07-09 14:22:59,641] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 14:22:59,641] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 14:22:59,795] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 14:22:59,796] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 14:23:00,954] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 14:23:31,991] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 14:23:31,992] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 14:23:32,143] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 14:23:32,144] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 14:23:32,188] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 14:25:05,551] [HandlerAgent.py/run:49] INFO | CommentAgent processing 2 new items.
+[2023-07-09 14:25:05,552] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 14:25:05,704] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 14:25:05,705] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
+[2023-07-09 14:25:05,749] [SpecialUserStatusHandler.py/end_run:38] INFO | Stopping to check for special user status
+[2023-07-09 14:25:36,829] [HandlerAgent.py/run:49] INFO | CommentAgent processing 3 new items.
+[2023-07-09 14:25:36,829] [MonitoredSubsMap.py/refresh_values:13] INFO | Loading monitored subs and actions.
+[2023-07-09 14:25:36,981] [SpecialUserStatusHandler.py/start_run:33] INFO | Starting to check for special user status
+[2023-07-09 14:25:36,982] [PollsMap.py/refresh_values:13] INFO | Loading polls actions.
