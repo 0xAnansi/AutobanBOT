@@ -39,7 +39,7 @@ def main():
 
     points_handler = PointsHandler()
     modlog_agent.register(points_handler)
-    schedule.every().hour.do(points_handler.scan_all)
+    schedule.every(12).hours.do(points_handler.scan_all).tag("no_initial")
     modlog_agent.register(AdminHandler())
     config_handler = ConfigEditHandler()
     modlog_agent.register(config_handler)
@@ -52,7 +52,7 @@ def main():
     comment_agent.register(SpecialUserStatusHandler())
     poll_handler = PollHandler()
     comment_agent.register(poll_handler)
-    schedule.every(12).hours.do(poll_handler.run_tally)
+    schedule.every(12).hours.do(poll_handler.run_tally).tag("no_initial")
     schedule.every(30).seconds.do(comment_agent.run)
 
     # Periodic scan of points (scheduled last so other stuff happens first)

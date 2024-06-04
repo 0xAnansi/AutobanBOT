@@ -155,14 +155,14 @@ def login() -> praw.Reddit:
         _reddit = Reddit(client_id=drbot_client_id,
                          client_secret=None,
                          refresh_token=settings.refresh_token,
-                         requestor_class=JSONDebugRequestor,
+                         #requestor_class=JSONDebugRequestor,
                          user_agent="Moderation helper https://github.com/0xAnansi/AutobanBOT v1.0 (by /u/FromModToSirius")
     else:
         _reddit = Reddit(client_id=settings.client_id,
                          client_secret=settings.client_secret,
                          username=settings.username,
                          password=settings.password,
-                         requestor_class=JSONDebugRequestor,
+                         #requestor_class=JSONDebugRequestor,
                          user_agent="Moderation helper https://github.com/0xAnansi/AutobanBOT v1.0 (by /u/FromModToSirius")
 
     log.info(f"Logged in to Reddit as u/{_reddit.user.me().name}")

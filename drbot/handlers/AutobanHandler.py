@@ -134,37 +134,38 @@ class AutobanHandler(Handler[Comment]):
                 target_label = self.monitored_subs_map.get_label(rule['sub_name'])
                 target_note = self.monitored_subs_map.get_note(rule['sub_name'])
                 manual_retry = 1
-                while manual_retry >= 1 and manual_retry <= 5:
+                while manual_retry <= 5:
                     try:
-                        log.info(f"Recovering notes of user {reddit_user.name}")
+                        log.debug(f"Recovering notes of user {reddit_user.name}")
                         user_notes = reddit().sub.mod.notes.redditors(reddit_user.name, all_notes=True)
-
+                        log.debug(f"Notes recovered for user {reddit_user.name}")
                         for modnote in user_notes:
                             if modnote is None:
-                                manual_retry = 0
-                        # can return None even in iterator
+                                # can return None even in iterator
                                 continue
                             if modnote.operator_id == "":
+                                log.warn(f"Shitty note found, trying to recreate {reddit_user.name}")
                                 reddit().sub.mod.notes.create(redditor=modnote.user, label=modnote.user_note_data.label, note=modnote.user_note_data.note)
                                 reddit().sub.mod.notes.delete(note_id=modnote.id)
                                 continue
                             if modnote.label == target_label and modnote.note == target_note:
-                        # note already exists, do nothing
+                                # note already exists, do nothing
                                 log.info(f"[{reddit_user.name}] already has a note for posting in [{rule['sub_name']}]")
-                                manual_retry = 0
                                 self.watched_users_cache.add(reddit_user.name)
                                 return
+                        break
                     except TooManyRequests as e:
-                        log.warning("Hitting rate limiting during note creation, sleeping")
-                        time.sleep(manual_retry * 10)
+                        log.error("Hitting rate limiting during note creation, dropping")
+                        time.sleep(manual_retry * 20)
                         manual_retry += 1
                     except Exception as e:
                         r = repr(e)
-                        log.warning(f"Hitting unexpected error while processing modnotes, retrying: {r}")
-                        time.sleep(manual_retry * 10)
+                        log.error(f"Reddit fucked up notes for user [{reddit_user.name}], dropping note management: {r}")
+                        self.watched_users_cache.add(reddit_user.name)
                         manual_retry += 5
-                if manual_retry >= 5:
-                    log.error(f"Failed to recover modnotes for user {reddit_user.name}")
+                        return
+                #if manual_retry >= 5:
+                    #log.error(f"Failed to recover modnotes for user {reddit_user.name}")
                 if not settings.dry_run:
                     log.warning(f"Watching user [{reddit_user.name}] for posting in [{rule['sub_name']}], creating note")
                     manual_retry = 1
