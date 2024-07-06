@@ -15,6 +15,12 @@ class PointsHandler(Handler[ModAction]):
         super().setup(agent)
         self.point_map = PointMap()
 
+    def start_run(self) -> None:
+        log.info("Starting point recalculation")
+
+    def end_run(self) -> None:
+        log.info("Stopping point recalculation")
+
     def handle(self, item: ModAction) -> None:
         # If a removal reason is added, add the violation to the user's record
         if item.action == "addremovalreason":

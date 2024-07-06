@@ -14,13 +14,12 @@ class ModQueueCleanerHandler(Handler[ModAction]):
         super().setup(agent)
         # Ran once at handler registration in agent
         self.user_utils = RedditUserUtils()
-        #self.cache = set([])
-        super().setup(agent)
+        self.cache = set([])
         log.info(f"Setting up ModQueueCleaner with autoremoval of contribs set to {settings.wipe_contrib_on_permaban}")
 
     def start_run(self) -> None:
         log.debug("Invalidating cache")
-        #self.cache = set([])
+        self.cache = set([])
 
     def wipe_user_entries(self, reddit_user: Redditor):
         log.info(f"Wiping history of user {reddit_user.name}")
@@ -74,7 +73,6 @@ class ModQueueCleanerHandler(Handler[ModAction]):
                     user_status = self.user_utils.get_user_status(red)
                     # double check that user is still banned in case it was a mistake
                     if user_status is UserStatus.BANNED:
-                        
                         self.clear_modqueue_for_user(red)
                         wipe_on_perma = settings.wipe_contrib_on_permaban
                         if wipe_on_perma or "botwipe" in item.description:

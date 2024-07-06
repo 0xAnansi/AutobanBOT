@@ -51,6 +51,7 @@ class AutobanHandler(Handler[Comment]):
         self._refresh_processing_cache()
         # Refreshed map values from config
         self.monitored_subs_map.refresh_values()
+        self.processed_users_cache = set([])
         self.banned_users_cache = set([])
         self.watched_users_cache = set([])
         self.ban_list_infos = []
