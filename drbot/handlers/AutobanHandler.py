@@ -161,7 +161,7 @@ class AutobanHandler(Handler[Comment]):
                         manual_retry += 1
                     except Exception as e:
                         r = repr(e)
-                        log.error(f"Reddit fucked up notes for user [{reddit_user.name}], dropping note management: {r}")
+                        log.warn(f"Reddit fucked up notes for user [{reddit_user.name}], dropping note management: {r}")
                         self.watched_users_cache.add(reddit_user.name)
                         manual_retry += 5
                         return
