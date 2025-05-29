@@ -14,6 +14,6 @@ six==1.16.0
 tomlkit==0.11.8
 update-checker==0.18.0
 urllib3==2.2.1
-wcwidth==0.2.6
+wcwidth==0.2.13
 websocket-client==1.8.0
 pandas~=2.2.2
